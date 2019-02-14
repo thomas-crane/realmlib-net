@@ -6,4 +6,4 @@ install:
 before_script:
   - npm run compile
 script:
-  - sudo env "PATH=$PATH" npm test
+  - npm test
