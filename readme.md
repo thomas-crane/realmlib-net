@@ -1,5 +1,8 @@
 # realmlib/net
 
+[![Build Status](https://travis-ci.org/thomas-crane/realmlib-net.svg?branch=master)](https://travis-ci.org/thomas-crane/realmlib-net)
+[![CodeFactor](https://www.codefactor.io/repository/github/thomas-crane/realmlib-net/badge/master)](https://www.codefactor.io/repository/github/thomas-crane/realmlib-net/overview/master)
+
 A networking library for Realm of the Mad God.
 
 ## Contents
