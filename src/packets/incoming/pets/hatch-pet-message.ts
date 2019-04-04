@@ -4,7 +4,7 @@ import { PacketType } from '../../../packet-type';
 import { Packet } from '../../../packet';
 
 /**
- * Recieved to give the player information about a newly hatched pet.
+ * Received to give the player information about a newly hatched pet.
  */
 export class HatchPetMessage implements Packet {
 

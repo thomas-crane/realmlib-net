@@ -34,7 +34,7 @@ export class Reader {
   private _length: number;
 
   /**
-   * Creates a new `Reader` and initalizes the
+   * Creates a new `Reader` and initialises the
    * wrapped buffer to the given `size`.
    * @param size The size of the buffer.
    */

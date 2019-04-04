@@ -16,7 +16,7 @@ export class Writer {
   private size: number;
 
   /**
-   * Creates a new `Writer` and initalizes the
+   * Creates a new `Writer` and initialises the
    * wrapped buffer to the default size of 8.
    */
   constructor() {
