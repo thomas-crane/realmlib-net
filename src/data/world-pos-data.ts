@@ -1,15 +1,10 @@
 import { Writer } from '../writer';
 import { Reader } from '../reader';
 import { DataPacket } from '../packet';
+import { Point } from '../models/point';
 
-export class WorldPosData implements DataPacket {
-  /**
-   * The X value of this point.
-   */
+export class WorldPosData implements DataPacket, Point {
   x: number;
-  /**
-   * The Y value of this point.
-   */
   y: number;
 
   /**
@@ -36,8 +31,8 @@ export class WorldPosData implements DataPacket {
    * Returns the square distance between this point and the other point.
    * @param point The other point.
    */
-  squareDistanceTo(point: WorldPosData): number {
-    if (!(point instanceof WorldPosData) || !point) {
+  squareDistanceTo<T extends Point>(point: T): number {
+    if (!point || typeof point.x !== 'number' || typeof point.y !== 'number') {
       throw new TypeError(`Parameter "point" must be a Point, not ${typeof point}`);
     }
     const a = point.x - this.x;
@@ -49,7 +44,7 @@ export class WorldPosData implements DataPacket {
    * Returns the distance between this point and the other point.
    * @param point The other point.
    */
-  distanceTo(point: WorldPosData): number {
+  distanceTo<T extends Point>(point: T): number {
     return Math.sqrt(this.squareDistanceTo(point));
   }
 

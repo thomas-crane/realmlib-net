@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.1.0] - 2019-04-04
+
+### Changed
+
++ Made `WorldPosData` more generic.
+
 ## [2.0.0] - 2019-04-04
 
 ### Added

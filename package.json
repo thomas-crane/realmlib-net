@@ -1,6 +1,6 @@
 {
   "name": "@realmlib/net",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "A networking library for Realm of the Mad God.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
