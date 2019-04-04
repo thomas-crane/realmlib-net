@@ -1,6 +1,6 @@
 {
   "name": "@realmlib/net",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A networking library for Realm of the Mad God.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,7 +12,7 @@
     "index": "tsai --path src --overwrite"
   },
   "files": [
-    "dist/",
+    "lib/",
     "license.md"
   ],
   "repository": {
