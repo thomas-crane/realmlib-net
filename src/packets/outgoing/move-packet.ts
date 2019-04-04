@@ -2,7 +2,7 @@ import { Writer } from '../../writer';
 import { Reader } from '../../reader';
 import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
-import { Point } from '../../data/world-pos-data';
+import { WorldPosData } from '../../data/world-pos-data';
 import { MoveRecord } from '../../data/move-record';
 
 /**
@@ -26,7 +26,7 @@ export class MovePacket implements Packet {
   /**
    * The current client position.
    */
-  newPosition: Point;
+  newPosition: WorldPosData;
   /**
    * The move records of the client.
    *
@@ -52,7 +52,7 @@ export class MovePacket implements Packet {
   read(reader: Reader): void {
     this.tickId = reader.readInt32();
     this.time = reader.readInt32();
-    this.newPosition = new Point();
+    this.newPosition = new WorldPosData();
     this.newPosition.read(reader);
     this.records = new Array(reader.readShort());
     for (let i = 0; i < this.records.length; i++) {

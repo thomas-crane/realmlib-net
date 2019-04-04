@@ -1,7 +1,7 @@
 import { Writer } from '../writer';
 import { Reader } from '../reader';
 import { DataPacket } from '../packet';
-import { Point } from './world-pos-data';
+import { WorldPosData } from './world-pos-data';
 import { StatData } from './stat-data';
 
 export class ObjectStatusData implements DataPacket {
@@ -13,7 +13,7 @@ export class ObjectStatusData implements DataPacket {
   /**
    * The position of the object which this status is for.
    */
-  pos: Point;
+  pos: WorldPosData;
   /**
    * A list of stats for the object which this status is for.
    */
@@ -21,7 +21,7 @@ export class ObjectStatusData implements DataPacket {
 
   read(reader: Reader): void {
     this.objectId = reader.readInt32();
-    this.pos = new Point();
+    this.pos = new WorldPosData();
     this.pos.read(reader);
     const statLen = reader.readShort();
     this.stats = new Array(statLen);

@@ -2,7 +2,7 @@ import { Writer } from '../../writer';
 import { Reader } from '../../reader';
 import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
-import { Point } from '../../data/world-pos-data';
+import { WorldPosData } from '../../data/world-pos-data';
 
 /**
  * Received when an AoE grenade has hit the ground.
@@ -16,7 +16,7 @@ export class AoePacket implements Packet {
   /**
    * The position which the grenade landed at.
    */
-  pos: Point;
+  pos: WorldPosData;
   /**
    * The radius of the grenades area of effect, in game tiles.
    */
@@ -46,7 +46,7 @@ export class AoePacket implements Packet {
   //#endregion
 
   read(reader: Reader): void {
-    this.pos = new Point();
+    this.pos = new WorldPosData();
     this.pos.read(reader);
     this.radius = reader.readFloat();
     this.damage = reader.readUnsignedShort();

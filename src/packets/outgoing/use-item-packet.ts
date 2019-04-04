@@ -3,7 +3,7 @@ import { Reader } from '../../reader';
 import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
 import { SlotObjectData } from '../../data/slot-object-data';
-import { Point } from '../../data/world-pos-data';
+import { WorldPosData } from '../../data/world-pos-data';
 
 /**
  * Sent to use an item, such as an ability or consumable.
@@ -25,7 +25,7 @@ export class UseItemPacket implements Packet {
   /**
    * The position at which the item was used.
    */
-  itemUsePos: Point;
+  itemUsePos: WorldPosData;
   /**
    * The type of item usage.
    */
@@ -43,7 +43,7 @@ export class UseItemPacket implements Packet {
     this.time = reader.readInt32();
     this.slotObject = new SlotObjectData();
     this.slotObject.read(reader);
-    this.itemUsePos = new Point();
+    this.itemUsePos = new WorldPosData();
     this.itemUsePos.read(reader);
     this.useType = reader.readByte();
   }

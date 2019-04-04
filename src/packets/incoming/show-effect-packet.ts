@@ -2,7 +2,7 @@ import { Writer } from '../../writer';
 import { Reader } from '../../reader';
 import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
-import { Point } from '../../data/world-pos-data';
+import { WorldPosData } from '../../data/world-pos-data';
 
 /**
  * Received to tell the player to display an effect such as an AOE grenade.
@@ -24,11 +24,11 @@ export class ShowEffectPacket implements Packet {
   /**
    * > Unknown. Probably the end position of the effect.
    */
-  pos1: Point;
+  pos1: WorldPosData;
   /**
    * > Unknown.
    */
-  pos2: Point;
+  pos2: WorldPosData;
   /**
    * The color of the effect.
    */
@@ -42,9 +42,9 @@ export class ShowEffectPacket implements Packet {
   read(reader: Reader): void {
     this.effectType = reader.readUnsignedByte();
     this.targetObjectId = reader.readInt32();
-    this.pos1 = new Point();
+    this.pos1 = new WorldPosData();
     this.pos1.read(reader);
-    this.pos2 = new Point();
+    this.pos2 = new WorldPosData();
     this.pos2.read(reader);
     this.color = reader.readInt32();
     this.duration = reader.readFloat();

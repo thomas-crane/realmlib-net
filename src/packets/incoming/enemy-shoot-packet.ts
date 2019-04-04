@@ -2,7 +2,7 @@ import { Writer } from '../../writer';
 import { Reader } from '../../reader';
 import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
-import { Point } from '../../data/world-pos-data';
+import { WorldPosData } from '../../data/world-pos-data';
 
 /**
  * Received when a visible enemy shoots a projectile.
@@ -29,7 +29,7 @@ export class EnemyShootPacket implements Packet {
   /**
    * The position at which the projectile was fired.
    */
-  startingPos: Point;
+  startingPos: WorldPosData;
   /**
    * The angle at which the projectile was fired.
    */
@@ -52,7 +52,7 @@ export class EnemyShootPacket implements Packet {
     this.bulletId = reader.readUnsignedByte();
     this.ownerId = reader.readInt32();
     this.bulletType = reader.readUnsignedByte();
-    this.startingPos = new Point();
+    this.startingPos = new WorldPosData();
     this.startingPos.read(reader);
     this.angle = reader.readFloat();
     this.damage = reader.readShort();

@@ -2,7 +2,7 @@ import { Writer } from '../writer';
 import { Reader } from '../reader';
 import { DataPacket } from '../packet';
 
-export class Point implements DataPacket {
+export class WorldPosData implements DataPacket {
   /**
    * The X value of this point.
    */
@@ -36,8 +36,8 @@ export class Point implements DataPacket {
    * Returns the square distance between this point and the other point.
    * @param point The other point.
    */
-  squareDistanceTo(point: Point): number {
-    if (!(point instanceof Point) || !point) {
+  squareDistanceTo(point: WorldPosData): number {
+    if (!(point instanceof WorldPosData) || !point) {
       throw new TypeError(`Parameter "point" must be a Point, not ${typeof point}`);
     }
     const a = point.x - this.x;
@@ -49,14 +49,14 @@ export class Point implements DataPacket {
    * Returns the distance between this point and the other point.
    * @param point The other point.
    */
-  distanceTo(point: Point): number {
+  distanceTo(point: WorldPosData): number {
     return Math.sqrt(this.squareDistanceTo(point));
   }
 
   /**
    * Returns a new `Point` which has the same x and y values.
    */
-  clone(): Point {
-    return new Point(this.x, this.y);
+  clone(): WorldPosData {
+    return new WorldPosData(this.x, this.y);
   }
 }

@@ -2,7 +2,7 @@ import { Writer } from '../../writer';
 import { Reader } from '../../reader';
 import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
-import { Point } from '../../data/world-pos-data';
+import { WorldPosData } from '../../data/world-pos-data';
 
 /**
  * Received when an entity has moved to a new position.
@@ -20,12 +20,12 @@ export class GotoPacket implements Packet {
   /**
    * The new position of the entity.
    */
-  position: Point;
+  position: WorldPosData;
   //#endregion
 
   read(reader: Reader): void {
     this.objectId = reader.readInt32();
-    this.position = new Point();
+    this.position = new WorldPosData();
     this.position.read(reader);
   }
 

@@ -2,7 +2,7 @@ import { Writer } from '../../writer';
 import { Reader } from '../../reader';
 import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
-import { Point } from '../../data/world-pos-data';
+import { WorldPosData } from '../../data/world-pos-data';
 
 /**
  * Sent to acknowledge an `AoePacket`.
@@ -20,7 +20,7 @@ export class AoeAckPacket implements Packet {
   /**
    * The position of the AoE which this packet is acknowledging.
    */
-  position: Point;
+  position: WorldPosData;
   //#endregion
 
   write(writer: Writer): void {
@@ -30,7 +30,7 @@ export class AoeAckPacket implements Packet {
 
   read(reader: Reader): void {
     this.time = reader.readInt32();
-    this.position = new Point();
+    this.position = new WorldPosData();
     this.position.read(reader);
   }
 }

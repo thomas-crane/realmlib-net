@@ -31,6 +31,7 @@ export * from './player-hit-packet';
 export * from './player-shoot-packet';
 export * from './playertext-packet';
 export * from './pong-packet';
+export * from './quest-fetch-ask';
 export * from './request-trade-packet';
 export * from './reskin-packet';
 export * from './set-condition-packet';

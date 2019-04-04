@@ -2,7 +2,7 @@ import { Writer } from '../../writer';
 import { Reader } from '../../reader';
 import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
-import { Point } from '../../data/world-pos-data';
+import { WorldPosData } from '../../data/world-pos-data';
 
 /**
  * Sent when the player shoots a projectile.
@@ -28,7 +28,7 @@ export class PlayerShootPacket implements Packet {
   /**
    * The position at which the projectile was fired.
    */
-  startingPos: Point;
+  startingPos: WorldPosData;
   /**
    * The angle at which the projectile was fired.
    */
@@ -47,7 +47,7 @@ export class PlayerShootPacket implements Packet {
     this.time = reader.readInt32();
     this.bulletId = reader.readByte();
     this.containerType = reader.readShort();
-    this.startingPos = new Point();
+    this.startingPos = new WorldPosData();
     this.startingPos.read(reader);
     this.angle = reader.readFloat();
   }
