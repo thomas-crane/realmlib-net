@@ -24,6 +24,7 @@ export * from './newtick-packet';
 export * from './notification-packet';
 export * from './password-prompt-packet';
 export * from './ping-packet';
+export * from './quest-fetch-response';
 export * from './quest-objectid-packet';
 export * from './quest-redeem-response-packet';
 export * from './reconnect-packet';

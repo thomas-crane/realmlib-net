@@ -60,13 +60,13 @@ export class Packets {
       case PacketType.TRADECHANGED:
         return new IncomingPackets.TradeChangedPacket();
       case PacketType.PETYARDUPDATE:
-        return null; // implement
+        return new IncomingPackets.PetYardUpdate();
       case PacketType.DAMAGE:
         return new IncomingPackets.DamagePacket();
       case PacketType.CREATE_SUCCESS:
         return new IncomingPackets.CreateSuccessPacket();
       case PacketType.QUEST_FETCH_ASK:
-        return null; // implement
+        return new OutgoingPackets.QuestFetchAskPacket();
       case PacketType.TELEPORT:
         return new OutgoingPackets.TeleportPacket();
       case PacketType.EVOLVE_PET:
@@ -108,7 +108,7 @@ export class Packets {
       case PacketType.REQUESTTRADE:
         return new OutgoingPackets.RequestTradePacket();
       case PacketType.PETUPGRADEREQUEST:
-        return null; // implement
+        return new OutgoingPackets.PetUpgradeRequestPacket();
       case PacketType.SHOOTACK:
         return new OutgoingPackets.ShootAckPacket();
       case PacketType.PLAYERHIT:
@@ -142,7 +142,7 @@ export class Packets {
       case PacketType.PASSWORD_PROMPT:
         return new IncomingPackets.PasswordPromptPacket();
       case PacketType.FILE:
-        return null; // implement.
+        return null; // implement
       case PacketType.KEY_INFO_REQUEST:
         return new OutgoingPackets.KeyInfoRequestPacket();
       case PacketType.QUEST_ROOM_MSG:
@@ -184,7 +184,7 @@ export class Packets {
       case PacketType.QUESTOBJID:
         return new IncomingPackets.QuestObjectIdPacket();
       case PacketType.QUEST_FETCH_RESPONSE:
-        return null; // implement
+        return new IncomingPackets.QuestFetchResponsePacket();
       case PacketType.TRADEREQUESTED:
         return new IncomingPackets.TradeRequestedPacket();
       case PacketType.HATCH_PET:
@@ -214,7 +214,7 @@ export class Packets {
       case PacketType.CREATEGUILD:
         return new OutgoingPackets.CreateGuildPacket();
       case PacketType.PET_CHANGE_SKIN_MSG:
-        return null; // implement
+        return new OutgoingPackets.ChangePetSkinPacket();
     }
     return null;
   }
