@@ -1,9 +1,9 @@
 {
   "name": "@realmlib/net",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A networking library for Realm of the Mad God.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "clean": "rimraf ./dist",
     "compile": "tsc -p .",
