@@ -33,6 +33,7 @@ export * from './playertext-packet';
 export * from './pong-packet';
 export * from './quest-fetch-ask';
 export * from './request-trade-packet';
+export * from './reset-daily-quests-packet';
 export * from './reskin-packet';
 export * from './set-condition-packet';
 export * from './shootack-packet';

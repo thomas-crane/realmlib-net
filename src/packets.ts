@@ -217,6 +217,8 @@ export class Packets {
         return new OutgoingPackets.ChangePetSkinPacket();
       case PacketType.REALM_HERO_LEFT_MSG:
         return new IncomingPackets.RealmHeroesLeftPacket();
+      case PacketType.RESET_DAILY_QUESTS:
+        return new OutgoingPackets.ResetDailyQuestsPacket();
     }
     return null;
   }
