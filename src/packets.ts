@@ -215,6 +215,8 @@ export class Packets {
         return new OutgoingPackets.CreateGuildPacket();
       case PacketType.PET_CHANGE_SKIN_MSG:
         return new OutgoingPackets.ChangePetSkinPacket();
+      case PacketType.REALM_HERO_LEFT_MSG:
+        return new IncomingPackets.RealmHeroesLeftPacket();
     }
     return null;
   }

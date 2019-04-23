@@ -27,6 +27,7 @@ export * from './ping-packet';
 export * from './quest-fetch-response';
 export * from './quest-objectid-packet';
 export * from './quest-redeem-response-packet';
+export * from './realm-heroes-left-packet';
 export * from './reconnect-packet';
 export * from './reskin-unlock-packet';
 export * from './server-player-shoot-packet';
