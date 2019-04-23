@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0] - 2019-04-23
+
+### Added
+
++ Added the `RealmHeroesLeft` packet.
++ Added the `ResetDailyQuests` packet.
+
 ## [2.1.0] - 2019-04-04
 
 ### Changed
