@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.2.1] - 2019-04-29
+
+### Fixed
+
++ Fixed a bug where the EnemyShootPacket would sometimes read incorrect values for the number of shots and the angle inc.
+
 ## [2.2.0] - 2019-04-23
 
 ### Added
