@@ -43,6 +43,10 @@ export class AoePacket implements Packet {
    * > The encoding of the color is unknown.
    */
   color: number;
+  /**
+   * Whether or not the damage of this grenade pierces armor.
+   */
+  armorPiercing: boolean;
   //#endregion
 
   read(reader: Reader): void {
@@ -54,6 +58,7 @@ export class AoePacket implements Packet {
     this.duration = reader.readFloat();
     this.origType = reader.readUnsignedShort();
     this.color = reader.readInt32();
+    this.armorPiercing = reader.readBoolean();
   }
 
   write(writer: Writer): void {
@@ -64,5 +69,6 @@ export class AoePacket implements Packet {
     writer.writeFloat(this.duration);
     writer.writeUnsignedShort(this.origType);
     writer.writeInt32(this.color);
+    writer.writeBoolean(this.armorPiercing);
   }
 }

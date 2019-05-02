@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.2.2] - 2019-05-02
+
+### Fixed
+
++ Added the missing armorPierce value to the AoE packet.
+
 ## [2.2.1] - 2019-04-29
 
 ### Fixed
