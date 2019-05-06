@@ -110,10 +110,12 @@ export class PacketIO extends EventEmitter {
    * Detaches this Packet IO from its `Socket`.
    */
   detach(): void {
-    for (const kvp of this.eventHandlers) {
-      this.socket.removeListener(kvp[0], kvp[1]);
+    if (this.socket) {
+      for (const kvp of this.eventHandlers) {
+        this.socket.removeListener(kvp[0], kvp[1]);
+      }
+      this.socket = undefined;
     }
-    this.socket = undefined;
   }
 
   /**

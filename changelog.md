@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.2.4] - 2019-05-06
+
+### Fixed
+
++ Stopped the PacketIO from attempting to remove event listeners from an undefined socket.
+
 ## [2.2.3] - 2019-05-06
 
 ### Fixed
