@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.2.3] - 2019-05-06
+
+### Fixed
+
++ Stopped the PacketIO from sending a packet even after encountering a fatal error.
+
 ## [2.2.2] - 2019-05-02
 
 ### Fixed

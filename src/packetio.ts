@@ -123,10 +123,12 @@ export class PacketIO extends EventEmitter {
   send(packet: Packet) {
     if (!this.socket || this.socket.destroyed) {
       this.emitError(new Error('Not attached to a socket.'));
+      return;
     }
     const type = this.packetMap[packet.type];
     if (!type) {
       this.emitError(new Error(`Mapper is missing an id for the packet type ${packet.type}`));
+      return;
     }
 
     if (this.outgoingQueue.length === 0) {
