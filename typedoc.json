@@ -1,0 +1,9 @@
+{
+  "name": "@realmlib/net",
+  "mode": "file",
+  "exclude": [
+    "**/*+(index).ts"
+  ],
+  "excludeExternals": true,
+  "out": "./docs"
+}

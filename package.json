@@ -9,6 +9,7 @@
     "compile": "tsc -p .",
     "build": "npm run clean && npm run compile",
     "test": "mocha -r ts-node/register test/*.spec.ts",
+    "docs": "typedoc --options ./typedoc.json",
     "index": "tsai --path src --overwrite"
   },
   "files": [
@@ -40,6 +41,7 @@
     "rimraf": "^2.6.2",
     "ts-node": "^7.0.1",
     "tsai": "^2.1.0",
+    "typedoc": "^0.14.2",
     "typescript": "^3.1.6"
   },
   "dependencies": {}
