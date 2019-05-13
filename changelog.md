@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.2.5] - 2019-05-13
+
+### Added
+
++ Added auto generated api docs using [TypeDoc.](https://typedoc.org/)
+
+### Fixed
+
++ Fixed the wrong data type being used in the OtherHitPacket.
+
 ## [2.2.4] - 2019-05-06
 
 ### Fixed
