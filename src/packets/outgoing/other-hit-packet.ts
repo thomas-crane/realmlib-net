@@ -4,7 +4,7 @@ import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
 
 /**
- * Sent when a non-destructable object, such as a tree, has been hit by a player.
+ * Sent when an object or other player has been hit by an enemy projectile.
  */
 export class OtherHitPacket implements Packet {
 
@@ -32,14 +32,14 @@ export class OtherHitPacket implements Packet {
 
   write(writer: Writer): void {
     writer.writeInt32(this.time);
-    writer.writeByte(this.bulletId);
+    writer.writeUnsignedByte(this.bulletId);
     writer.writeInt32(this.objectId);
     writer.writeInt32(this.targetId);
   }
 
   read(reader: Reader): void {
     this.time = reader.readInt32();
-    this.bulletId = reader.readByte();
+    this.bulletId = reader.readUnsignedByte();
     this.objectId = reader.readInt32();
     this.targetId = reader.readInt32();
   }
