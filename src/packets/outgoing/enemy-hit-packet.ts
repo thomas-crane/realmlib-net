@@ -32,14 +32,14 @@ export class EnemyHitPacket implements Packet {
 
   write(writer: Writer): void {
     writer.writeInt32(this.time);
-    writer.writeByte(this.bulletId);
+    writer.writeUnsignedByte(this.bulletId);
     writer.writeInt32(this.targetId);
     writer.writeBoolean(this.kill);
   }
 
   read(reader: Reader): void {
     this.time = reader.readInt32();
-    this.bulletId = reader.readByte();
+    this.bulletId = reader.readUnsignedByte();
     this.targetId = reader.readInt32();
     this.kill = reader.readBoolean();
   }

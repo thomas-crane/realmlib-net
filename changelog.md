@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.2.6] - 2019-05-14
+
+### Fixed
+
++ Fixed the wrong data type being used in the EnemyHitPacket.
+
 ## [2.2.5] - 2019-05-13
 
 ### Added
