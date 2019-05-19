@@ -3,7 +3,7 @@ import { Socket } from 'net';
 import { INCOMING_KEY, OUTGOING_KEY, RC4 } from './crypto';
 import { Packet } from './packet';
 import { PacketMap } from './packet-map';
-import { Packets } from './packets';
+import { createPacket } from './create-packet';
 import { Reader } from './reader';
 import { Writer } from './writer';
 
@@ -171,7 +171,6 @@ export class PacketIO extends EventEmitter {
     if (packet && typeof packet.type === 'string') {
       this._lastIncomingPacket = packet;
       this.emit(packet.type, packet);
-      this.emit('packet', packet);
     } else {
       throw new TypeError(`Parameter "packet" must be a Packet, not ${typeof packet}`);
     }
@@ -184,59 +183,43 @@ export class PacketIO extends EventEmitter {
   }
 
   private onData(data: Buffer): void {
-    for (const byte of data) {
-      // reconnecting to the nexus causes a 'buffer' byte to be sent
-      // which should be skipped.
-      if (this.reader.index === 0 && byte === 255) {
-        continue;
+    let dataIdx = 0;
+    while (dataIdx < data.length) {
+      const copied = data.copy(this.reader.buffer, this.reader.index, dataIdx, dataIdx + this.reader.remaining);
+      dataIdx += copied;
+      this.reader.index += copied;
+      if (this.reader.remaining === 0) {
+        if (this.reader.length === 5) {
+          this.reader.resizeBuffer(this.reader.buffer.readInt32BE(0));
+        } else {
+          const packet = this.constructPacket();
+          this.resetBuffer();
+          if (packet) {
+            this.emitPacket(packet);
+          }
+        }
       }
-      this.checkBuffer();
-      this.reader.buffer[this.reader.index++] = byte;
     }
-    this.checkBuffer();
   }
 
   private constructPacket(): Packet {
-    let packet: Packet;
+    this.receiveRC4.cipher(this.reader.buffer.slice(5, this.reader.length));
     try {
       const id = this.reader.buffer.readInt8(4);
       const type = this.packetMap[id];
       if (!type) {
         throw new Error(`No packet type for the id ${id}`);
       }
-      packet = Packets.create(type) as Packet;
+      if (this.listenerCount(type) !== 0) {
+        const packet = createPacket(type);
+        this.reader.index = 5;
+        packet.read(this.reader);
+        return packet;
+      }
     } catch (error) {
       this.emitError(error);
     }
-    if (packet) {
-      this.reader.index = 5;
-      this.receiveRC4.cipher(this.reader.buffer.slice(5, this.reader.length));
-      try {
-        packet.read(this.reader);
-      } catch (error) {
-        this.emitError(error);
-        this.resetBuffer();
-        return null;
-      }
-    }
-    return packet;
-  }
-
-  private checkBuffer() {
-    if (this.reader.remaining === 0) {
-      this.reader.index = 0;
-      if (this.reader.length === 5) {
-        const size = this.reader.readInt32();
-        this.reader.index++; // skip the id.
-        this.reader.resizeBuffer(size);
-      } else {
-        const packet = this.constructPacket();
-        this.resetBuffer();
-        if (packet) {
-          this.emitPacket(packet);
-        }
-      }
-    }
+    return undefined;
   }
 
   private resetBuffer(): void {
