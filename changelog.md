@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.0.0] - 2019-05-19
+
+### Added
+
++ The `createPacket` function. This is the exact same as the old `Packets.create` method.
+
+### Changed
+
++ The PacketIO no longer emits a `'packet'` event when any packet is received.
++ Packets will not be created unless there is a packet listener for that packet type.
++ `Packets.create` (now `createPacket`) will throw an error if the requested packet type is unknown.
+
+### Removed
+
++ The static `Packets` class has been removed.
+
 ## [2.2.6] - 2019-05-14
 
 ### Fixed
