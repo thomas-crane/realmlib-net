@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.1] - 2019-06-21
+
+### Added
+
++ The `ActivePetUpdateType` enum. The `commandType` property of the `ActivePetUpdateRequestPacket` now uses this enum as its type.
+
 ## [3.0.0] - 2019-05-19
 
 ### Added
