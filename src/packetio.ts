@@ -100,10 +100,9 @@ export class PacketIO extends EventEmitter {
       this.detach();
     }
     this.socket = socket;
-    for (const kvp of this.eventHandlers) {
-      this.socket.on(kvp[0], kvp[1]);
+    for (const [event, listener] of this.eventHandlers) {
+      this.socket.on(event, listener);
     }
-    this.onConnect();
   }
 
   /**
@@ -111,8 +110,8 @@ export class PacketIO extends EventEmitter {
    */
   detach(): void {
     if (this.socket) {
-      for (const kvp of this.eventHandlers) {
-        this.socket.removeListener(kvp[0], kvp[1]);
+      for (const [event, listener] of this.eventHandlers) {
+        this.socket.removeListener(event, listener);
       }
       this.socket = undefined;
     }
@@ -141,25 +140,23 @@ export class PacketIO extends EventEmitter {
     }
   }
 
-  private drainQueue() {
-    this._lastOutgoingPacket = this.outgoingQueue[0];
-    this.writer.index = 5;
-    const type = this.packetMap[this.outgoingQueue[0].type];
-    this.outgoingQueue[0].write(this.writer);
-    this.writer.writeHeader(type);
-    this.sendRC4.cipher(this.writer.buffer.slice(5, this.writer.index));
-    new Promise((resolve) => {
-      if (!this.socket.write(this.writer.buffer.slice(0, this.writer.index))) {
-        this.socket.once('drain', resolve);
-      } else {
-        process.nextTick(resolve);
-      }
-    }).then(() => {
+  private async drainQueue() {
+    while (this.outgoingQueue.length > 0) {
+      this._lastOutgoingPacket = this.outgoingQueue[0];
+      this.writer.index = 5;
+      const type = this.packetMap[this.outgoingQueue[0].type];
+      this.outgoingQueue[0].write(this.writer);
+      this.writer.writeHeader(type);
+      this.sendRC4.cipher(this.writer.buffer.slice(5, this.writer.index));
+      await new Promise((resolve) => {
+        if (!this.socket.write(this.writer.buffer.slice(0, this.writer.index))) {
+          this.socket.once('drain', resolve);
+        } else {
+          process.nextTick(resolve);
+        }
+      });
       this.outgoingQueue.shift();
-      if (this.outgoingQueue.length > 0) {
-        this.drainQueue();
-      }
-    });
+    }
   }
 
   /**
