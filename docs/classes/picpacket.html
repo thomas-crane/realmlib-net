@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PlayerHitPacket | @realmlib/net</title>
+	<title>PicPacket | @realmlib/net</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="playerhitpacket.html">PlayerHitPacket</a>
+					<a href="picpacket.html">PicPacket</a>
 				</li>
 			</ul>
-			<h1>Class PlayerHitPacket</h1>
+			<h1>Class PicPacket</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Sent when the player is hit.</p>
+						<p>A packet which contains a bitmap image.</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">PlayerHitPacket</span>
+						<span class="target">PicPacket</span>
 					</li>
 				</ul>
 			</section>
@@ -92,17 +92,18 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="playerhitpacket.html#bulletid" class="tsd-kind-icon">bullet<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="playerhitpacket.html#objectid" class="tsd-kind-icon">object<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="playerhitpacket.html#propagate" class="tsd-kind-icon">propagate</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="playerhitpacket.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="picpacket.html#bitmapdata" class="tsd-kind-icon">bitmap<wbr>Data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="picpacket.html#height" class="tsd-kind-icon">height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="picpacket.html#propagate" class="tsd-kind-icon">propagate</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="picpacket.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="picpacket.html#width" class="tsd-kind-icon">width</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playerhitpacket.html#read" class="tsd-kind-icon">read</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playerhitpacket.html#write" class="tsd-kind-icon">write</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="picpacket.html#read" class="tsd-kind-icon">read</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="picpacket.html#write" class="tsd-kind-icon">write</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,32 +112,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="bulletid" class="tsd-anchor"></a>
-					<h3>bullet<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">bullet<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="bitmapdata" class="tsd-anchor"></a>
+					<h3>bitmap<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">bitmap<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/outgoing/player-hit-packet.ts#L18">packets/outgoing/player-hit-packet.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/pic-packet.ts#L26">packets/incoming/pic-packet.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The id of the bullet which hit the player.</p>
+							<p>The bitmap data of the image.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="objectid" class="tsd-anchor"></a>
-					<h3>object<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">object<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="height" class="tsd-anchor"></a>
+					<h3>height</h3>
+					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/outgoing/player-hit-packet.ts#L22">packets/outgoing/player-hit-packet.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/pic-packet.ts#L22">packets/incoming/pic-packet.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The object id of the enemy that hit the player.</p>
+							<p>The height of the image.</p>
 						</div>
 					</div>
 				</section>
@@ -147,20 +148,35 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#propagate">propagate</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/outgoing/player-hit-packet.ts#L12">packets/outgoing/player-hit-packet.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/pic-packet.ts#L12">packets/incoming/pic-packet.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="type" class="tsd-anchor"></a>
 					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/packettype.html" class="tsd-signature-type">PacketType</a><span class="tsd-signature-symbol"> =&nbsp;PacketType.PLAYERHIT</span></div>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/packettype.html" class="tsd-signature-type">PacketType</a><span class="tsd-signature-symbol"> =&nbsp;PacketType.PIC</span></div>
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#type">type</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/outgoing/player-hit-packet.ts#L11">packets/outgoing/player-hit-packet.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/pic-packet.ts#L11">packets/incoming/pic-packet.ts:11</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="width" class="tsd-anchor"></a>
+					<h3>width</h3>
+					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/pic-packet.ts#L18">packets/incoming/pic-packet.ts:18</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The width of the image.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -176,7 +192,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#read">read</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/outgoing/player-hit-packet.ts#L30">packets/outgoing/player-hit-packet.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/pic-packet.ts#L29">packets/incoming/pic-packet.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -200,7 +216,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#write">write</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/outgoing/player-hit-packet.ts#L25">packets/outgoing/player-hit-packet.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/pic-packet.ts#L35">packets/incoming/pic-packet.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -228,25 +244,28 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="playerhitpacket.html" class="tsd-kind-icon">Player<wbr>Hit<wbr>Packet</a>
+						<a href="picpacket.html" class="tsd-kind-icon">Pic<wbr>Packet</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="playerhitpacket.html#bulletid" class="tsd-kind-icon">bullet<wbr>Id</a>
+								<a href="picpacket.html#bitmapdata" class="tsd-kind-icon">bitmap<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="playerhitpacket.html#objectid" class="tsd-kind-icon">object<wbr>Id</a>
+								<a href="picpacket.html#height" class="tsd-kind-icon">height</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="playerhitpacket.html#propagate" class="tsd-kind-icon">propagate</a>
+								<a href="picpacket.html#propagate" class="tsd-kind-icon">propagate</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="playerhitpacket.html#type" class="tsd-kind-icon">type</a>
+								<a href="picpacket.html#type" class="tsd-kind-icon">type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="picpacket.html#width" class="tsd-kind-icon">width</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="playerhitpacket.html#read" class="tsd-kind-icon">read</a>
+								<a href="picpacket.html#read" class="tsd-kind-icon">read</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="playerhitpacket.html#write" class="tsd-kind-icon">write</a>
+								<a href="picpacket.html#write" class="tsd-kind-icon">write</a>
 							</li>
 						</ul>
 					</li>

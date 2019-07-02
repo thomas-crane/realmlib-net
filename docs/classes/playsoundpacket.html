@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Point | @realmlib/net</title>
+	<title>PlaySoundPacket | @realmlib/net</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="point.html">Point</a>
+					<a href="playsoundpacket.html">PlaySoundPacket</a>
 				</li>
 			</ul>
-			<h1>Interface Point</h1>
+			<h1>Class PlaySoundPacket</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A coordinate.</p>
+						<p>Received to tell the client to play a sound.</p>
 					</div>
 				</div>
 			</section>
@@ -75,14 +75,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Point</span>
+						<span class="target">PlaySoundPacket</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
-				<h3>Implemented by</h3>
+				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/worldposdata.html" class="tsd-signature-type">WorldPosData</a></li>
+					<li><a href="../interfaces/packet.html" class="tsd-signature-type">Packet</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -92,8 +92,17 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="point.html#x" class="tsd-kind-icon">x</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="point.html#y" class="tsd-kind-icon">y</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="playsoundpacket.html#ownerid" class="tsd-kind-icon">owner<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="playsoundpacket.html#propagate" class="tsd-kind-icon">propagate</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="playsoundpacket.html#soundid" class="tsd-kind-icon">sound<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="playsoundpacket.html#type" class="tsd-kind-icon">type</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playsoundpacket.html#read" class="tsd-kind-icon">read</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playsoundpacket.html#write" class="tsd-kind-icon">write</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,35 +110,108 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="x" class="tsd-anchor"></a>
-					<h3>x</h3>
-					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="ownerid" class="tsd-anchor"></a>
+					<h3>owner<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">owner<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/models/point.ts#L8">models/point.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/play-sound-packet.ts#L18">packets/incoming/play-sound-packet.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The X value of this coordinate.</p>
+							<p>The object id of the origin of the sound.</p>
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="y" class="tsd-anchor"></a>
-					<h3>y</h3>
-					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="propagate" class="tsd-anchor"></a>
+					<h3>propagate</h3>
+					<div class="tsd-signature tsd-kind-icon">propagate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#propagate">propagate</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/play-sound-packet.ts#L12">packets/incoming/play-sound-packet.ts:12</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="soundid" class="tsd-anchor"></a>
+					<h3>sound<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">sound<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/models/point.ts#L12">models/point.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/play-sound-packet.ts#L22">packets/incoming/play-sound-packet.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The Y value of this coordinate.</p>
+							<p>The id of the sound to play.</p>
 						</div>
 					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="type" class="tsd-anchor"></a>
+					<h3>type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/packettype.html" class="tsd-signature-type">PacketType</a><span class="tsd-signature-symbol"> =&nbsp;PacketType.PLAYSOUND</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#type">type</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/play-sound-packet.ts#L11">packets/incoming/play-sound-packet.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="read" class="tsd-anchor"></a>
+					<h3>read</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">(</span>reader<span class="tsd-signature-symbol">: </span><a href="reader.html" class="tsd-signature-type">Reader</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#read">read</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/play-sound-packet.ts#L25">packets/incoming/play-sound-packet.ts:25</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>reader: <a href="reader.html" class="tsd-signature-type">Reader</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="write" class="tsd-anchor"></a>
+					<h3>write</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">write<span class="tsd-signature-symbol">(</span>writer<span class="tsd-signature-symbol">: </span><a href="writer.html" class="tsd-signature-type">Writer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#write">write</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b042eaa/src/packets/incoming/play-sound-packet.ts#L30">packets/incoming/play-sound-packet.ts:30</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>writer: <a href="writer.html" class="tsd-signature-type">Writer</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -145,14 +227,26 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="point.html" class="tsd-kind-icon">Point</a>
+					<li class="current tsd-kind-class">
+						<a href="playsoundpacket.html" class="tsd-kind-icon">Play<wbr>Sound<wbr>Packet</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="point.html#x" class="tsd-kind-icon">x</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="playsoundpacket.html#ownerid" class="tsd-kind-icon">owner<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="point.html#y" class="tsd-kind-icon">y</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="playsoundpacket.html#propagate" class="tsd-kind-icon">propagate</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="playsoundpacket.html#soundid" class="tsd-kind-icon">sound<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="playsoundpacket.html#type" class="tsd-kind-icon">type</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="playsoundpacket.html#read" class="tsd-kind-icon">read</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="playsoundpacket.html#write" class="tsd-kind-icon">write</a>
 							</li>
 						</ul>
 					</li>
