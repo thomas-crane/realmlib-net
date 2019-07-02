@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1] - 2019-07-02
+
+### Fixed
+
++ Fixed a problem where trying to lookup a packet with an ID of 0 would fail.
++ Fixed a problem where the IO would mistake an UpdateAck packet for a packet header.
+
 ## [3.0.0] - 2019-05-19
 
 ### Added

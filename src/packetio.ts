@@ -128,7 +128,7 @@ export class PacketIO extends EventEmitter {
       return;
     }
     const type = this.packetMap[packet.type];
-    if (!type) {
+    if (type === undefined) {
       this.emitError(new Error(`Mapper is missing an id for the packet type ${packet.type}`));
       return;
     }
@@ -189,8 +189,9 @@ export class PacketIO extends EventEmitter {
       dataIdx += copied;
       this.reader.index += copied;
       if (this.reader.remaining === 0) {
-        if (this.reader.length === 5) {
-          this.reader.resizeBuffer(this.reader.buffer.readInt32BE(0));
+        if (this.reader.length === 4) {
+          const newSize = this.reader.buffer.readInt32BE(0);
+          this.reader.resizeBuffer(newSize);
         } else {
           const packet = this.constructPacket();
           this.resetBuffer();
@@ -223,7 +224,7 @@ export class PacketIO extends EventEmitter {
   }
 
   private resetBuffer(): void {
-    this.reader.resizeBuffer(5);
+    this.reader.resizeBuffer(4);
     this.reader.index = 0;
   }
 
