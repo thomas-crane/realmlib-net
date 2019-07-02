@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.3] - 2019-07-02
+
+### Fixed
+
++ Updated the reader `DEFAULT_SIZE` const to match the recent fix.
+
 ## [3.0.2] - 2019-07-02
 
 ### Fixed

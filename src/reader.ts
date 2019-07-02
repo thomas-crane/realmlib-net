@@ -5,9 +5,9 @@
 export class Reader {
 
   /**
-   * The default size when this readable is reset.
+   * The default size when this reader is reset.
    */
-  static readonly DEFAULT_SIZE: number = 5;
+  static readonly DEFAULT_SIZE: number = 4;
   /**
    * The current index of the buffer.
    */
