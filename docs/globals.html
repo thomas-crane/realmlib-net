@@ -68,6 +68,7 @@
 						<section class="tsd-index-section ">
 							<h3>Enumerations</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum"><a href="enums/activepetupdatetype.html" class="tsd-kind-icon">Active<wbr>Pet<wbr>Update<wbr>Type</a></li>
 								<li class="tsd-kind-enum"><a href="enums/failurecode.html" class="tsd-kind-icon">Failure<wbr>Code</a></li>
 								<li class="tsd-kind-enum"><a href="enums/packettype.html" class="tsd-kind-icon">Packet<wbr>Type</a></li>
 								<li class="tsd-kind-enum"><a href="enums/petupgradepaymenttype.html" class="tsd-kind-icon">Pet<wbr>Upgrade<wbr>Payment<wbr>Type</a></li>
@@ -143,7 +144,6 @@
 								<li class="tsd-kind-class"><a href="classes/objectstatusdata.html" class="tsd-kind-icon">Object<wbr>Status<wbr>Data</a></li>
 								<li class="tsd-kind-class"><a href="classes/otherhitpacket.html" class="tsd-kind-icon">Other<wbr>Hit<wbr>Packet</a></li>
 								<li class="tsd-kind-class"><a href="classes/packetio.html" class="tsd-kind-icon">PacketIO</a></li>
-								<li class="tsd-kind-class"><a href="classes/packets.html" class="tsd-kind-icon">Packets</a></li>
 								<li class="tsd-kind-class"><a href="classes/passwordpromptpacket.html" class="tsd-kind-icon">Password<wbr>Prompt<wbr>Packet</a></li>
 								<li class="tsd-kind-class"><a href="classes/petupgraderequestpacket.html" class="tsd-kind-icon">Pet<wbr>Upgrade<wbr>Request<wbr>Packet</a></li>
 								<li class="tsd-kind-class"><a href="classes/petyardupdate.html" class="tsd-kind-icon">Pet<wbr>Yard<wbr>Update</a></li>
@@ -208,6 +208,12 @@
 								<li class="tsd-kind-variable"><a href="globals.html#outgoing_key" class="tsd-kind-icon">OUTGOING_<wbr>KEY</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#createpacket" class="tsd-kind-icon">create<wbr>Packet</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Object literals</h3>
 							<ul class="tsd-index-list">
@@ -225,7 +231,7 @@
 					<div class="tsd-signature tsd-kind-icon">INCOMING_<wbr>KEY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"c79332b197f92ba85ed281a023"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;c79332b197f92ba85ed281a023&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b3fad15/src/crypto/rc4.ts#L78">crypto/rc4.ts:78</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/5ac16e5/src/crypto/rc4.ts#L78">crypto/rc4.ts:78</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -247,7 +253,7 @@
 					<div class="tsd-signature tsd-kind-icon">OUTGOING_<wbr>KEY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"6a39570cc9de4ec71d64821894"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;6a39570cc9de4ec71d64821894&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b3fad15/src/crypto/rc4.ts#L70">crypto/rc4.ts:70</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/5ac16e5/src/crypto/rc4.ts#L70">crypto/rc4.ts:70</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -264,6 +270,45 @@
 					</div>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="createpacket" class="tsd-anchor"></a>
+					<h3>create<wbr>Packet</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Packet<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="enums/packettype.html" class="tsd-signature-type">PacketType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/packet.html" class="tsd-signature-type">Packet</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/5ac16e5/src/create-packet.ts#L12">create-packet.ts:12</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates the correct packet object for the given type.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>{Error} if the packet cannot be created.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <a href="enums/packettype.html" class="tsd-signature-type">PacketType</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The type of packet to create.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="interfaces/packet.html" class="tsd-signature-type">Packet</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Object literals</h2>
 				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-is-not-exported">
@@ -272,7 +317,7 @@
 					<div class="tsd-signature tsd-kind-icon">DEFAULT_<wbr>RC4<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b3fad15/src/packetio.ts#L18">packetio.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/5ac16e5/src/packetio.ts#L18">packetio.ts:18</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
@@ -281,7 +326,7 @@
 						<div class="tsd-signature tsd-kind-icon">incoming<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;INCOMING_KEY</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b3fad15/src/packetio.ts#L19">packetio.ts:19</a></li>
+								<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/5ac16e5/src/packetio.ts#L19">packetio.ts:19</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -291,7 +336,7 @@
 						<div class="tsd-signature tsd-kind-icon">outgoing<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;OUTGOING_KEY</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/b3fad15/src/packetio.ts#L20">packetio.ts:20</a></li>
+								<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/5ac16e5/src/packetio.ts#L20">packetio.ts:20</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -308,6 +353,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/activepetupdatetype.html" class="tsd-kind-icon">Active<wbr>Pet<wbr>Update<wbr>Type</a>
+					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/failurecode.html" class="tsd-kind-icon">Failure<wbr>Code</a>
 					</li>
@@ -519,9 +567,6 @@
 						<a href="classes/packetio.html" class="tsd-kind-icon">PacketIO</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/packets.html" class="tsd-kind-icon">Packets</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="classes/passwordpromptpacket.html" class="tsd-kind-icon">Password<wbr>Prompt<wbr>Packet</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -676,6 +721,9 @@
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#outgoing_key" class="tsd-kind-icon">OUTGOING_<wbr>KEY</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createpacket" class="tsd-kind-icon">create<wbr>Packet</a>
 					</li>
 					<li class=" tsd-kind-object-literal tsd-is-not-exported">
 						<a href="globals.html#default_rc4" class="tsd-kind-icon">DEFAULT_<wbr>RC4</a>

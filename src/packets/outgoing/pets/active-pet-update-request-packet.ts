@@ -2,6 +2,7 @@ import { Writer } from '../../../writer';
 import { Reader } from '../../../reader';
 import { PacketType } from '../../../packet-type';
 import { Packet } from '../../../packet';
+import { ActivePetUpdateType } from '../../../models/active-pet-update-type';
 
 /**
  * Sent to make an update to the pet currently following the player.
@@ -15,7 +16,7 @@ export class ActivePetUpdateRequestPacket implements Packet {
   /**
    * The type of update to perform.
    */
-  commandType: number;
+  commandType: ActivePetUpdateType;
   /**
    * The instance id of the pet to update.
    */
