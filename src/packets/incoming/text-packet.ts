@@ -63,6 +63,7 @@ export class TextPacket implements Packet {
     writer.writeInt32(this.objectId);
     writer.writeInt32(this.numStars);
     writer.writeUnsignedByte(this.bubbleTime);
+    writer.writeString(this.recipient);
     writer.writeString(this.text);
     writer.writeString(this.cleanText);
     writer.writeBoolean(this.isSupporter);

@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.4] - 2019-07-02
+
+### Fixed
+
++ Fixed incorrect write implementation of the text packet.
+
 ## [3.0.3] - 2019-07-02
 
 ### Fixed
