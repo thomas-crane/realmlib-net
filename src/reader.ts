@@ -136,6 +136,18 @@ export class Reader {
   }
 
   /**
+   * Reads `size` bytes from the buffer.
+   * @param size The number of bytes to read.
+   */
+  readBytes(size: number): number[] {
+    const result = new Array<number>(size);
+    for (let i = 0; i < size; i++ , this.index++) {
+      result[i] = this.buffer[this.index];
+    }
+    return result;
+  }
+
+  /**
    * Reads 2 bytes to get the length, reads `length` bytes from the buffer, then converts
    * the result to a utf8 string.
    */

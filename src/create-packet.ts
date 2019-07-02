@@ -112,7 +112,7 @@ export function createPacket(type: PacketType): Packet {
     case PacketType.ACTIVE_PET_UPDATE_REQUEST:
       return new OutgoingPackets.ActivePetUpdateRequestPacket();
     case PacketType.PLAYSOUND:
-      return undefined; // implement
+      return new IncomingPackets.PlaySoundPacket();
     case PacketType.PLAYERSHOOT:
       return new OutgoingPackets.PlayerShootPacket();
     case PacketType.ESCAPE:
@@ -138,7 +138,7 @@ export function createPacket(type: PacketType): Packet {
     case PacketType.PASSWORD_PROMPT:
       return new IncomingPackets.PasswordPromptPacket();
     case PacketType.FILE:
-      return undefined; // implement
+      return new IncomingPackets.FilePacket();
     case PacketType.KEY_INFO_REQUEST:
       return new OutgoingPackets.KeyInfoRequestPacket();
     case PacketType.QUEST_ROOM_MSG:
@@ -168,7 +168,7 @@ export function createPacket(type: PacketType): Packet {
     case PacketType.AOEACK:
       return new OutgoingPackets.AoeAckPacket();
     case PacketType.PIC:
-      return undefined; // implement
+      return new IncomingPackets.PicPacket();
     case PacketType.INVRESULT:
       return new IncomingPackets.InvResultPacket();
     case PacketType.LOGIN_REWARD_MSG:
