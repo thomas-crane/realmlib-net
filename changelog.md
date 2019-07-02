@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.1.0] - 2019-07-02
+
+### Added
+
++ Added packet definitions for the following packets
+  + `PicPacket`
+  + `FilePacket`
+  + `PlaySoundPacket`
+
 ## [3.0.4] - 2019-07-02
 
 ### Fixed
