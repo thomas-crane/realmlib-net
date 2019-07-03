@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.1.1] - 2019-07-03
+
+### Fixed
+
++ The PacketIO state is now reset when a new socket is attached. This is necessary in cases where the socket is already connected when it is attached.
+
 ## [3.1.0] - 2019-07-02
 
 ### Added

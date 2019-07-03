@@ -15,6 +15,10 @@ export interface RC4Config {
   outgoingKey: string;
 }
 
+/**
+ * An RC4 configuration which is suitable for
+ * PacketIO instances being used as a client.
+ */
 const DEFAULT_RC4: RC4Config = {
   incomingKey: INCOMING_KEY,
   outgoingKey: OUTGOING_KEY,
@@ -80,7 +84,7 @@ export class PacketIO extends EventEmitter {
 
     this.eventHandlers = new Map([
       ['data', this.onData.bind(this)],
-      ['connect', this.onConnect.bind(this)]
+      ['connect', this.resetState.bind(this)]
     ]);
 
     if (opts.socket) {
@@ -99,6 +103,9 @@ export class PacketIO extends EventEmitter {
     if (this.socket) {
       this.detach();
     }
+    // we should reset the state here in
+    // case the socket is already connected.
+    this.resetState();
     this.socket = socket;
     for (const [event, listener] of this.eventHandlers) {
       this.socket.on(event, listener);
@@ -140,6 +147,10 @@ export class PacketIO extends EventEmitter {
     }
   }
 
+  /**
+   * Takes packets from the outgoing queue and writes
+   * them to the socket.
+   */
   private async drainQueue() {
     while (this.outgoingQueue.length > 0) {
       this._lastOutgoingPacket = this.outgoingQueue[0];
@@ -149,7 +160,7 @@ export class PacketIO extends EventEmitter {
       this.writer.writeHeader(type);
       this.sendRC4.cipher(this.writer.buffer.slice(5, this.writer.index));
       await new Promise((resolve) => {
-        if (!this.socket.write(this.writer.buffer.slice(0, this.writer.index))) {
+        if (this.socket && !this.socket.write(this.writer.buffer.slice(0, this.writer.index))) {
           this.socket.once('drain', resolve);
         } else {
           process.nextTick(resolve);
@@ -173,12 +184,19 @@ export class PacketIO extends EventEmitter {
     }
   }
 
-  private onConnect(): void {
+  /**
+   * Resets the reader buffer and the RC4 instances.
+   */
+  private resetState(): void {
     this.resetBuffer();
     this.sendRC4.reset();
     this.receiveRC4.reset();
   }
 
+  /**
+   * Adds the data received from the socket to the reader buffer.
+   * @param data The data received.
+   */
   private onData(data: Buffer): void {
     let dataIdx = 0;
     while (dataIdx < data.length) {
@@ -200,6 +218,11 @@ export class PacketIO extends EventEmitter {
     }
   }
 
+  /**
+   * Attempts to create a packet from the data contained
+   * in the reader buffer. No packet will be created if
+   * there is no event listener for the packet type.
+   */
   private constructPacket(): Packet {
     this.receiveRC4.cipher(this.reader.buffer.slice(5, this.reader.length));
     try {
@@ -220,11 +243,20 @@ export class PacketIO extends EventEmitter {
     return undefined;
   }
 
+  /**
+   * Resets the incoming packet buffer so that it
+   * is ready to receive the next packet header.
+   */
   private resetBuffer(): void {
     this.reader.resizeBuffer(4);
     this.reader.index = 0;
   }
 
+  /**
+   * Emits an `'error'` event if there are any listeners for it,
+   * or throws the error if there are no listeners.
+   * @param error The error to emit.
+   */
   private emitError(error: Error): void {
     if (this.listenerCount('error') === 0) {
       throw error;
