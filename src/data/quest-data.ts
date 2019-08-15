@@ -19,6 +19,10 @@ export class QuestData implements DataPacket {
    */
   description: string;
   /**
+   * The expiration time of this quest.
+   */
+  expiration: string;
+  /**
    * The list of item IDs which are required to complete this quest.
    */
   requirements: number[];
@@ -47,6 +51,7 @@ export class QuestData implements DataPacket {
     this.id = reader.readString();
     this.name = reader.readString();
     this.description = reader.readString();
+    this.expiration = reader.readString();
     this.category = reader.readInt32();
     const requirementsLen = reader.readShort();
     this.requirements = new Array<number>(requirementsLen);
@@ -68,6 +73,7 @@ export class QuestData implements DataPacket {
     writer.writeString(this.id);
     writer.writeString(this.name);
     writer.writeString(this.description);
+    writer.writeString(this.expiration);
     writer.writeInt32(this.category);
     writer.writeShort(this.requirements.length);
     for (const requirement of this.requirements) {

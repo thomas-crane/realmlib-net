@@ -96,6 +96,7 @@ export class HelloPacket implements Packet {
     writer.writeString(this.playPlatform);
     writer.writeString(this.platformToken);
     writer.writeString(this.userToken);
+    writer.writeString('XTeP7hERdchV5jrBZEYNebAqDPU6tKU6');
   }
 
   read(reader: Reader): void {
