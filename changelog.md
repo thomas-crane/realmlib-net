@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.2] - 2019-08-15
+
+### Fixed
+
++ Added a missing field to the hello packet.
++ Added a missing field to the quest data object.
+
 ## [3.1.1] - 2019-07-03
 
 ### Fixed
