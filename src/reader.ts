@@ -79,10 +79,6 @@ export class Reader {
     this.index += 2;
     return result;
   }
-  /**
-   * Writes a 2 byte unsigned integer to the buffer.
-   * @param value The value to write.
-   */
 
   /**
    * Reads a 1 byte integer from the buffer.
@@ -101,10 +97,6 @@ export class Reader {
     this.index++;
     return result;
   }
-  /**
-   * Writes a 1 byte unsigned integer to the buffer.
-   * @param value The value to write.
-   */
 
   /**
    * Reads a single byte from the buffer, returns `true` if the byte is `1` and `false` otherwise.
