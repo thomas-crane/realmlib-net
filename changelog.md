@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.1.2] - 2019-09-21
+
+### Fixed
+
++ Added missing packet fields to the create packet and the load packet.
+
 ## [3.1.1] - 2019-07-03
 
 ### Fixed
