@@ -21,15 +21,21 @@ export class CreatePacket implements Packet {
    * The default skin id is `0`.
    */
   skinType: number;
+  /**
+   * Whether or not the character is in challenger mode.
+   */
+  isChallenger: boolean;
   //#endregion
 
   write(writer: Writer): void {
     writer.writeShort(this.classType);
     writer.writeShort(this.skinType);
+    writer.writeBoolean(this.isChallenger);
   }
 
   read(reader: Reader): void {
     this.classType = reader.readShort();
     this.skinType = reader.readShort();
+    this.isChallenger = reader.readBoolean();
   }
 }
