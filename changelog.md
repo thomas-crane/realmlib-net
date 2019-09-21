@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.1.3] - 2019-09-21
+
+### Fixed
+
++ Synchronised GitHub version with npmjs version.
+
 ## [3.1.2] - 2019-09-21
 
 ### Fixed
