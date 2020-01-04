@@ -86,7 +86,7 @@ describe('PacketIO', () => {
       const load = new LoadPacket();
       load.charId = 324;
       packetIO.send(load);
-      expect(buffer.readInt32BE(0)).to.equal(10, 'Packet length incorrect.');
+      expect(buffer.readInt32BE(0)).to.equal(11, 'Packet length incorrect.');
       expect(buffer.readInt8(4)).to.equal(10, 'Packet id incorrect.');
     });
   });

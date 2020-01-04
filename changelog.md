@@ -1,11 +1,16 @@
 # Changelog
 
-## [3.1.2] - 2019-08-15
+## [3.1.3] - 2019-09-21
 
 ### Fixed
 
-+ Added a missing field to the hello packet.
-+ Added a missing field to the quest data object.
++ Synchronised GitHub version with npmjs version.
+
+## [3.1.2] - 2019-09-21
+
+### Fixed
+
++ Added missing packet fields to the create packet and the load packet.
 
 ## [3.1.1] - 2019-07-03
 
