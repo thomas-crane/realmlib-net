@@ -77,6 +77,10 @@ export class HelloPacket implements Packet {
    * > Unknown.
    */
   userToken: string;
+  /**
+   * A random string which is appended to the end of the hello packet.
+   */
+  trailer: string;
   //#endregion
 
   write(writer: Writer): void {
@@ -96,7 +100,7 @@ export class HelloPacket implements Packet {
     writer.writeString(this.playPlatform);
     writer.writeString(this.platformToken);
     writer.writeString(this.userToken);
-    writer.writeString('XTeP7hERdchV5jrBZEYNebAqDPU6tKU6');
+    writer.writeString(this.trailer);
   }
 
   read(reader: Reader): void {

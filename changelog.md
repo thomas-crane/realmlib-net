@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.1.4] - 2020-01-04
+
++ Replaced hardcoded value in hello packet with variable.
+
 ## [3.1.3] - 2019-09-21
 
 ### Fixed
