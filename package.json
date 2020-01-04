@@ -1,11 +1,12 @@
 {
   "name": "@realmlib/net",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "A networking library for Realm of the Mad God.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "clean": "rimraf ./dist",
+    "prepublish": "npm run build && npm test && npm run docs",
+    "clean": "rimraf ./lib",
     "compile": "tsc -p .",
     "build": "npm run clean && npm run compile",
     "test": "mocha -r ts-node/register test/*.spec.ts",
