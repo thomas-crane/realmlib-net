@@ -29,6 +29,10 @@ export class MapInfoPacket implements Packet {
    */
   displayName: string;
   /**
+   * The name of the realm.
+   */
+  realmName: string;
+  /**
    * The difficulty rating of the map.
    */
   difficulty: number;
@@ -68,6 +72,7 @@ export class MapInfoPacket implements Packet {
     this.height = reader.readInt32();
     this.name = reader.readString();
     this.displayName = reader.readString();
+    this.realmName = reader.readString();
     this.fp = reader.readUInt32();
     this.background = reader.readInt32();
     this.difficulty = reader.readInt32();
@@ -88,6 +93,7 @@ export class MapInfoPacket implements Packet {
     writer.writeInt32(this.height);
     writer.writeString(this.name);
     writer.writeString(this.displayName);
+    writer.writeString(this.realmName);
     writer.writeInt32(this.fp);
     writer.writeInt32(this.background);
     writer.writeInt32(this.difficulty);
