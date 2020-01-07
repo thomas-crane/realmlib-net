@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.1.6] - 2020-01-07
+
+### Fixed
+
++ Added a missing field to the mapinfo packet
+
 ## [3.1.5] - 2020-01-04
 
 ### Changed
