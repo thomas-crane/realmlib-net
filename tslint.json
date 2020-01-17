@@ -13,23 +13,11 @@
       true,
       "never-prefix"
     ],
-    "ordered-imports": false,
-    "member-ordering": false,
-    "object-literal-sort-keys": false,
     "member-access": [
       true,
       "no-public"
     ],
-    "trailing-comma": true,
-    "variable-name": [
-      true,
-      "check-format",
-      "allow-leading-underscore"
-    ],
-    "max-line-length": [
-      true,
-      130
-    ]
+    "object-literal-sort-keys": false
   },
   "rulesDirectory": []
 }
