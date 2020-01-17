@@ -1,2 +1,14 @@
+# node stuff
 node_modules/
+
+# build result
 lib/
+tsconfig.tsbuildinfo
+
+
+# user stuff
+.vscode/
+.DS_Store
+
+# npm pack files
+*.tgz
