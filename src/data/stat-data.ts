@@ -1,7 +1,7 @@
-import { Writer } from '../writer';
-import { Reader } from '../reader';
-import { DataPacket } from '../packet';
 import { StatType } from '../models/stat-type';
+import { DataPacket } from '../packet';
+import { Reader } from '../reader';
+import { Writer } from '../writer';
 
 export class StatData implements DataPacket {
   /**

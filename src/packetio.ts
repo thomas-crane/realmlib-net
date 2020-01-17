@@ -1,9 +1,9 @@
 import { EventEmitter } from 'events';
 import { Socket } from 'net';
+import { createPacket } from './create-packet';
 import { INCOMING_KEY, OUTGOING_KEY, RC4 } from './crypto';
 import { Packet } from './packet';
 import { PacketMap } from './packet-map';
-import { createPacket } from './create-packet';
 import { Reader } from './reader';
 import { Writer } from './writer';
 
@@ -30,16 +30,6 @@ const DEFAULT_RC4: RC4Config = {
 export class PacketIO extends EventEmitter {
 
   /**
-   * The socket this packet interface is attached to.
-   */
-  socket: Socket;
-
-  /**
-   * A packet map object which can be used to resolve incoming and outgoing packet types.
-   */
-  packetMap: PacketMap;
-
-  /**
    * The last packet which was received.
    */
   get lastIncomingPacket(): Packet {
@@ -52,6 +42,16 @@ export class PacketIO extends EventEmitter {
   get lastOutgoingPacket(): Packet {
     return this._lastOutgoingPacket;
   }
+
+  /**
+   * The socket this packet interface is attached to.
+   */
+  socket: Socket;
+
+  /**
+   * A packet map object which can be used to resolve incoming and outgoing packet types.
+   */
+  packetMap: PacketMap;
 
   private sendRC4: RC4;
   private receiveRC4: RC4;
@@ -84,7 +84,7 @@ export class PacketIO extends EventEmitter {
 
     this.eventHandlers = new Map([
       ['data', this.onData.bind(this)],
-      ['connect', this.resetState.bind(this)]
+      ['connect', this.resetState.bind(this)],
     ]);
 
     if (opts.socket) {
@@ -148,6 +148,20 @@ export class PacketIO extends EventEmitter {
   }
 
   /**
+   * Emits a packet from this PacketIO instance. This will only
+   * emit the packet to the clients subscribed to this particular PacketIO.
+   * @param packet The packet to emit.
+   */
+  emitPacket(packet: Packet): void {
+    if (packet && typeof packet.type === 'string') {
+      this._lastIncomingPacket = packet;
+      this.emit(packet.type, packet);
+    } else {
+      throw new TypeError(`Parameter "packet" must be a Packet, not ${typeof packet}`);
+    }
+  }
+
+  /**
    * Takes packets from the outgoing queue and writes
    * them to the socket.
    */
@@ -167,20 +181,6 @@ export class PacketIO extends EventEmitter {
         }
       });
       this.outgoingQueue.shift();
-    }
-  }
-
-  /**
-   * Emits a packet from this PacketIO instance. This will only
-   * emit the packet to the clients subscribed to this particular PacketIO.
-   * @param packet The packet to emit.
-   */
-  emitPacket(packet: Packet): void {
-    if (packet && typeof packet.type === 'string') {
-      this._lastIncomingPacket = packet;
-      this.emit(packet.type, packet);
-    } else {
-      throw new TypeError(`Parameter "packet" must be a Packet, not ${typeof packet}`);
     }
   }
 

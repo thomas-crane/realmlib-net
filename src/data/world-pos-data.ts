@@ -1,7 +1,7 @@
-import { Writer } from '../writer';
-import { Reader } from '../reader';
-import { DataPacket } from '../packet';
 import { Point } from '../models/point';
+import { DataPacket } from '../packet';
+import { Reader } from '../reader';
+import { Writer } from '../writer';
 
 export class WorldPosData implements DataPacket, Point {
   x: number;

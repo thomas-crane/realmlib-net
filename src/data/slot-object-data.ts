@@ -1,6 +1,6 @@
-import { Writer } from '../writer';
-import { Reader } from '../reader';
 import { DataPacket } from '../packet';
+import { Reader } from '../reader';
+import { Writer } from '../writer';
 
 export class SlotObjectData implements DataPacket {
 

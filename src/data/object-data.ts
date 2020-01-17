@@ -1,6 +1,6 @@
-import { Writer } from '../writer';
-import { Reader } from '../reader';
 import { DataPacket } from '../packet';
+import { Reader } from '../reader';
+import { Writer } from '../writer';
 import { ObjectStatusData } from './object-status-data';
 
 export class ObjectData implements DataPacket {

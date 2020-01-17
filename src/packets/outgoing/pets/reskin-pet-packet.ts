@@ -1,8 +1,8 @@
-import { Writer } from '../../../writer';
-import { Reader } from '../../../reader';
-import { PacketType } from '../../../packet-type';
-import { Packet } from '../../../packet';
 import { SlotObjectData } from '../../../data';
+import { Packet } from '../../../packet';
+import { PacketType } from '../../../packet-type';
+import { Reader } from '../../../reader';
+import { Writer } from '../../../writer';
 
 /**
  * Sent to make an update to the pet currently following the player.

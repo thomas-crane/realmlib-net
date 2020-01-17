@@ -1,8 +1,8 @@
-import { Writer } from '../writer';
-import { Reader } from '../reader';
 import { DataPacket } from '../packet';
-import { WorldPosData } from './world-pos-data';
+import { Reader } from '../reader';
+import { Writer } from '../writer';
 import { StatData } from './stat-data';
+import { WorldPosData } from './world-pos-data';
 
 export class ObjectStatusData implements DataPacket {
 

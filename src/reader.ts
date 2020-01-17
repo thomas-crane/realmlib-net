@@ -31,6 +31,7 @@ export class Reader {
     return this._length - this.index;
   }
 
+  // tslint:disable-next-line:variable-name
   private _length: number;
 
   /**
