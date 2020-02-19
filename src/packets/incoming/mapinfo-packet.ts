@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class MapInfoPacket implements Packet {
 
-  type = PacketType.MAPINFO;
+  readonly type = PacketType.MAPINFO;
   propagate = true;
 
   //#region packet-specific members
@@ -63,6 +63,16 @@ export class MapInfoPacket implements Packet {
   //#endregion
 
   constructor() {
+    this.width = 0;
+    this.height = 0;
+    this.name = '';
+    this.displayName = '';
+    this.realmName = '';
+    this.difficulty = 0;
+    this.fp = 0;
+    this.background = 0;
+    this.allowPlayerTeleport = false;
+    this.showDisplays = false;
     this.clientXML = [];
     this.extraXML = [];
   }

@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class PlayerTextPacket implements Packet {
 
-  type = PacketType.PLAYERTEXT;
+  readonly type = PacketType.PLAYERTEXT;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class PlayerTextPacket implements Packet {
    */
   text: string;
   //#endregion
+
+  constructor() {
+    this.text = '';
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.text);

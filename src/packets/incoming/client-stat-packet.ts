@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class ClientStatPacket implements Packet {
 
-  type = PacketType.CLIENTSTAT;
+  readonly type = PacketType.CLIENTSTAT;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class ClientStatPacket implements Packet {
    */
   value: number;
   //#endregion
+
+  constructor() {
+    this.name = '';
+    this.value = 0;
+  }
 
   read(reader: Reader): void {
     this.name = reader.readString();

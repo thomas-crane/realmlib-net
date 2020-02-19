@@ -10,7 +10,7 @@ import { Writer } from '../../writer';
  */
 export class TradeDonePacket implements Packet {
 
-  type = PacketType.TRADEDONE;
+  readonly type = PacketType.TRADEDONE;
   propagate = true;
 
   //#region packet-specific members
@@ -23,6 +23,11 @@ export class TradeDonePacket implements Packet {
    */
   description: string;
   //#endregion
+
+  constructor() {
+    this.code = 0;
+    this.description = '';
+  }
 
   read(reader: Reader): void {
     this.code = reader.readInt32();

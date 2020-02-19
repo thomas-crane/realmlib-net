@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class NewTickPacket implements Packet {
 
-  type = PacketType.NEWTICK;
+  readonly type = PacketType.NEWTICK;
   propagate = true;
 
   //#region packet-specific members
@@ -34,6 +34,8 @@ export class NewTickPacket implements Packet {
   //#endregion
 
   constructor() {
+    this.tickId = 0;
+    this.tickTime = 0;
     this.statuses = [];
   }
 

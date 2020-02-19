@@ -10,7 +10,7 @@ import { Writer } from '../../../writer';
  */
 export class PetUpgradeRequestPacket implements Packet {
 
-  type = PacketType.PETUPGRADEREQUEST;
+  readonly type = PacketType.PETUPGRADEREQUEST;
   propagate = true;
 
   //#region packet-specific members
@@ -39,6 +39,15 @@ export class PetUpgradeRequestPacket implements Packet {
    */
   paymentType: PetUpgradePaymentType;
   //#endregion
+
+  constructor() {
+    this.petTransType = 0;
+    this.pIdOne = 0;
+    this.pIdTwo = 0;
+    this.objectId = 0;
+    this.slotObjects = [];
+    this.paymentType = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeByte(this.petTransType);

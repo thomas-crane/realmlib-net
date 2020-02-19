@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class CreateGuildPacket implements Packet {
 
-  type = PacketType.CREATEGUILD;
+  readonly type = PacketType.CREATEGUILD;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class CreateGuildPacket implements Packet {
    */
   name: string;
   //#endregion
+
+  constructor() {
+    this.name = '';
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.name);

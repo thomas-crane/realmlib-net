@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class NewAbilityMessage implements Packet {
 
-  type = PacketType.NEW_ABILITY;
+  readonly type = PacketType.NEW_ABILITY;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class NewAbilityMessage implements Packet {
    */
   abilityType: number;
   //#endregion
+
+  constructor() {
+    this.abilityType = 0;
+  }
 
   read(reader: Reader): void {
     this.abilityType = reader.readInt32();

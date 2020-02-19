@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class RealmHeroesLeftPacket implements Packet {
 
-  type = PacketType.REALM_HERO_LEFT_MSG;
+  readonly type = PacketType.REALM_HERO_LEFT_MSG;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class RealmHeroesLeftPacket implements Packet {
    */
   realmHeroesLeft: number;
   //#endregion
+
+  constructor() {
+    this.realmHeroesLeft = 0;
+  }
 
   read(reader: Reader): void {
     this.realmHeroesLeft = reader.readInt32();

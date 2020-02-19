@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class ServerPlayerShootPacket implements Packet {
 
-  type = PacketType.SERVERPLAYERSHOOT;
+  readonly type = PacketType.SERVERPLAYERSHOOT;
   propagate = true;
 
   //#region packet-specific members
@@ -39,11 +39,19 @@ export class ServerPlayerShootPacket implements Packet {
   damage: number;
   //#endregion
 
+  constructor() {
+    this.bulletId = 0;
+    this.ownerId = 0;
+    this.containerType = 0;
+    this.startingPos = new WorldPosData();
+    this.angle = 0;
+    this.damage = 0;
+  }
+
   read(reader: Reader): void {
     this.bulletId = reader.readUnsignedByte();
     this.ownerId = reader.readInt32();
     this.containerType = reader.readInt32();
-    this.startingPos = new WorldPosData();
     this.startingPos.read(reader);
     this.angle = reader.readFloat();
     this.damage = reader.readShort();

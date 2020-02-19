@@ -1,7 +1,5 @@
 import { Packet } from '../../packet';
 import { PacketType } from '../../packet-type';
-import { Reader } from '../../reader';
-import { Writer } from '../../writer';
 
 /**
  * Sent to prompt the server to send a `ReconnectPacket` which
@@ -9,18 +7,18 @@ import { Writer } from '../../writer';
  */
 export class GoToQuestRoomPacket implements Packet {
 
-  type = PacketType.QUEST_ROOM_MSG;
+  readonly type = PacketType.QUEST_ROOM_MSG;
   propagate = true;
 
   //#region packet-specific members
 
   //#endregion
 
-  write(writer: Writer): void {
+  write(): void {
     //
   }
 
-  read(reader: Reader): void {
+  read(): void {
     //
   }
 }

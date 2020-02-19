@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class GotoPacket implements Packet {
 
-  type = PacketType.GOTO;
+  readonly type = PacketType.GOTO;
   propagate = true;
 
   //#region packet-specific members
@@ -23,9 +23,13 @@ export class GotoPacket implements Packet {
   position: WorldPosData;
   //#endregion
 
+  constructor() {
+    this.objectId = 0;
+    this.position = new WorldPosData();
+  }
+
   read(reader: Reader): void {
     this.objectId = reader.readInt32();
-    this.position = new WorldPosData();
     this.position.read(reader);
   }
 

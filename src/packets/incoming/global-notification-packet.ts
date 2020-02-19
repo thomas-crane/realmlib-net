@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class GlobalNotificationPacket implements Packet {
 
-  type = PacketType.GLOBAL_NOTIFICATION;
+  readonly type = PacketType.GLOBAL_NOTIFICATION;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class GlobalNotificationPacket implements Packet {
    */
   text: string;
   //#endregion
+
+  constructor() {
+    this.notificationType = 0;
+    this.text = '';
+  }
 
   read(reader: Reader): void {
     this.notificationType = reader.readInt32();

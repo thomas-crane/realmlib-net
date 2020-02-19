@@ -10,7 +10,7 @@ import { Writer } from '../../writer';
  */
 export class UseItemPacket implements Packet {
 
-  type = PacketType.USEITEM;
+  readonly type = PacketType.USEITEM;
   propagate = true;
 
   //#region packet-specific members
@@ -32,6 +32,13 @@ export class UseItemPacket implements Packet {
   useType: number;
   //#endregion
 
+  constructor() {
+    this.time = 0;
+    this.slotObject = new SlotObjectData();
+    this.itemUsePos = new WorldPosData();
+    this.useType = 0;
+  }
+
   write(writer: Writer): void {
     writer.writeInt32(this.time);
     this.slotObject.write(writer);
@@ -41,9 +48,7 @@ export class UseItemPacket implements Packet {
 
   read(reader: Reader): void {
     this.time = reader.readInt32();
-    this.slotObject = new SlotObjectData();
     this.slotObject.read(reader);
-    this.itemUsePos = new WorldPosData();
     this.itemUsePos.read(reader);
     this.useType = reader.readByte();
   }

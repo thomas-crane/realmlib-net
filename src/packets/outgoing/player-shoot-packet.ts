@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class PlayerShootPacket implements Packet {
 
-  type = PacketType.PLAYERSHOOT;
+  readonly type = PacketType.PLAYERSHOOT;
   propagate = true;
 
   //#region packet-specific members
@@ -35,6 +35,14 @@ export class PlayerShootPacket implements Packet {
   angle: number;
   //#endregion
 
+  constructor() {
+    this.time = 0;
+    this.bulletId = 0;
+    this.containerType = 0;
+    this.startingPos = new WorldPosData();
+    this.angle = 0;
+  }
+
   write(writer: Writer): void {
     writer.writeInt32(this.time);
     writer.writeByte(this.bulletId);
@@ -47,7 +55,6 @@ export class PlayerShootPacket implements Packet {
     this.time = reader.readInt32();
     this.bulletId = reader.readByte();
     this.containerType = reader.readShort();
-    this.startingPos = new WorldPosData();
     this.startingPos.read(reader);
     this.angle = reader.readFloat();
   }

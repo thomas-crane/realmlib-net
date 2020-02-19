@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class TeleportPacket implements Packet {
 
-  type = PacketType.TELEPORT;
+  readonly type = PacketType.TELEPORT;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class TeleportPacket implements Packet {
    */
   objectId: number;
   //#endregion
+
+  constructor() {
+    this.objectId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.objectId);

@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class EditAccountListPacket implements Packet {
 
-  type = PacketType.EDITACCOUNTLIST;
+  readonly type = PacketType.EDITACCOUNTLIST;
   propagate = true;
 
   //#region packet-specific members
@@ -25,6 +25,12 @@ export class EditAccountListPacket implements Packet {
    */
   objectId: number;
   //#endregion
+
+  constructor() {
+    this.accountListId = 0;
+    this.add = false;
+    this.objectId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.accountListId);

@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class FailurePacket implements Packet {
 
-  type = PacketType.FAILURE;
+  readonly type = PacketType.FAILURE;
   propagate = true;
 
   //#region packet-specific members
@@ -23,6 +23,11 @@ export class FailurePacket implements Packet {
    */
   errorDescription: string;
   //#endregion
+
+  constructor() {
+    this.errorId = 0;
+    this.errorDescription = '';
+  }
 
   read(reader: Reader): void {
     this.errorId = reader.readInt32();

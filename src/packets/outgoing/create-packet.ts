@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class CreatePacket implements Packet {
 
-  type = PacketType.CREATE;
+  readonly type = PacketType.CREATE;
   propagate = true;
 
   //#region packet-specific members
@@ -26,6 +26,12 @@ export class CreatePacket implements Packet {
    */
   isChallenger: boolean;
   //#endregion
+
+  constructor() {
+    this.classType = 0;
+    this.skinType = 0;
+    this.isChallenger = false;
+  }
 
   write(writer: Writer): void {
     writer.writeShort(this.classType);

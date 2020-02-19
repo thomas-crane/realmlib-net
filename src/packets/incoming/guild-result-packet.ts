@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class GuildResultPacket implements Packet {
 
-  type = PacketType.GUILDRESULT;
+  readonly type = PacketType.GUILDRESULT;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class GuildResultPacket implements Packet {
    */
   lineBuilderJSON: string;
   //#endregion
+
+  constructor() {
+    this.success = false;
+    this.lineBuilderJSON = '';
+  }
 
   read(reader: Reader): void {
     this.success = reader.readBoolean();

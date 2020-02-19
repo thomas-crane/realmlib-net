@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class PasswordPromptPacket implements Packet {
 
-  type = PacketType.PASSWORD_PROMPT;
+  readonly type = PacketType.PASSWORD_PROMPT;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class PasswordPromptPacket implements Packet {
    */
   cleanPasswordStatus: number;
   //#endregion
+
+  constructor() {
+    this.cleanPasswordStatus = 0;
+  }
 
   read(reader: Reader): void {
     this.cleanPasswordStatus = reader.readInt32();

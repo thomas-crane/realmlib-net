@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class PlaySoundPacket implements Packet {
 
-  type = PacketType.PLAYSOUND;
+  readonly type = PacketType.PLAYSOUND;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class PlaySoundPacket implements Packet {
    */
   soundId: number;
   //#endregion
+
+  constructor() {
+    this.ownerId = 0;
+    this.soundId = 0;
+  }
 
   read(reader: Reader): void {
     this.ownerId = reader.readInt32();

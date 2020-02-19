@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class PingPacket implements Packet {
 
-  type = PacketType.PING;
+  readonly type = PacketType.PING;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class PingPacket implements Packet {
    */
   serial: number;
   //#endregion
+
+  constructor() {
+    this.serial = 0;
+  }
 
   read(reader: Reader): void {
     this.serial = reader.readInt32();

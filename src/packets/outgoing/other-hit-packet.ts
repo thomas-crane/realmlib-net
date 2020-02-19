@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class OtherHitPacket implements Packet {
 
-  type = PacketType.OTHERHIT;
+  readonly type = PacketType.OTHERHIT;
   propagate = true;
 
   //#region packet-specific members
@@ -29,6 +29,13 @@ export class OtherHitPacket implements Packet {
    */
   targetId: number;
   //#endregion
+
+  constructor() {
+    this.time = 0;
+    this.bulletId = 0;
+    this.objectId = 0;
+    this.targetId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.time);

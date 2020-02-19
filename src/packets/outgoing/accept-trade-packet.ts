@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class AcceptTradePacket implements Packet {
 
-  type = PacketType.ACCEPTTRADE;
+  readonly type = PacketType.ACCEPTTRADE;
   propagate = true;
 
   //#region packet-specific members

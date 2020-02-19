@@ -9,7 +9,7 @@ import { Writer } from '../../../writer';
  */
 export class QuestRedeemPacket implements Packet {
 
-  type = PacketType.QUEST_REDEEM;
+  readonly type = PacketType.QUEST_REDEEM;
   propagate = true;
 
   //#region packet-specific members
@@ -24,6 +24,7 @@ export class QuestRedeemPacket implements Packet {
   //#endregion
 
   constructor() {
+    this.questId = '';
     this.slots = [];
   }
 

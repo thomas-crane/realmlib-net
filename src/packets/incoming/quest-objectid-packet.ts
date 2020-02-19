@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class QuestObjectIdPacket implements Packet {
 
-  type = PacketType.QUESTOBJID;
+  readonly type = PacketType.QUESTOBJID;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class QuestObjectIdPacket implements Packet {
    */
   objectId: number;
   //#endregion
+
+  constructor() {
+    this.objectId = 0;
+  }
 
   read(reader: Reader): void {
     this.objectId = reader.readInt32();

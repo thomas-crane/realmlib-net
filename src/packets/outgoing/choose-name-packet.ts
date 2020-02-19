@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class ChooseNamePacket implements Packet {
 
-  type = PacketType.CHOOSENAME;
+  readonly type = PacketType.CHOOSENAME;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class ChooseNamePacket implements Packet {
    */
   name: string;
   //#endregion
+
+  constructor() {
+    this.name = '';
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.name);

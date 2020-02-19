@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class KeyInfoRequestPacket implements Packet {
 
-  type = PacketType.KEY_INFO_REQUEST;
+  readonly type = PacketType.KEY_INFO_REQUEST;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class KeyInfoRequestPacket implements Packet {
    */
   itemType: number;
   //#endregion
+
+  constructor() {
+    this.itemType = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.itemType);

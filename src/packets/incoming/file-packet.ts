@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class FilePacket implements Packet {
 
-  type = PacketType.FILE;
+  readonly type = PacketType.FILE;
   propagate = true;
 
   //#region packet-specific members
@@ -22,6 +22,11 @@ export class FilePacket implements Packet {
    */
   file: string;
   //#endregion
+
+  constructor() {
+    this.fileName = '';
+    this.file = '';
+  }
 
   read(reader: Reader): void {
     this.fileName = reader.readString();

@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class TradeRequestedPacket implements Packet {
 
-  type = PacketType.TRADEREQUESTED;
+  readonly type = PacketType.TRADEREQUESTED;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class TradeRequestedPacket implements Packet {
    */
   name: string;
   //#endregion
+
+  constructor() {
+    this.name = '';
+  }
 
   read(reader: Reader): void {
     this.name = reader.readString();

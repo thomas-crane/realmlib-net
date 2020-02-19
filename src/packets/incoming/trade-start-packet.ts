@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class TradeStartPacket implements Packet {
 
-  type = PacketType.TRADESTART;
+  readonly type = PacketType.TRADESTART;
   propagate = true;
 
   //#region packet-specific members
@@ -31,6 +31,7 @@ export class TradeStartPacket implements Packet {
 
   constructor() {
     this.clientItems = [];
+    this.partnerName = '';
     this.partnerItems = [];
   }
 

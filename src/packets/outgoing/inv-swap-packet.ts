@@ -10,7 +10,7 @@ import { Writer } from '../../writer';
  */
 export class InvSwapPacket implements Packet {
 
-  type = PacketType.INVSWAP;
+  readonly type = PacketType.INVSWAP;
   propagate = true;
 
   //#region packet-specific members
@@ -32,6 +32,13 @@ export class InvSwapPacket implements Packet {
   slotObject2: SlotObjectData;
   //#endregion
 
+  constructor() {
+    this.time = 0;
+    this.position = new WorldPosData();
+    this.slotObject1 = new SlotObjectData();
+    this.slotObject2 = new SlotObjectData();
+  }
+
   write(writer: Writer): void {
     writer.writeInt32(this.time);
     this.position.write(writer);
@@ -41,11 +48,8 @@ export class InvSwapPacket implements Packet {
 
   read(reader: Reader): void {
     this.time = reader.readInt32();
-    this.position = new WorldPosData();
     this.position.read(reader);
-    this.slotObject1 = new SlotObjectData();
     this.slotObject1.read(reader);
-    this.slotObject2 = new SlotObjectData();
     this.slotObject2.read(reader);
   }
 }

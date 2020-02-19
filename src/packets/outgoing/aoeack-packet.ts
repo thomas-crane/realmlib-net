@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class AoeAckPacket implements Packet {
 
-  type = PacketType.AOEACK;
+  readonly type = PacketType.AOEACK;
   propagate = true;
 
   //#region packet-specific members
@@ -22,6 +22,11 @@ export class AoeAckPacket implements Packet {
    */
   position: WorldPosData;
   //#endregion
+
+  constructor() {
+    this.time = 0;
+    this.position = new WorldPosData();
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.time);

@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class DeathPacket implements Packet {
 
-  type = PacketType.DEATH;
+  readonly type = PacketType.DEATH;
   propagate = true;
 
   //#region packet-specific members
@@ -39,6 +39,15 @@ export class DeathPacket implements Packet {
    */
   isZombie: boolean;
   //#endregion
+
+  constructor() {
+    this.accountId = '';
+    this.charId = 0;
+    this.killedBy = '';
+    this.zombieId = 0;
+    this.zombieType = 0;
+    this.isZombie = false;
+  }
 
   read(reader: Reader): void {
     this.accountId = reader.readString();

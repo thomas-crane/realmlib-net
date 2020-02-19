@@ -8,7 +8,7 @@ import { Writer } from '../../../writer';
  */
 export class HatchPetMessage implements Packet {
 
-  type = PacketType.HATCH_PET;
+  readonly type = PacketType.HATCH_PET;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class HatchPetMessage implements Packet {
    */
   petSkin: number;
   //#endregion
+
+  constructor() {
+    this.petName = '';
+    this.petSkin = 0;
+  }
 
   read(reader: Reader): void {
     this.petName = reader.readString();

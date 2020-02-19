@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class InvitedToGuildPacket implements Packet {
 
-  type = PacketType.INVITEDTOGUILD;
+  readonly type = PacketType.INVITEDTOGUILD;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class InvitedToGuildPacket implements Packet {
    */
   guildName: string;
   //#endregion
+
+  constructor() {
+    this.name = '';
+    this.guildName = '';
+  }
 
   read(reader: Reader): void {
     this.name = reader.readString();

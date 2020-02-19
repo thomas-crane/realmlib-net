@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class CreateSuccessPacket implements Packet {
 
-  type = PacketType.CREATE_SUCCESS;
+  readonly type = PacketType.CREATE_SUCCESS;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class CreateSuccessPacket implements Packet {
    */
   charId: number;
   //#endregion
+
+  constructor() {
+    this.objectId = 0;
+    this.charId = 0;
+  }
 
   read(reader: Reader): void {
     this.objectId = reader.readInt32();

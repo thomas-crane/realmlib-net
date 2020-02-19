@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class HelloPacket implements Packet {
 
-  type = PacketType.HELLO;
+  readonly type = PacketType.HELLO;
   propagate = true;
 
   //#region packet-specific members
@@ -82,6 +82,26 @@ export class HelloPacket implements Packet {
    */
   trailer: string;
   //#endregion
+
+  constructor() {
+    this.buildVersion = '';
+    this.gameId = 0;
+    this.guid = '';
+    this.random1 = 0;
+    this.password = '';
+    this.random2 = 0;
+    this.secret = '';
+    this.keyTime = 0;
+    this.key = [];
+    this.mapJSON = '';
+    this.entryTag = '';
+    this.gameNet = '';
+    this.gameNetUserId = '';
+    this.playPlatform = '';
+    this.platformToken = '';
+    this.userToken = '';
+    this.trailer = '';
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.buildVersion);

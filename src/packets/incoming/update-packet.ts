@@ -13,7 +13,7 @@ import { Writer } from '../../writer';
  */
 export class UpdatePacket implements Packet {
 
-  type = PacketType.UPDATE;
+  readonly type = PacketType.UPDATE;
   propagate = true;
 
   //#region packet-specific members

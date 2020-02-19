@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class ShowEffectPacket implements Packet {
 
-  type = PacketType.SHOWEFFECT;
+  readonly type = PacketType.SHOWEFFECT;
   propagate = true;
 
   //#region packet-specific members
@@ -39,12 +39,19 @@ export class ShowEffectPacket implements Packet {
   duration: number;
   //#endregion
 
+  constructor() {
+    this.effectType = 0;
+    this.targetObjectId = 0;
+    this.pos1 = new WorldPosData();
+    this.pos2 = new WorldPosData();
+    this.color = 0;
+    this.duration = 0;
+  }
+
   read(reader: Reader): void {
     this.effectType = reader.readUnsignedByte();
     this.targetObjectId = reader.readInt32();
-    this.pos1 = new WorldPosData();
     this.pos1.read(reader);
-    this.pos2 = new WorldPosData();
     this.pos2.read(reader);
     this.color = reader.readInt32();
     this.duration = reader.readFloat();

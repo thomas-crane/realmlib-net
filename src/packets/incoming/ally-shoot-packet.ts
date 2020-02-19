@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class AllyShootPacket implements Packet {
 
-  type = PacketType.ALLYSHOOT;
+  readonly type = PacketType.ALLYSHOOT;
   propagate = true;
 
   //#region packet-specific members
@@ -29,6 +29,13 @@ export class AllyShootPacket implements Packet {
    */
   angle: number;
   //#endregion
+
+  constructor() {
+    this.bulletId = 0;
+    this.ownerId = 0;
+    this.containerType = 0;
+    this.angle = 0;
+  }
 
   read(reader: Reader): void {
     this.bulletId = reader.readUnsignedByte();

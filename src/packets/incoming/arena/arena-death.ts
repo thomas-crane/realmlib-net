@@ -8,7 +8,7 @@ import { Writer } from '../../../writer';
  */
 export class ArenaDeathPacket implements Packet {
 
-  type = PacketType.ARENA_DEATH;
+  readonly type = PacketType.ARENA_DEATH;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class ArenaDeathPacket implements Packet {
    */
   cost: number;
   //#endregion
+
+  constructor() {
+    this.cost = 0;
+  }
 
   read(reader: Reader): void {
     this.cost = reader.readInt32();

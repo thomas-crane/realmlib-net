@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class ReskinUnlockPacket implements Packet {
 
-  type = PacketType.RESKIN_UNLOCK;
+  readonly type = PacketType.RESKIN_UNLOCK;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class ReskinUnlockPacket implements Packet {
    */
   skinId: number;
   //#endregion
+
+  constructor() {
+    this.skinId = 0;
+  }
 
   read(reader: Reader): void {
     this.skinId = reader.readInt32();

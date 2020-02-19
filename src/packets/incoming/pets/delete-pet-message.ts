@@ -8,7 +8,7 @@ import { Writer } from '../../../writer';
  */
 export class DeletePetMessage implements Packet {
 
-  type = PacketType.DELETE_PET;
+  readonly type = PacketType.DELETE_PET;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class DeletePetMessage implements Packet {
    */
   petId: number;
   //#endregion
+
+  constructor() {
+    this.petId = 0;
+  }
 
   read(reader: Reader): void {
     this.petId = reader.readInt32();

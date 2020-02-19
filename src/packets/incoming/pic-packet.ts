@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class PicPacket implements Packet {
 
-  type = PacketType.PIC;
+  readonly type = PacketType.PIC;
   propagate = true;
 
   //#region packet-specific members
@@ -25,6 +25,12 @@ export class PicPacket implements Packet {
    */
   bitmapData: number[];
   //#endregion
+
+  constructor() {
+    this.width = 0;
+    this.height = 0;
+    this.bitmapData = [];
+  }
 
   read(reader: Reader): void {
     this.width = reader.readInt32();

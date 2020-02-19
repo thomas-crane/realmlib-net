@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class InvDropPacket implements Packet {
 
-  type = PacketType.INVDROP;
+  readonly type = PacketType.INVDROP;
   propagate = true;
 
   //#region packet-specific members
@@ -19,12 +19,15 @@ export class InvDropPacket implements Packet {
   slotObject: SlotObjectData;
   //#endregion
 
+  constructor() {
+    this.slotObject = new SlotObjectData();
+  }
+
   write(writer: Writer): void {
     this.slotObject.write(writer);
   }
 
   read(reader: Reader): void {
-    this.slotObject = new SlotObjectData();
     this.slotObject.read(reader);
   }
 }

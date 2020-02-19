@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class ChangeGuildRankPacket implements Packet {
 
-  type = PacketType.CHANGEGUILDRANK;
+  readonly type = PacketType.CHANGEGUILDRANK;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class ChangeGuildRankPacket implements Packet {
    */
   guildRank: number;
   //#endregion
+
+  constructor() {
+    this.name = '';
+    this.guildRank = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.name);

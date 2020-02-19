@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class NameResultPacket implements Packet {
 
-  type = PacketType.NAMERESULT;
+  readonly type = PacketType.NAMERESULT;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class NameResultPacket implements Packet {
    */
   errorText: string;
   //#endregion
+
+  constructor() {
+    this.success = false;
+    this.errorText = '';
+  }
 
   read(reader: Reader): void {
     this.success = reader.readBoolean();

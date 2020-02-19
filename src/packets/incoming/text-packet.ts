@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class TextPacket implements Packet {
 
-  type = PacketType.TEXT;
+  readonly type = PacketType.TEXT;
   propagate = true;
 
   //#region packet-specific members
@@ -46,6 +46,17 @@ export class TextPacket implements Packet {
    */
   isSupporter: boolean;
   //#endregion
+
+  constructor() {
+    this.name = '';
+    this.objectId = 0;
+    this.numStars = 0;
+    this.bubbleTime = 0;
+    this.recipient = '';
+    this.text = '';
+    this.cleanText = '';
+    this.isSupporter = false;
+  }
 
   read(reader: Reader): void {
     this.name = reader.readString();

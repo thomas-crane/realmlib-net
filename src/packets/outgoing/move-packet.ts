@@ -11,7 +11,7 @@ import { Writer } from '../../writer';
  */
 export class MovePacket implements Packet {
 
-  type = PacketType.MOVE;
+  readonly type = PacketType.MOVE;
   propagate = true;
 
   //#region packet-specific members
@@ -36,6 +36,9 @@ export class MovePacket implements Packet {
   //#endregion
 
   constructor() {
+    this.tickId = 0;
+    this.time = 0;
+    this.newPosition = new WorldPosData();
     this.records = [];
   }
 
@@ -52,7 +55,6 @@ export class MovePacket implements Packet {
   read(reader: Reader): void {
     this.tickId = reader.readInt32();
     this.time = reader.readInt32();
-    this.newPosition = new WorldPosData();
     this.newPosition.read(reader);
     this.records = new Array(reader.readShort());
     for (let i = 0; i < this.records.length; i++) {

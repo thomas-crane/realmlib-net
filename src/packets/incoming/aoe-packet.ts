@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class AoePacket implements Packet {
 
-  type = PacketType.AOE;
+  readonly type = PacketType.AOE;
   propagate = true;
 
   //#region packet-specific members
@@ -49,8 +49,18 @@ export class AoePacket implements Packet {
   armorPiercing: boolean;
   //#endregion
 
-  read(reader: Reader): void {
+  constructor() {
     this.pos = new WorldPosData();
+    this.radius = 0;
+    this.damage = 0;
+    this.effect = 0;
+    this.duration = 0;
+    this.origType = 0;
+    this.color = 0;
+    this.armorPiercing = false;
+  }
+
+  read(reader: Reader): void {
     this.pos.read(reader);
     this.radius = reader.readFloat();
     this.damage = reader.readUnsignedShort();

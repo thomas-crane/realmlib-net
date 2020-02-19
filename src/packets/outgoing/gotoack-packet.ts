@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class GotoAckPacket implements Packet {
 
-  type = PacketType.GOTOACK;
+  readonly type = PacketType.GOTOACK;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class GotoAckPacket implements Packet {
    */
   time: number;
   //#endregion
+
+  constructor() {
+    this.time = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.time);

@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class GroundDamagePacket implements Packet {
 
-  type = PacketType.GROUNDDAMAGE;
+  readonly type = PacketType.GROUNDDAMAGE;
   propagate = true;
 
   //#region packet-specific members
@@ -23,6 +23,11 @@ export class GroundDamagePacket implements Packet {
   position: WorldPosData;
   //#endregion
 
+  constructor() {
+    this.time = 0;
+    this.position = new WorldPosData();
+  }
+
   write(writer: Writer): void {
     writer.writeInt32(this.time);
     this.position.write(writer);
@@ -30,7 +35,6 @@ export class GroundDamagePacket implements Packet {
 
   read(reader: Reader): void {
     this.time = reader.readInt32();
-    this.position = new WorldPosData();
     this.position.read(reader);
   }
 }

@@ -8,7 +8,7 @@ import { Writer } from '../../../writer';
  */
 export class EnterArenaPacket implements Packet {
 
-  type = PacketType.ENTER_ARENA;
+  readonly type = PacketType.ENTER_ARENA;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class EnterArenaPacket implements Packet {
    */
   currency: number;
   //#endregion
+
+  constructor() {
+    this.currency = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.currency);

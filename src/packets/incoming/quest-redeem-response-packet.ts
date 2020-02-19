@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class QuestRedeemResponsePacket implements Packet {
 
-  type = PacketType.QUEST_REDEEM_RESPONSE;
+  readonly type = PacketType.QUEST_REDEEM_RESPONSE;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class QuestRedeemResponsePacket implements Packet {
    */
   message: string;
   //#endregion
+
+  constructor() {
+    this.ok = false;
+    this.message = '';
+  }
 
   read(reader: Reader): void {
     this.ok = reader.readBoolean();

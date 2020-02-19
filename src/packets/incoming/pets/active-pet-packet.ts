@@ -8,7 +8,7 @@ import { Writer } from '../../../writer';
  */
 export class ActivePetPacket implements Packet {
 
-  type = PacketType.ACTIVEPETUPDATE;
+  readonly type = PacketType.ACTIVEPETUPDATE;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class ActivePetPacket implements Packet {
    */
   instanceId: number;
   //#endregion
+
+  constructor() {
+    this.instanceId = 0;
+  }
 
   read(reader: Reader): void {
     this.instanceId = reader.readInt32();

@@ -22,6 +22,11 @@ export class BuyPacket implements Packet {
   quantity: number;
   //#endregion
 
+  constructor() {
+    this.objectId = 0;
+    this.quantity = 0;
+  }
+
   write(writer: Writer): void {
     writer.writeInt32(this.objectId);
     writer.writeInt32(this.quantity);

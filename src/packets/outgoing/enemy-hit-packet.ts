@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class EnemyHitPacket implements Packet {
 
-  type = PacketType.ENEMYHIT;
+  readonly type = PacketType.ENEMYHIT;
   propagate = true;
 
   //#region packet-specific members
@@ -29,6 +29,13 @@ export class EnemyHitPacket implements Packet {
    */
   kill: boolean;
   //#endregion
+
+  constructor() {
+    this.time = 0;
+    this.bulletId = 0;
+    this.targetId = 0;
+    this.kill = false;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.time);

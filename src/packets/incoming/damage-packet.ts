@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class DamagePacket implements Packet {
 
-  type = PacketType.DAMAGE;
+  readonly type = PacketType.DAMAGE;
   propagate = true;
 
   //#region packet-specific members
@@ -43,7 +43,13 @@ export class DamagePacket implements Packet {
   //#endregion
 
   constructor() {
+    this.targetId = 0;
     this.effects = [];
+    this.damageAmount = 0;
+    this.kill = false;
+    this.armorPierce = false;
+    this.bulletId = 0;
+    this.objectId = 0;
   }
 
   read(reader: Reader): void {

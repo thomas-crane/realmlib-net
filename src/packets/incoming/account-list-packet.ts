@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class AccountListPacket implements Packet {
 
-  type = PacketType.ACCOUNTLIST;
+  readonly type = PacketType.ACCOUNTLIST;
   propagate = true;
 
   //#region packet-specific members
@@ -28,7 +28,9 @@ export class AccountListPacket implements Packet {
   //#endregion
 
   constructor() {
+    this.accountListId = 0;
     this.accountIds = [];
+    this.lockAction = 0;
   }
 
   read(reader: Reader): void {

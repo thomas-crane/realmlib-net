@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class PlayerHitPacket implements Packet {
 
-  type = PacketType.PLAYERHIT;
+  readonly type = PacketType.PLAYERHIT;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class PlayerHitPacket implements Packet {
    */
   objectId: number;
   //#endregion
+
+  constructor() {
+    this.bulletId = 0;
+    this.objectId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeUnsignedByte(this.bulletId);

@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class ClaimDailyRewardMessage implements Packet {
 
-  type = PacketType.CLAIM_LOGIN_REWARD_MSG;
+  readonly type = PacketType.CLAIM_LOGIN_REWARD_MSG;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class ClaimDailyRewardMessage implements Packet {
    */
   claimType: string;
   //#endregion
+
+  constructor() {
+    this.claimKey = '';
+    this.claimType = '';
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.claimKey);

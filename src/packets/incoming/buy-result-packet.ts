@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class BuyResultPacket implements Packet {
 
-  type = PacketType.BUYRESULT;
+  readonly type = PacketType.BUYRESULT;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class BuyResultPacket implements Packet {
    */
   resultString: string;
   //#endregion
+
+  constructor() {
+    this.result = 0;
+    this.resultString = '';
+  }
 
   read(reader: Reader): void {
     this.result = reader.readInt32();

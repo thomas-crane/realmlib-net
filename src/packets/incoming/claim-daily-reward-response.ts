@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class ClaimDailyRewardResponse implements Packet {
 
-  type = PacketType.LOGIN_REWARD_MSG;
+  readonly type = PacketType.LOGIN_REWARD_MSG;
   propagate = true;
 
   //#region packet-specific members
@@ -25,6 +25,12 @@ export class ClaimDailyRewardResponse implements Packet {
    */
   gold: number;
   //#endregion
+
+  constructor() {
+    this.itemId = 0;
+    this.quantity = 0;
+    this.gold = 0;
+  }
 
   read(reader: Reader): void {
     this.itemId = reader.readInt32();

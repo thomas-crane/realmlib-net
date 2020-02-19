@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class PongPacket implements Packet {
 
-  type = PacketType.PONG;
+  readonly type = PacketType.PONG;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class PongPacket implements Packet {
    */
   time: number;
   //#endregion
+
+  constructor() {
+    this.serial = 0;
+    this.time = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.serial);

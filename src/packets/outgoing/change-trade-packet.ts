@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class ChangeTradePacket implements Packet {
 
-  type = PacketType.CHANGETRADE;
+  readonly type = PacketType.CHANGETRADE;
   propagate = true;
 
   //#region packet-specific members
@@ -20,6 +20,10 @@ export class ChangeTradePacket implements Packet {
    */
   offer: boolean[];
   //#endregion
+
+  constructor() {
+    this.offer = [];
+  }
 
   write(writer: Writer): void {
     writer.writeShort(this.offer.length);

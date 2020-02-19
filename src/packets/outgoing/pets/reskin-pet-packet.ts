@@ -9,7 +9,7 @@ import { Writer } from '../../../writer';
  */
 export class ReskinPetPacket implements Packet {
 
-  type = PacketType.PET_CHANGE_FORM_MSG;
+  readonly type = PacketType.PET_CHANGE_FORM_MSG;
   propagate = true;
 
   //#region packet-specific members
@@ -24,6 +24,12 @@ export class ReskinPetPacket implements Packet {
   item: SlotObjectData;
   //#endregion
 
+  constructor() {
+    this.instanceId = 0;
+    this.newPetType = 0;
+    this.item = new SlotObjectData();
+  }
+
   write(writer: Writer): void {
     writer.writeInt32(this.instanceId);
     writer.writeByte(this.newPetType);
@@ -33,7 +39,6 @@ export class ReskinPetPacket implements Packet {
   read(reader: Reader): void {
     this.instanceId = reader.readInt32();
     this.newPetType = reader.readByte();
-    this.item = new SlotObjectData();
     this.item.read(reader);
   }
 }

@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class SquareHitPacket implements Packet {
 
-  type = PacketType.SQUAREHIT;
+  readonly type = PacketType.SQUAREHIT;
   propagate = true;
 
   //#region packet-specific members
@@ -25,6 +25,12 @@ export class SquareHitPacket implements Packet {
    */
   objectId: number;
   //#endregion
+
+  constructor() {
+    this.time = 0;
+    this.bulletId = 0;
+    this.objectId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.time);

@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class QuestFetchResponsePacket implements Packet {
 
-  type = PacketType.QUEST_FETCH_RESPONSE;
+  readonly type = PacketType.QUEST_FETCH_RESPONSE;
   propagate = true;
 
   //#region packet-specific members
@@ -22,6 +22,11 @@ export class QuestFetchResponsePacket implements Packet {
    */
   nextRefreshPrice: number;
   //#endregion
+
+  constructor() {
+    this.quests = [];
+    this.nextRefreshPrice = 0;
+  }
 
   read(reader: Reader): void {
     const questsLen = reader.readShort();

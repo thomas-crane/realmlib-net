@@ -9,7 +9,7 @@ import { Writer } from '../../../writer';
  */
 export class ActivePetUpdateRequestPacket implements Packet {
 
-  type = PacketType.ACTIVE_PET_UPDATE_REQUEST;
+  readonly type = PacketType.ACTIVE_PET_UPDATE_REQUEST;
   propagate = true;
 
   //#region packet-specific members
@@ -22,6 +22,11 @@ export class ActivePetUpdateRequestPacket implements Packet {
    */
   instanceId: number;
   //#endregion
+
+  constructor() {
+    this.commandType = 0;
+    this.instanceId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeByte(this.commandType);

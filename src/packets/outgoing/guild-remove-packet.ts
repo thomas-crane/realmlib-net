@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class GuildRemovePacket implements Packet {
 
-  type = PacketType.GUILDREMOVE;
+  readonly type = PacketType.GUILDREMOVE;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class GuildRemovePacket implements Packet {
    */
   name: string;
   //#endregion
+
+  constructor() {
+    this.name = '';
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.name);

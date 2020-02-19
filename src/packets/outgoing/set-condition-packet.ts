@@ -8,7 +8,7 @@ import { Writer } from '../../writer';
  */
 export class SetConditionPacket implements Packet {
 
-  type = PacketType.SETCONDITION;
+  readonly type = PacketType.SETCONDITION;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class SetConditionPacket implements Packet {
    */
   conditionDuration: number;
   //#endregion
+
+  constructor() {
+    this.conditionEffect = 0;
+    this.conditionDuration = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeByte(this.conditionEffect);

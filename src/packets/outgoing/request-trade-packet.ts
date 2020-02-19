@@ -9,7 +9,7 @@ import { Writer } from '../../writer';
  */
 export class RequestTradePacket implements Packet {
 
-  type = PacketType.REQUESTTRADE;
+  readonly type = PacketType.REQUESTTRADE;
   propagate = true;
 
   //#region packet-specific members
@@ -18,6 +18,10 @@ export class RequestTradePacket implements Packet {
    */
   name: string;
   //#endregion
+
+  constructor() {
+    this.name = '';
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.name);
