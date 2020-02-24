@@ -8,7 +8,8 @@
     "rootDir": "./src",
     "strict": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "lib": ["es2017"]
   },
   "include": [
     "src"
