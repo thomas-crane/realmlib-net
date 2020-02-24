@@ -7,7 +7,7 @@ export class StatData implements DataPacket {
   /**
    * The type of stat.
    */
-  statType = 0;
+  statType: number;
   /**
    * The number value of this stat, if this is not a string stat.
    */
@@ -16,6 +16,12 @@ export class StatData implements DataPacket {
    * The string value of this stat, if this is a string stat.
    */
   stringStatValue: string;
+
+  constructor() {
+    this.statType = 0;
+    this.statValue = 0;
+    this.stringStatValue = '';
+  }
 
   read(reader: Reader): void {
     this.statType = reader.readUnsignedByte();
@@ -35,7 +41,10 @@ export class StatData implements DataPacket {
     }
   }
 
-  private isStringStat(): boolean {
+  /**
+   * Whether or not this stat contains string data.
+   */
+  isStringStat(): boolean {
     switch (this.statType) {
       case StatType.NAME_STAT:
       case StatType.GUILD_NAME_STAT:

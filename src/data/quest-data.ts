@@ -47,6 +47,19 @@ export class QuestData implements DataPacket {
    */
   category: number;
 
+  constructor() {
+    this.id = '';
+    this.name = '';
+    this.description = '';
+    this.expiration = '';
+    this.requirements = [];
+    this.rewards = [];
+    this.completed = false;
+    this.itemOfChoice = false;
+    this.repeatable = false;
+    this.category = 0;
+  }
+
   read(reader: Reader): void {
     this.id = reader.readString();
     this.name = reader.readString();
