@@ -13,7 +13,6 @@ export class RC4 {
    * the Keystream State with the given key.
    * @param key The key to use in the Keystream.
    */
-  constructor(key: string);
   constructor(key: Buffer | string) {
     if (typeof key === 'string') {
       this.key = Buffer.from(key, 'hex');
