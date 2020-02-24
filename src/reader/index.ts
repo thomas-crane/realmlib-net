@@ -3,6 +3,10 @@
  */
 export interface Reader {
   /**
+   * The number of bytes which are still available to read from the data source.
+   */
+  bytesRemaining: number;
+  /**
    * Reads a 4 byte integer.
    */
   readInt32(): number;

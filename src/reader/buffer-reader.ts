@@ -5,6 +5,9 @@ import { Reader } from '.';
  */
 export class BufferReader implements Reader {
 
+  get bytesRemaining(): number {
+    return this.buffer.length - this.index;
+  }
   /**
    * The current index of the buffer.
    */
