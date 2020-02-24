@@ -22,7 +22,7 @@ export interface Packet extends DataPacket {
   /**
    * The type of packet.
    */
-  type: PacketType;
+  readonly type: PacketType;
   /**
    * Whether or not the packet should keep invoking packet hooks.
    *
