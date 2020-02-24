@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class ServerPlayerShootPacket implements Packet {
 
   readonly type = PacketType.SERVERPLAYERSHOOT;
-  propagate = true;
 
   //#region packet-specific members
   /**

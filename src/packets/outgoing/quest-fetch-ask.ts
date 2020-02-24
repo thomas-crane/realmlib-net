@@ -7,7 +7,6 @@ import { PacketType } from '../../packet-type';
 export class QuestFetchAskPacket implements Packet {
 
   readonly type = PacketType.QUEST_FETCH_ASK;
-  propagate = true;
 
   //#region packet-specific members
 

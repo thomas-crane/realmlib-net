@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class TeleportPacket implements Packet {
 
   readonly type = PacketType.TELEPORT;
-  propagate = true;
 
   //#region packet-specific members
   /**

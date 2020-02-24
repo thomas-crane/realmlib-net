@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class DeathPacket implements Packet {
 
   readonly type = PacketType.DEATH;
-  propagate = true;
 
   //#region packet-specific members
   /**

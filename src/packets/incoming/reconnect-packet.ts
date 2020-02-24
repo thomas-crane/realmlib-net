@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class ReconnectPacket implements Packet {
 
   readonly type = PacketType.RECONNECT;
-  propagate = true;
 
   //#region packet-specific members
   /**

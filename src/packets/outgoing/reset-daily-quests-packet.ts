@@ -7,7 +7,6 @@ import { PacketType } from '../../packet-type';
 export class ResetDailyQuestsPacket implements Packet {
 
   readonly type = PacketType.RESET_DAILY_QUESTS;
-  propagate = true;
 
   //#region packet-specific members
 

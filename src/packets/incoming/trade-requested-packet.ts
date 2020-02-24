@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class TradeRequestedPacket implements Packet {
 
   readonly type = PacketType.TRADEREQUESTED;
-  propagate = true;
 
   //#region packet-specific members
   /**

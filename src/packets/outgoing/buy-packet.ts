@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class BuyPacket implements Packet {
 
   type = PacketType.BUY;
-  propagate = true;
 
   //#region packet-specific members
   /**

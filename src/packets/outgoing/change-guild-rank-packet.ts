@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class ChangeGuildRankPacket implements Packet {
 
   readonly type = PacketType.CHANGEGUILDRANK;
-  propagate = true;
 
   //#region packet-specific members
   /**

@@ -8,7 +8,6 @@ import { PacketType } from '../../packet-type';
 export class EscapePacket implements Packet {
 
   readonly type = PacketType.ESCAPE;
-  propagate = true;
 
   //#region packet-specific members
 

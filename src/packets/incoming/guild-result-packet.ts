@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class GuildResultPacket implements Packet {
 
   readonly type = PacketType.GUILDRESULT;
-  propagate = true;
 
   //#region packet-specific members
   /**

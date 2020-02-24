@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class QuestObjectIdPacket implements Packet {
 
   readonly type = PacketType.QUESTOBJID;
-  propagate = true;
 
   //#region packet-specific members
   /**

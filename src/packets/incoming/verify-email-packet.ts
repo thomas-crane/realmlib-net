@@ -7,7 +7,6 @@ import { PacketType } from '../../packet-type';
 export class VerifyEmailPacket implements Packet {
 
   readonly type = PacketType.VERIFY_EMAIL;
-  propagate = true;
 
   //#region packet-specific members
 

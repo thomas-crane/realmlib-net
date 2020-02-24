@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class KeyInfoRequestPacket implements Packet {
 
   readonly type = PacketType.KEY_INFO_REQUEST;
-  propagate = true;
 
   //#region packet-specific members
   /**

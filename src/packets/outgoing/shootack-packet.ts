@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class ShootAckPacket implements Packet {
 
   type = PacketType.SHOOTACK;
-  propagate = true;
 
   //#region packet-specific members
   /**

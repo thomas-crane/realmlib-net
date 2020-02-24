@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class NameResultPacket implements Packet {
 
   readonly type = PacketType.NAMERESULT;
-  propagate = true;
 
   //#region packet-specific members
   /**

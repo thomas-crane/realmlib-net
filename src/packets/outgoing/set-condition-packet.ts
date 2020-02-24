@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class SetConditionPacket implements Packet {
 
   readonly type = PacketType.SETCONDITION;
-  propagate = true;
 
   //#region packet-specific members
   /**

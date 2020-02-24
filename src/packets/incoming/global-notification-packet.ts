@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class GlobalNotificationPacket implements Packet {
 
   readonly type = PacketType.GLOBAL_NOTIFICATION;
-  propagate = true;
 
   //#region packet-specific members
   /**

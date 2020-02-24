@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class NewTickPacket implements Packet {
 
   readonly type = PacketType.NEWTICK;
-  propagate = true;
 
   //#region packet-specific members
   /**

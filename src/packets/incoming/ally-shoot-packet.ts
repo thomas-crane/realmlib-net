@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class AllyShootPacket implements Packet {
 
   readonly type = PacketType.ALLYSHOOT;
-  propagate = true;
 
   //#region packet-specific members
   /**

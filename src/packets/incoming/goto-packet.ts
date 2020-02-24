@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class GotoPacket implements Packet {
 
   readonly type = PacketType.GOTO;
-  propagate = true;
 
   //#region packet-specific members
   /**

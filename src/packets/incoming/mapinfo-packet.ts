@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class MapInfoPacket implements Packet {
 
   readonly type = PacketType.MAPINFO;
-  propagate = true;
 
   //#region packet-specific members
   /**

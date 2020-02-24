@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class ChooseNamePacket implements Packet {
 
   readonly type = PacketType.CHOOSENAME;
-  propagate = true;
 
   //#region packet-specific members
   /**

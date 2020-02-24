@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class TradeStartPacket implements Packet {
 
   readonly type = PacketType.TRADESTART;
-  propagate = true;
 
   //#region packet-specific members
   /**

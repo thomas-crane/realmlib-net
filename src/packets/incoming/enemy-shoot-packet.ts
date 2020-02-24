@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class EnemyShootPacket implements Packet {
 
   readonly type = PacketType.ENEMYSHOOT;
-  propagate = true;
 
   //#region packet-specific members
   /**

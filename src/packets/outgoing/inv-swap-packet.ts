@@ -11,7 +11,6 @@ import { Writer } from '../../writer';
 export class InvSwapPacket implements Packet {
 
   readonly type = PacketType.INVSWAP;
-  propagate = true;
 
   //#region packet-specific members
   /**

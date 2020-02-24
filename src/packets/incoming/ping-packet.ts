@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class PingPacket implements Packet {
 
   readonly type = PacketType.PING;
-  propagate = true;
 
   //#region packet-specific members
   /**

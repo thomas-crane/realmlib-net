@@ -8,7 +8,6 @@ import { PacketType } from '../../packet-type';
 export class GoToQuestRoomPacket implements Packet {
 
   readonly type = PacketType.QUEST_ROOM_MSG;
-  propagate = true;
 
   //#region packet-specific members
 

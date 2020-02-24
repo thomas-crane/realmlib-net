@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class GroundDamagePacket implements Packet {
 
   readonly type = PacketType.GROUNDDAMAGE;
-  propagate = true;
 
   //#region packet-specific members
   /**

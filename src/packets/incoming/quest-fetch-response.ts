@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class QuestFetchResponsePacket implements Packet {
 
   readonly type = PacketType.QUEST_FETCH_RESPONSE;
-  propagate = true;
 
   //#region packet-specific members
   /**

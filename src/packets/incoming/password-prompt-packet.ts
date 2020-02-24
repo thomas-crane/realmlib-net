@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class PasswordPromptPacket implements Packet {
 
   readonly type = PacketType.PASSWORD_PROMPT;
-  propagate = true;
 
   //#region packet-specific members
   /**

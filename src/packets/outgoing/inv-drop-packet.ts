@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class InvDropPacket implements Packet {
 
   readonly type = PacketType.INVDROP;
-  propagate = true;
 
   //#region packet-specific members
   /**

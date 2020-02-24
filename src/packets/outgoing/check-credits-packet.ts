@@ -7,7 +7,6 @@ import { PacketType } from '../../packet-type';
 export class CheckCreditsPacket implements Packet {
 
   readonly type = PacketType.CHECKCREDITS;
-  propagate = true;
 
   //#region packet-specific members
 

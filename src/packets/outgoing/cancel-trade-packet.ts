@@ -7,7 +7,6 @@ import { PacketType } from '../../packet-type';
 export class CancelTradePacket implements Packet {
 
   readonly type = PacketType.CANCELTRADE;
-  propagate = true;
 
   //#region packet-specific members
 

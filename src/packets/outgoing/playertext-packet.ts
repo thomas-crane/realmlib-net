@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class PlayerTextPacket implements Packet {
 
   readonly type = PacketType.PLAYERTEXT;
-  propagate = true;
 
   //#region packet-specific members
   /**

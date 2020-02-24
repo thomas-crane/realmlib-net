@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class EditAccountListPacket implements Packet {
 
   readonly type = PacketType.EDITACCOUNTLIST;
-  propagate = true;
 
   //#region packet-specific members
   /**

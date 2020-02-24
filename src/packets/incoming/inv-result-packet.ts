@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class InvResultPacket implements Packet {
 
   readonly type = PacketType.INVRESULT;
-  propagate = true;
 
   //#region packet-specific members
   /**

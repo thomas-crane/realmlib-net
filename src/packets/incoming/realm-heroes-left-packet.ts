@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class RealmHeroesLeftPacket implements Packet {
 
   readonly type = PacketType.REALM_HERO_LEFT_MSG;
-  propagate = true;
 
   //#region packet-specific members
   /**

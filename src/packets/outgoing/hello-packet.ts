@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class HelloPacket implements Packet {
 
   readonly type = PacketType.HELLO;
-  propagate = true;
 
   //#region packet-specific members
   /**

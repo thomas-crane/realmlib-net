@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class UsePortalPacket implements Packet {
 
   readonly type = PacketType.USEPORTAL;
-  propagate = true;
 
   //#region packet-specific members
   /**

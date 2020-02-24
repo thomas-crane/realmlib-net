@@ -14,7 +14,6 @@ import { Writer } from '../../writer';
 export class UpdatePacket implements Packet {
 
   readonly type = PacketType.UPDATE;
-  propagate = true;
 
   //#region packet-specific members
   /**

@@ -7,7 +7,6 @@ import { PacketType } from '../../packet-type';
 export class UpdateAckPacket implements Packet {
 
   readonly type = PacketType.UPDATEACK;
-  propagate = true;
 
   //#region packet-specific members
 

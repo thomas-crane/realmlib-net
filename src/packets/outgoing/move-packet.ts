@@ -12,7 +12,6 @@ import { Writer } from '../../writer';
 export class MovePacket implements Packet {
 
   readonly type = PacketType.MOVE;
-  propagate = true;
 
   //#region packet-specific members
   /**

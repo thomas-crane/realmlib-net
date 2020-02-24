@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class FailurePacket implements Packet {
 
   readonly type = PacketType.FAILURE;
-  propagate = true;
 
   //#region packet-specific members
   /**

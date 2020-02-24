@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class GotoAckPacket implements Packet {
 
   readonly type = PacketType.GOTOACK;
-  propagate = true;
 
   //#region packet-specific members
   /**

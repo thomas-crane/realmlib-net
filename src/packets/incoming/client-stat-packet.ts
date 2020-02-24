@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class ClientStatPacket implements Packet {
 
   readonly type = PacketType.CLIENTSTAT;
-  propagate = true;
 
   //#region packet-specific members
   /**

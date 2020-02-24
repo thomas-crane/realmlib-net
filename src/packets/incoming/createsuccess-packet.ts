@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class CreateSuccessPacket implements Packet {
 
   readonly type = PacketType.CREATE_SUCCESS;
-  propagate = true;
 
   //#region packet-specific members
   /**

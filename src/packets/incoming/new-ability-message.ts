@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class NewAbilityMessage implements Packet {
 
   readonly type = PacketType.NEW_ABILITY;
-  propagate = true;
 
   //#region packet-specific members
   /**

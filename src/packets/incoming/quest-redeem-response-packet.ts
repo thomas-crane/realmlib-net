@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class QuestRedeemResponsePacket implements Packet {
 
   readonly type = PacketType.QUEST_REDEEM_RESPONSE;
-  propagate = true;
 
   //#region packet-specific members
   /**

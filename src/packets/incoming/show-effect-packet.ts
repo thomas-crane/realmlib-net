@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class ShowEffectPacket implements Packet {
 
   readonly type = PacketType.SHOWEFFECT;
-  propagate = true;
 
   //#region packet-specific members
   /**

@@ -11,7 +11,6 @@ import { Writer } from '../../writer';
 export class TradeDonePacket implements Packet {
 
   readonly type = PacketType.TRADEDONE;
-  propagate = true;
 
   //#region packet-specific members
   /**

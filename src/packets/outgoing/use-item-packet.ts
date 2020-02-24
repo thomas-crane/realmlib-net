@@ -11,7 +11,6 @@ import { Writer } from '../../writer';
 export class UseItemPacket implements Packet {
 
   readonly type = PacketType.USEITEM;
-  propagate = true;
 
   //#region packet-specific members
   /**

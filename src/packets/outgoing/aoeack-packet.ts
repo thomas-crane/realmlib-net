@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class AoeAckPacket implements Packet {
 
   readonly type = PacketType.AOEACK;
-  propagate = true;
 
   //#region packet-specific members
   /**

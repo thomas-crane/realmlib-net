@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class ReskinUnlockPacket implements Packet {
 
   readonly type = PacketType.RESKIN_UNLOCK;
-  propagate = true;
 
   //#region packet-specific members
   /**

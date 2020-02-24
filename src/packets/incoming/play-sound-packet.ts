@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class PlaySoundPacket implements Packet {
 
   readonly type = PacketType.PLAYSOUND;
-  propagate = true;
 
   //#region packet-specific members
   /**

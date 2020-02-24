@@ -10,7 +10,6 @@ import { Writer } from '../../writer';
 export class AccountListPacket implements Packet {
 
   readonly type = PacketType.ACCOUNTLIST;
-  propagate = true;
 
   //#region packet-specific members
   /**

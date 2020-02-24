@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class LoadPacket implements Packet {
 
   readonly type = PacketType.LOAD;
-  propagate = true;
 
   //#region packet-specific members
   /**

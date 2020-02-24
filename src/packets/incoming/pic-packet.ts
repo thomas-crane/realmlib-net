@@ -9,7 +9,6 @@ import { Writer } from '../../writer';
 export class PicPacket implements Packet {
 
   readonly type = PacketType.PIC;
-  propagate = true;
 
   //#region packet-specific members
   /**
