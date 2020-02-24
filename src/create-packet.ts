@@ -108,6 +108,7 @@ export function createPacket(type: PacketType.CREATEGUILD): OutgoingPackets.Crea
 export function createPacket(type: PacketType.PET_CHANGE_SKIN_MSG): OutgoingPackets.ChangePetSkinPacket;
 export function createPacket(type: PacketType.REALM_HERO_LEFT_MSG): IncomingPackets.RealmHeroesLeftPacket;
 export function createPacket(type: PacketType.RESET_DAILY_QUESTS): OutgoingPackets.ResetDailyQuestsPacket;
+export function createPacket(type: PacketType): Packet;
 export function createPacket(type: PacketType): Packet {
   if (typeof type !== 'string') {
     throw new TypeError(`Parameter "type" must be a string, not ${typeof type}`);
