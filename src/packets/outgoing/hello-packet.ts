@@ -120,5 +120,6 @@ export class HelloPacket implements Packet {
     this.playPlatform = reader.readString();
     this.platformToken = reader.readString();
     this.userToken = reader.readString();
+    this.trailer = reader.readString();
   }
 }
