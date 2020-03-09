@@ -22,15 +22,27 @@ export class FailurePacket implements Packet {
    * A description of the error.
    */
   errorDescription: string;
+  /**
+   * > Unknown.
+   */
+  errorPlace: string;
+  /**
+   * > Unknown.
+   */
+  errorConnectionId: string;
   //#endregion
 
   read(reader: Reader): void {
     this.errorId = reader.readInt32();
     this.errorDescription = reader.readString();
+    this.errorPlace = reader.readString();
+    this.errorConnectionId = reader.readString();
   }
 
   write(writer: Writer): void {
     writer.writeInt32(this.errorId);
     writer.writeString(this.errorDescription);
+    writer.writeString(this.errorPlace);
+    writer.writeString(this.errorConnectionId);
   }
 }

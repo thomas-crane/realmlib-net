@@ -64,6 +64,10 @@ export class MapInfoPacket implements Packet {
    * > Unkown.
    */
   extraXML: string[];
+  /**
+   * > Unknown.
+   */
+  connectionGuid: string;
   //#endregion
 
   constructor() {
@@ -83,6 +87,7 @@ export class MapInfoPacket implements Packet {
     this.allowPlayerTeleport = reader.readBoolean();
     this.showDisplays = reader.readBoolean();
     this.maxPlayers = reader.readShort();
+    this.connectionGuid = reader.readString();
     this.clientXML = new Array<string>(reader.readShort());
     for (let i = 0; i < this.clientXML.length; i++) {
       this.clientXML[i] = reader.readStringUTF32();
@@ -105,6 +110,7 @@ export class MapInfoPacket implements Packet {
     writer.writeBoolean(this.allowPlayerTeleport);
     writer.writeBoolean(this.showDisplays);
     writer.writeShort(this.maxPlayers);
+    writer.writeString(this.connectionGuid);
     writer.writeShort(this.clientXML.length);
     for (const xml of this.clientXML) {
       writer.writeStringUTF32(xml);

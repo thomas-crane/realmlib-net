@@ -81,6 +81,10 @@ export class HelloPacket implements Packet {
    * A random string which is appended to the end of the hello packet.
    */
   trailer: string;
+  /**
+   * > Unknown.
+   */
+  previousConnectionGuid: string;
   //#endregion
 
   write(writer: Writer): void {
@@ -101,6 +105,7 @@ export class HelloPacket implements Packet {
     writer.writeString(this.platformToken);
     writer.writeString(this.userToken);
     writer.writeString(this.trailer);
+    writer.writeString(this.previousConnectionGuid);
   }
 
   read(reader: Reader): void {
@@ -121,5 +126,6 @@ export class HelloPacket implements Packet {
     this.platformToken = reader.readString();
     this.userToken = reader.readString();
     this.trailer = reader.readString();
+    this.previousConnectionGuid = reader.readString();
   }
 }
