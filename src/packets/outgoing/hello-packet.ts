@@ -80,6 +80,10 @@ export class HelloPacket implements Packet {
    * A random string which is appended to the end of the hello packet.
    */
   trailer: string;
+  /**
+   * The connection guid of the last map info packet.
+   */
+  previousConnectionGuid: string;
   //#endregion
 
   constructor() {
@@ -100,6 +104,7 @@ export class HelloPacket implements Packet {
     this.platformToken = '';
     this.userToken = '';
     this.trailer = '';
+    this.previousConnectionGuid = '';
   }
 
   write(writer: Writer): void {
@@ -120,6 +125,7 @@ export class HelloPacket implements Packet {
     writer.writeString(this.platformToken);
     writer.writeString(this.userToken);
     writer.writeString(this.trailer);
+    writer.writeString(this.previousConnectionGuid);
   }
 
   read(reader: Reader): void {
@@ -139,5 +145,6 @@ export class HelloPacket implements Packet {
     this.playPlatform = reader.readString();
     this.platformToken = reader.readString();
     this.userToken = reader.readString();
+    this.previousConnectionGuid = reader.readString();
   }
 }

@@ -52,6 +52,14 @@ export class MapInfoPacket implements Packet {
    */
   showDisplays: boolean;
   /**
+   * The number of players allowed in this map.
+   */
+  maxPlayers: number;
+  /**
+   * The connection guid to use for the hello packet.
+   */
+  connectionGuid: string;
+  /**
    * > Unkown.
    */
   clientXML: string[];
@@ -72,6 +80,8 @@ export class MapInfoPacket implements Packet {
     this.background = 0;
     this.allowPlayerTeleport = false;
     this.showDisplays = false;
+    this.maxPlayers = 0;
+    this.connectionGuid = '';
     this.clientXML = [];
     this.extraXML = [];
   }
@@ -87,6 +97,8 @@ export class MapInfoPacket implements Packet {
     this.difficulty = reader.readInt32();
     this.allowPlayerTeleport = reader.readBoolean();
     this.showDisplays = reader.readBoolean();
+    this.maxPlayers = reader.readShort();
+    this.connectionGuid = reader.readString();
     this.clientXML = new Array<string>(reader.readShort());
     for (let i = 0; i < this.clientXML.length; i++) {
       this.clientXML[i] = reader.readStringUTF32();
@@ -108,6 +120,8 @@ export class MapInfoPacket implements Packet {
     writer.writeInt32(this.difficulty);
     writer.writeBoolean(this.allowPlayerTeleport);
     writer.writeBoolean(this.showDisplays);
+    writer.writeShort(this.maxPlayers);
+    writer.writeString(this.connectionGuid);
     writer.writeShort(this.clientXML.length);
     for (const xml of this.clientXML) {
       writer.writeStringUTF32(xml);
