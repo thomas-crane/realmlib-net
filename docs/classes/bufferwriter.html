@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Writer | @realmlib/net</title>
+	<title>BufferWriter | @realmlib/net</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="writer.html">Writer</a>
+					<a href="bufferwriter.html">BufferWriter</a>
 				</li>
 			</ul>
-			<h1>Class Writer</h1>
+			<h1>Class BufferWriter</h1>
 		</div>
 	</div>
 </header>
@@ -67,8 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A wrapper class which provides methods
-						for writing data to a buffer.</p>
+						<p>A writer which uses a <code>Buffer</code> as a sink.</p>
 					</div>
 				</div>
 			</section>
@@ -76,8 +75,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Writer</span>
+						<span class="target">BufferWriter</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><span class="tsd-signature-type">Writer</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -87,33 +92,36 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="writer.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="bufferwriter.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="bufferwriter.html#buffer" class="tsd-kind-icon">buffer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="bufferwriter.html#index" class="tsd-kind-icon">index</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="writer.html#buffer" class="tsd-kind-icon">buffer</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="writer.html#index" class="tsd-kind-icon">index</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="writer.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="bufferwriter.html#byteswritten" class="tsd-kind-icon">bytes<wbr>Written</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="writer.html#checkcapacity" class="tsd-kind-icon">check<wbr>Capacity</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="writer.html#writeboolean" class="tsd-kind-icon">write<wbr>Boolean</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="writer.html#writebyte" class="tsd-kind-icon">write<wbr>Byte</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="writer.html#writebytearray" class="tsd-kind-icon">write<wbr>Byte<wbr>Array</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="writer.html#writefloat" class="tsd-kind-icon">write<wbr>Float</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="writer.html#writeheader" class="tsd-kind-icon">write<wbr>Header</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="writer.html#writeint32" class="tsd-kind-icon">write<wbr>Int32</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="writer.html#writeshort" class="tsd-kind-icon">write<wbr>Short</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="writer.html#writestring" class="tsd-kind-icon">write<wbr>String</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="writer.html#writestringutf32" class="tsd-kind-icon">write<wbr>StringUTF32</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="writer.html#writeuint32" class="tsd-kind-icon">writeUInt32</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="writer.html#writeunsignedbyte" class="tsd-kind-icon">write<wbr>Unsigned<wbr>Byte</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="writer.html#writeunsignedshort" class="tsd-kind-icon">write<wbr>Unsigned<wbr>Short</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bufferwriter.html#writeboolean" class="tsd-kind-icon">write<wbr>Boolean</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bufferwriter.html#writebyte" class="tsd-kind-icon">write<wbr>Byte</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bufferwriter.html#writebytearray" class="tsd-kind-icon">write<wbr>Byte<wbr>Array</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bufferwriter.html#writefloat" class="tsd-kind-icon">write<wbr>Float</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bufferwriter.html#writeint32" class="tsd-kind-icon">write<wbr>Int32</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bufferwriter.html#writeshort" class="tsd-kind-icon">write<wbr>Short</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bufferwriter.html#writestring" class="tsd-kind-icon">write<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bufferwriter.html#writestringutf32" class="tsd-kind-icon">write<wbr>StringUTF32</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bufferwriter.html#writeuint32" class="tsd-kind-icon">writeUInt32</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bufferwriter.html#writeunsignedbyte" class="tsd-kind-icon">write<wbr>Unsigned<wbr>Byte</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bufferwriter.html#writeunsignedshort" class="tsd-kind-icon">write<wbr>Unsigned<wbr>Short</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,102 +133,91 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Writer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="writer.html" class="tsd-signature-type">Writer</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Buffer<wbr>Writer<span class="tsd-signature-symbol">(</span>buffer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="bufferwriter.html" class="tsd-signature-type">BufferWriter</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L16">writer.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L19">src/writer/buffer-writer.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a new <code>Writer</code> and initialises the
-									wrapped buffer to the default size of 8.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="writer.html" class="tsd-signature-type">Writer</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="buffer" class="tsd-anchor"></a>
-					<h3>buffer</h3>
-					<div class="tsd-signature tsd-kind-icon">buffer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Buffer</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L14">writer.ts:14</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The wrapped buffer.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="index" class="tsd-anchor"></a>
-					<h3>index</h3>
-					<div class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L10">writer.ts:10</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The current index of the buffer.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="size" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> size</h3>
-					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L16">writer.ts:16</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="checkcapacity" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> check<wbr>Capacity</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">check<wbr>Capacity<span class="tsd-signature-symbol">(</span>addedBytes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L181">writer.ts:181</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Ensures there is enough capacity in the current buffer to store <code>addedBytes</code> more bytes.</p>
+									<p>Creates a new <code>BufferWriter</code> which will use the given <code>Buffer</code> as a sink.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>addedBytes: <span class="tsd-signature-type">number</span></h5>
+									<h5>buffer: <span class="tsd-signature-type">Buffer</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The number of bytes which need to be added.</p>
+										<div class="lead">
+											<p>The buffer to use as a sink.</p>
+										</div>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="bufferwriter.html" class="tsd-signature-type">BufferWriter</a></h4>
 						</li>
 					</ul>
 				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="buffer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> buffer</h3>
+					<div class="tsd-signature tsd-kind-icon">buffer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Buffer</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L19">src/writer/buffer-writer.ts:19</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The sink of this writer.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="index" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> index</h3>
+					<div class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L15">src/writer/buffer-writer.ts:15</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The current write position.</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="byteswritten" class="tsd-anchor"></a>
+					<h3>bytes<wbr>Written</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> bytesWritten<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L8">src/writer/buffer-writer.ts:8</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="writeboolean" class="tsd-anchor"></a>
 					<h3>write<wbr>Boolean</h3>
@@ -231,21 +228,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L113">writer.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L72">src/writer/buffer-writer.ts:72</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Writes a single byte to the buffer. Writes <code>1</code> if the value is <code>true</code> and <code>0</code> otherwise.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value to write.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -262,21 +251,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L89">writer.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L58">src/writer/buffer-writer.ts:58</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Writes a 1 byte integer to the buffer.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value to write.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -293,21 +274,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L137">writer.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L87">src/writer/buffer-writer.ts:87</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Writes the length of the array as a 2 byte integer, then writes <code>length</code> bytes to the buffer.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value to write.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -324,52 +297,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L125">writer.ts:125</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L80">src/writer/buffer-writer.ts:80</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Writes a 4 byte floating point value to the buffer.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value to write.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="writeheader" class="tsd-anchor"></a>
-					<h3>write<wbr>Header</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">write<wbr>Header<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L32">writer.ts:32</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Writes a packet header to the first 5 bytes of this writer&#39;s buffer.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>id: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The id to write to the header.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -386,21 +320,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L41">writer.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L30">src/writer/buffer-writer.ts:30</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Writes a 4 byte integer to the buffer.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value to write.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -417,21 +343,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L65">writer.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L44">src/writer/buffer-writer.ts:44</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Writes a 2 byte integer to the buffer.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value to write.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -448,21 +366,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L153">writer.ts:153</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L98">src/writer/buffer-writer.ts:98</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Writes the length of the string as a 2 byte integer, then writes the string to the buffer.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value to write.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -479,21 +389,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L167">writer.ts:167</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L107">src/writer/buffer-writer.ts:107</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The same as <code>writeString()</code>, but writes 4 bytes for the length.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value to write.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -510,21 +412,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L53">writer.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L37">src/writer/buffer-writer.ts:37</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Writes a 4 byte unsigned integer to the buffer.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value to write.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -541,21 +435,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L101">writer.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L65">src/writer/buffer-writer.ts:65</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Writes a 1 byte unsigned integer to the buffer.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value to write.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -572,21 +458,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/writer.ts#L77">writer.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/writer/buffer-writer.ts#L51">src/writer/buffer-writer.ts:51</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Writes a 2 byte unsigned integer to the buffer.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The value to write.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -608,58 +486,52 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="writer.html" class="tsd-kind-icon">Writer</a>
+						<a href="bufferwriter.html" class="tsd-kind-icon">Buffer<wbr>Writer</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="writer.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="writer.html#buffer" class="tsd-kind-icon">buffer</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="writer.html#index" class="tsd-kind-icon">index</a>
+								<a href="bufferwriter.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="writer.html#size" class="tsd-kind-icon">size</a>
+								<a href="bufferwriter.html#buffer" class="tsd-kind-icon">buffer</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="writer.html#checkcapacity" class="tsd-kind-icon">check<wbr>Capacity</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="bufferwriter.html#index" class="tsd-kind-icon">index</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="writer.html#writeboolean" class="tsd-kind-icon">write<wbr>Boolean</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="writer.html#writebyte" class="tsd-kind-icon">write<wbr>Byte</a>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="bufferwriter.html#byteswritten" class="tsd-kind-icon">bytes<wbr>Written</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="writer.html#writebytearray" class="tsd-kind-icon">write<wbr>Byte<wbr>Array</a>
+								<a href="bufferwriter.html#writeboolean" class="tsd-kind-icon">write<wbr>Boolean</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="writer.html#writefloat" class="tsd-kind-icon">write<wbr>Float</a>
+								<a href="bufferwriter.html#writebyte" class="tsd-kind-icon">write<wbr>Byte</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="writer.html#writeheader" class="tsd-kind-icon">write<wbr>Header</a>
+								<a href="bufferwriter.html#writebytearray" class="tsd-kind-icon">write<wbr>Byte<wbr>Array</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="writer.html#writeint32" class="tsd-kind-icon">write<wbr>Int32</a>
+								<a href="bufferwriter.html#writefloat" class="tsd-kind-icon">write<wbr>Float</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="writer.html#writeshort" class="tsd-kind-icon">write<wbr>Short</a>
+								<a href="bufferwriter.html#writeint32" class="tsd-kind-icon">write<wbr>Int32</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="writer.html#writestring" class="tsd-kind-icon">write<wbr>String</a>
+								<a href="bufferwriter.html#writeshort" class="tsd-kind-icon">write<wbr>Short</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="writer.html#writestringutf32" class="tsd-kind-icon">write<wbr>StringUTF32</a>
+								<a href="bufferwriter.html#writestring" class="tsd-kind-icon">write<wbr>String</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="writer.html#writeuint32" class="tsd-kind-icon">writeUInt32</a>
+								<a href="bufferwriter.html#writestringutf32" class="tsd-kind-icon">write<wbr>StringUTF32</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="writer.html#writeunsignedbyte" class="tsd-kind-icon">write<wbr>Unsigned<wbr>Byte</a>
+								<a href="bufferwriter.html#writeuint32" class="tsd-kind-icon">writeUInt32</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="writer.html#writeunsignedshort" class="tsd-kind-icon">write<wbr>Unsigned<wbr>Short</a>
+								<a href="bufferwriter.html#writeunsignedbyte" class="tsd-kind-icon">write<wbr>Unsigned<wbr>Byte</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="bufferwriter.html#writeunsignedshort" class="tsd-kind-icon">write<wbr>Unsigned<wbr>Short</a>
 							</li>
 						</ul>
 					</li>

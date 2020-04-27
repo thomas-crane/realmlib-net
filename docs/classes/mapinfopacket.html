@@ -101,13 +101,14 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#allowplayerteleport" class="tsd-kind-icon">allow<wbr>Player<wbr>Teleport</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#background" class="tsd-kind-icon">background</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#clientxml" class="tsd-kind-icon">clientXML</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#connectionguid" class="tsd-kind-icon">connection<wbr>Guid</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#difficulty" class="tsd-kind-icon">difficulty</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#displayname" class="tsd-kind-icon">display<wbr>Name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#extraxml" class="tsd-kind-icon">extraXML</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#fp" class="tsd-kind-icon">fp</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#height" class="tsd-kind-icon">height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#maxplayers" class="tsd-kind-icon">max<wbr>Players</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#propagate" class="tsd-kind-icon">propagate</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#realmname" class="tsd-kind-icon">realm<wbr>Name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#showdisplays" class="tsd-kind-icon">show<wbr>Displays</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mapinfopacket.html#type" class="tsd-kind-icon">type</a></li>
@@ -136,7 +137,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L62">packets/incoming/mapinfo-packet.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L69">src/packets/incoming/mapinfo-packet.ts:69</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="mapinfopacket.html" class="tsd-signature-type">MapInfoPacket</a></h4>
@@ -152,7 +153,7 @@
 					<div class="tsd-signature tsd-kind-icon">allow<wbr>Player<wbr>Teleport<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L50">packets/incoming/mapinfo-packet.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L49">src/packets/incoming/mapinfo-packet.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -167,7 +168,7 @@
 					<div class="tsd-signature tsd-kind-icon">background<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L46">packets/incoming/mapinfo-packet.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L45">src/packets/incoming/mapinfo-packet.ts:45</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -184,7 +185,7 @@
 					<div class="tsd-signature tsd-kind-icon">clientXML<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L58">packets/incoming/mapinfo-packet.ts:58</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L65">src/packets/incoming/mapinfo-packet.ts:65</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -196,12 +197,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="connectionguid" class="tsd-anchor"></a>
+					<h3>connection<wbr>Guid</h3>
+					<div class="tsd-signature tsd-kind-icon">connection<wbr>Guid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L61">src/packets/incoming/mapinfo-packet.ts:61</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The connection guid to use for the hello packet.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="difficulty" class="tsd-anchor"></a>
 					<h3>difficulty</h3>
 					<div class="tsd-signature tsd-kind-icon">difficulty<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L38">packets/incoming/mapinfo-packet.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L37">src/packets/incoming/mapinfo-packet.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -216,7 +232,7 @@
 					<div class="tsd-signature tsd-kind-icon">display<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L30">packets/incoming/mapinfo-packet.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L29">src/packets/incoming/mapinfo-packet.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -233,7 +249,7 @@
 					<div class="tsd-signature tsd-kind-icon">extraXML<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L62">packets/incoming/mapinfo-packet.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L69">src/packets/incoming/mapinfo-packet.ts:69</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -250,7 +266,7 @@
 					<div class="tsd-signature tsd-kind-icon">fp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L42">packets/incoming/mapinfo-packet.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L41">src/packets/incoming/mapinfo-packet.ts:41</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -265,7 +281,7 @@
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L22">packets/incoming/mapinfo-packet.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L21">src/packets/incoming/mapinfo-packet.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -275,12 +291,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="maxplayers" class="tsd-anchor"></a>
+					<h3>max<wbr>Players</h3>
+					<div class="tsd-signature tsd-kind-icon">max<wbr>Players<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L57">src/packets/incoming/mapinfo-packet.ts:57</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The number of players allowed in this map.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="name" class="tsd-anchor"></a>
 					<h3>name</h3>
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L26">packets/incoming/mapinfo-packet.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L25">src/packets/incoming/mapinfo-packet.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -290,23 +321,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="propagate" class="tsd-anchor"></a>
-					<h3>propagate</h3>
-					<div class="tsd-signature tsd-kind-icon">propagate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
-					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#propagate">propagate</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L12">packets/incoming/mapinfo-packet.ts:12</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="realmname" class="tsd-anchor"></a>
 					<h3>realm<wbr>Name</h3>
 					<div class="tsd-signature tsd-kind-icon">realm<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L34">packets/incoming/mapinfo-packet.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L33">src/packets/incoming/mapinfo-packet.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -321,7 +341,7 @@
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Displays<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L54">packets/incoming/mapinfo-packet.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L53">src/packets/incoming/mapinfo-packet.ts:53</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -335,11 +355,11 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="type" class="tsd-anchor"></a>
 					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/packettype.html" class="tsd-signature-type">PacketType</a><span class="tsd-signature-symbol"> =&nbsp;PacketType.MAPINFO</span></div>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/packettype.html#mapinfo" class="tsd-signature-type">MAPINFO</a><span class="tsd-signature-symbol"> = PacketType.MAPINFO</span></div>
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#type">type</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L11">packets/incoming/mapinfo-packet.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L11">src/packets/incoming/mapinfo-packet.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -349,7 +369,7 @@
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L18">packets/incoming/mapinfo-packet.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L17">src/packets/incoming/mapinfo-packet.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -365,20 +385,20 @@
 					<a name="read" class="tsd-anchor"></a>
 					<h3>read</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">(</span>reader<span class="tsd-signature-symbol">: </span><a href="reader.html" class="tsd-signature-type">Reader</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">(</span>reader<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Reader</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#read">read</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L70">packets/incoming/mapinfo-packet.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L89">src/packets/incoming/mapinfo-packet.ts:89</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>reader: <a href="reader.html" class="tsd-signature-type">Reader</a></h5>
+									<h5>reader: <span class="tsd-signature-type">Reader</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -389,20 +409,20 @@
 					<a name="write" class="tsd-anchor"></a>
 					<h3>write</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">write<span class="tsd-signature-symbol">(</span>writer<span class="tsd-signature-symbol">: </span><a href="writer.html" class="tsd-signature-type">Writer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">write<span class="tsd-signature-symbol">(</span>writer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Writer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#write">write</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packets/incoming/mapinfo-packet.ts#L91">packets/incoming/mapinfo-packet.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/mapinfo-packet.ts#L112">src/packets/incoming/mapinfo-packet.ts:112</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>writer: <a href="writer.html" class="tsd-signature-type">Writer</a></h5>
+									<h5>writer: <span class="tsd-signature-type">Writer</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -439,6 +459,9 @@
 								<a href="mapinfopacket.html#clientxml" class="tsd-kind-icon">clientXML</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="mapinfopacket.html#connectionguid" class="tsd-kind-icon">connection<wbr>Guid</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="mapinfopacket.html#difficulty" class="tsd-kind-icon">difficulty</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -454,10 +477,10 @@
 								<a href="mapinfopacket.html#height" class="tsd-kind-icon">height</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="mapinfopacket.html#name" class="tsd-kind-icon">name</a>
+								<a href="mapinfopacket.html#maxplayers" class="tsd-kind-icon">max<wbr>Players</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="mapinfopacket.html#propagate" class="tsd-kind-icon">propagate</a>
+								<a href="mapinfopacket.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="mapinfopacket.html#realmname" class="tsd-kind-icon">realm<wbr>Name</a>

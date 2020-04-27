@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>VerifyEmailPacket | @realmlib/net</title>
+	<title>PacketHeader | @realmlib/net</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="verifyemailpacket.html">VerifyEmailPacket</a>
+					<a href="packetheader.html">PacketHeader</a>
 				</li>
 			</ul>
-			<h1>Class VerifyEmailPacket</h1>
+			<h1>Interface PacketHeader</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Received to prompt the player to verify their email.</p>
+						<p>The header of a packet.</p>
 					</div>
 				</div>
 			</section>
@@ -75,14 +75,8 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">VerifyEmailPacket</span>
+						<span class="target">PacketHeader</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implements</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/packet.html" class="tsd-signature-type">Packet</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -92,14 +86,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="verifyemailpacket.html#type" class="tsd-kind-icon">type</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Methods</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="verifyemailpacket.html#read" class="tsd-kind-icon">read</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="verifyemailpacket.html#write" class="tsd-kind-icon">write</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="packetheader.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="packetheader.html#length" class="tsd-kind-icon">length</a></li>
 							</ul>
 						</section>
 					</div>
@@ -107,53 +95,35 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/packettype.html#verify_email" class="tsd-signature-type">VERIFY_EMAIL</a><span class="tsd-signature-symbol"> = PacketType.VERIFY_EMAIL</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="id" class="tsd-anchor"></a>
+					<h3>id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#type">type</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/verify-email-packet.ts#L9">src/packets/incoming/verify-email-packet.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/header.ts#L8">src/packets/header.ts:8</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The id of this packet.</p>
+						</div>
+					</div>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="read" class="tsd-anchor"></a>
-					<h3>read</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/verify-email-packet.ts#L15">src/packets/incoming/verify-email-packet.ts:15</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="write" class="tsd-anchor"></a>
-					<h3>write</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">write<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/verify-email-packet.ts#L19">src/packets/incoming/verify-email-packet.ts:19</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="length" class="tsd-anchor"></a>
+					<h3>length</h3>
+					<div class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/header.ts#L12">src/packets/header.ts:12</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The size of this packet including the header.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -169,17 +139,14 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="verifyemailpacket.html" class="tsd-kind-icon">Verify<wbr>Email<wbr>Packet</a>
+					<li class="current tsd-kind-interface">
+						<a href="packetheader.html" class="tsd-kind-icon">Packet<wbr>Header</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="verifyemailpacket.html#type" class="tsd-kind-icon">type</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="packetheader.html#id" class="tsd-kind-icon">id</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="verifyemailpacket.html#read" class="tsd-kind-icon">read</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="verifyemailpacket.html#write" class="tsd-kind-icon">write</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="packetheader.html#length" class="tsd-kind-icon">length</a>
 							</li>
 						</ul>
 					</li>

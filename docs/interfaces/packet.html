@@ -64,6 +64,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A packet which has an associated type.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -188,7 +195,6 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="packet.html#propagate" class="tsd-kind-icon">propagate</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="packet.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
@@ -205,36 +211,17 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="propagate" class="tsd-anchor"></a>
-					<h3>propagate</h3>
-					<div class="tsd-signature tsd-kind-icon">propagate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packet.ts#L34">packet.ts:34</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Whether or not the packet should keep invoking packet hooks.</p>
-						</div>
-						<p>If this is set to <code>false</code> by a packet hook, then that packet hook will
-							be the last one which receives the packet. The client&#39;s packet hooks are
-							always the last ones to be called, so if this is set to <code>false</code> the packet
-						will not reach the client.</p>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="type" class="tsd-anchor"></a>
 					<h3>type</h3>
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/packettype.html" class="tsd-signature-type">PacketType</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packet.ts#L25">packet.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packet.ts#L28">src/packet.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The type of packet.</p>
+							<p>The type of this packet.</p>
 						</div>
 					</div>
 				</section>
@@ -245,14 +232,14 @@
 					<a name="read" class="tsd-anchor"></a>
 					<h3>read</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">(</span>reader<span class="tsd-signature-symbol">: </span><a href="../classes/reader.html" class="tsd-signature-type">Reader</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">(</span>reader<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Reader</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="datapacket.html">DataPacket</a>.<a href="datapacket.html#read">read</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packet.ts#L18">packet.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packet.ts#L18">src/packet.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -263,7 +250,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>reader: <a href="../classes/reader.html" class="tsd-signature-type">Reader</a></h5>
+									<h5>reader: <span class="tsd-signature-type">Reader</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The reader to read from.</p>
 									</div>
@@ -277,14 +264,14 @@
 					<a name="write" class="tsd-anchor"></a>
 					<h3>write</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">write<span class="tsd-signature-symbol">(</span>writer<span class="tsd-signature-symbol">: </span><a href="../classes/writer.html" class="tsd-signature-type">Writer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">write<span class="tsd-signature-symbol">(</span>writer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Writer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="datapacket.html">DataPacket</a>.<a href="datapacket.html#write">write</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/dc9f3f8/src/packet.ts#L13">packet.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packet.ts#L13">src/packet.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -295,7 +282,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>writer: <a href="../classes/writer.html" class="tsd-signature-type">Writer</a></h5>
+									<h5>writer: <span class="tsd-signature-type">Writer</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The writer to write to.</p>
 									</div>
@@ -322,9 +309,6 @@
 					<li class="current tsd-kind-interface">
 						<a href="packet.html" class="tsd-kind-icon">Packet</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="packet.html#propagate" class="tsd-kind-icon">propagate</a>
-							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="packet.html#type" class="tsd-kind-icon">type</a>
 							</li>

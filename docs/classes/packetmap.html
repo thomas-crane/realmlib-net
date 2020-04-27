@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PicPacket | @realmlib/net</title>
+	<title>PacketMap | @realmlib/net</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="picpacket.html">PicPacket</a>
+					<a href="packetmap.html">PacketMap</a>
 				</li>
 			</ul>
-			<h1>Class PicPacket</h1>
+			<h1>Class PacketMap</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A packet which contains a bitmap image.</p>
+						<p>A bidirectional map which can be used to lookup
+						packet types and packet ids.</p>
 					</div>
 				</div>
 			</section>
@@ -75,14 +76,8 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">PicPacket</span>
+						<span class="target">PacketMap</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implements</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/packet.html" class="tsd-signature-type">Packet</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -92,23 +87,21 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="picpacket.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="packetmap.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="picpacket.html#bitmapdata" class="tsd-kind-icon">bitmap<wbr>Data</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="picpacket.html#height" class="tsd-kind-icon">height</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="picpacket.html#type" class="tsd-kind-icon">type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="picpacket.html#width" class="tsd-kind-icon">width</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="packetmap.html#idmap" class="tsd-kind-icon">id<wbr>Map</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="packetmap.html#typemap" class="tsd-kind-icon">type<wbr>Map</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="picpacket.html#read" class="tsd-kind-icon">read</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="picpacket.html#write" class="tsd-kind-icon">write</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="packetmap.html#getid" class="tsd-kind-icon">get<wbr>Id</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="packetmap.html#gettype" class="tsd-kind-icon">get<wbr>Type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -120,126 +113,110 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Pic<wbr>Packet<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="picpacket.html" class="tsd-signature-type">PicPacket</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Packet<wbr>Map<span class="tsd-signature-symbol">(</span>packets<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#packetdictionary" class="tsd-signature-type">PacketDictionary</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="packetmap.html" class="tsd-signature-type">PacketMap</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/pic-packet.ts#L25">src/packets/incoming/pic-packet.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packet-map.ts#L11">src/packet-map.ts:11</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="picpacket.html" class="tsd-signature-type">PicPacket</a></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>packets: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#packetdictionary" class="tsd-signature-type">PacketDictionary</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="packetmap.html" class="tsd-signature-type">PacketMap</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="bitmapdata" class="tsd-anchor"></a>
-					<h3>bitmap<wbr>Data</h3>
-					<div class="tsd-signature tsd-kind-icon">bitmap<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="idmap" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> id<wbr>Map</h3>
+					<div class="tsd-signature tsd-kind-icon">id<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><a href="../enums/packettype.html" class="tsd-signature-type">PacketType</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/pic-packet.ts#L25">src/packets/incoming/pic-packet.ts:25</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The bitmap data of the image.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="height" class="tsd-anchor"></a>
-					<h3>height</h3>
-					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/pic-packet.ts#L21">src/packets/incoming/pic-packet.ts:21</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The height of the image.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/packettype.html#pic" class="tsd-signature-type">PIC</a><span class="tsd-signature-symbol"> = PacketType.PIC</span></div>
-					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#type">type</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/pic-packet.ts#L11">src/packets/incoming/pic-packet.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packet-map.ts#L10">src/packet-map.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="width" class="tsd-anchor"></a>
-					<h3>width</h3>
-					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="typemap" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> type<wbr>Map</h3>
+					<div class="tsd-signature tsd-kind-icon">type<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/packettype.html" class="tsd-signature-type">PacketType</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/pic-packet.ts#L17">src/packets/incoming/pic-packet.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packet-map.ts#L11">src/packet-map.ts:11</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The width of the image.</p>
-						</div>
-					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="read" class="tsd-anchor"></a>
-					<h3>read</h3>
+					<a name="getid" class="tsd-anchor"></a>
+					<h3>get<wbr>Id</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">read<span class="tsd-signature-symbol">(</span>reader<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Reader</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Id<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/packettype.html" class="tsd-signature-type">PacketType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#read">read</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/pic-packet.ts#L34">src/packets/incoming/pic-packet.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packet-map.ts#L28">src/packet-map.ts:28</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the packet id which is associated with the given <code>type</code>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>reader: <span class="tsd-signature-type">Reader</span></h5>
+									<h5>type: <a href="../enums/packettype.html" class="tsd-signature-type">PacketType</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The packet type to get the id of.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="write" class="tsd-anchor"></a>
-					<h3>write</h3>
+					<a name="gettype" class="tsd-anchor"></a>
+					<h3>get<wbr>Type</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">write<span class="tsd-signature-symbol">(</span>writer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Writer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Type<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/packettype.html" class="tsd-signature-type">PacketType</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/packet.html">Packet</a>.<a href="../interfaces/packet.html#write">write</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packets/incoming/pic-packet.ts#L40">src/packets/incoming/pic-packet.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/thomas-crane/realmlib-net/blob/e42bb0e/src/packet-map.ts#L36">src/packet-map.ts:36</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the packet type which is associated with the given <code>id</code>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>writer: <span class="tsd-signature-type">Writer</span></h5>
+									<h5>id: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The packet id to get the type of.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../enums/packettype.html" class="tsd-signature-type">PacketType</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -258,28 +235,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="picpacket.html" class="tsd-kind-icon">Pic<wbr>Packet</a>
+						<a href="packetmap.html" class="tsd-kind-icon">Packet<wbr>Map</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="picpacket.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="packetmap.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="picpacket.html#bitmapdata" class="tsd-kind-icon">bitmap<wbr>Data</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="packetmap.html#idmap" class="tsd-kind-icon">id<wbr>Map</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="picpacket.html#height" class="tsd-kind-icon">height</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="picpacket.html#type" class="tsd-kind-icon">type</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="picpacket.html#width" class="tsd-kind-icon">width</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="packetmap.html#typemap" class="tsd-kind-icon">type<wbr>Map</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="picpacket.html#read" class="tsd-kind-icon">read</a>
+								<a href="packetmap.html#getid" class="tsd-kind-icon">get<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="picpacket.html#write" class="tsd-kind-icon">write</a>
+								<a href="packetmap.html#gettype" class="tsd-kind-icon">get<wbr>Type</a>
 							</li>
 						</ul>
 					</li>
