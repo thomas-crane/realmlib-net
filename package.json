@@ -1,11 +1,11 @@
 {
   "name": "@realmlib/net",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A networking library for Realm of the Mad God.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "prepublishOnly": "npm run compile && npm run lint && npm run test",
+    "prepublishOnly": "npm run compile && npm run lint",
     "compile": "tsc -p .",
     "lint": "tslint -p .",
     "test": "ava",
