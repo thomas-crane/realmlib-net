@@ -359,6 +359,8 @@ export interface PacketIO {
   on(event: PacketType.PET_CHANGE_SKIN_MSG, listener: (packet: OutgoingPackets.ChangePetSkinPacket) => void): this;
   on(event: PacketType.REALM_HERO_LEFT_MSG, listener: (packet: IncomingPackets.RealmHeroesLeftPacket) => void): this;
   on(event: PacketType.RESET_DAILY_QUESTS, listener: (packet: OutgoingPackets.ResetDailyQuestsPacket) => void): this;
+  on(event: 'error', listener: (err: Error) => void): this;
+  on(event: string, listener: (data: Packet | Error) => void): this;
   once(event: PacketType.FAILURE, listener: (packet: IncomingPackets.FailurePacket) => void): this;
   once(event: PacketType.ACCEPT_ARENA_DEATH, listener: (packet: OutgoingPackets.AcceptArenaDeathPacket) => void): this;
   once(event: PacketType.LOAD, listener: (packet: OutgoingPackets.LoadPacket) => void): this;
@@ -458,4 +460,6 @@ export interface PacketIO {
   once(event: PacketType.PET_CHANGE_SKIN_MSG, listener: (packet: OutgoingPackets.ChangePetSkinPacket) => void): this;
   once(event: PacketType.REALM_HERO_LEFT_MSG, listener: (packet: IncomingPackets.RealmHeroesLeftPacket) => void): this;
   once(event: PacketType.RESET_DAILY_QUESTS, listener: (packet: OutgoingPackets.ResetDailyQuestsPacket) => void): this;
+  once(event: 'error', listener: (err: Error) => void): this;
+  once(event: string, listener: (data: Packet | Error) => void): this;
 }
