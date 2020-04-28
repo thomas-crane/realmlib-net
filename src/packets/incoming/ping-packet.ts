@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received occasionally by the server to prompt a response from the client.
  */
 export class PingPacket implements Packet {
 
-  type = PacketType.PING;
-  propagate = true;
+  readonly type = PacketType.PING;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class PingPacket implements Packet {
    */
   serial: number;
   //#endregion
+
+  constructor() {
+    this.serial = 0;
+  }
 
   read(reader: Reader): void {
     this.serial = reader.readInt32();

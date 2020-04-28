@@ -21,6 +21,13 @@ export class TradeItem implements DataPacket {
    */
   included: boolean;
 
+  constructor() {
+    this.item = 0;
+    this.slotType = 0;
+    this.tradeable = false;
+    this.included = false;
+  }
+
   read(reader: Reader): void {
     this.item = reader.readInt32();
     this.slotType = reader.readInt32();

@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to change the client's offer in the current active trade.
  */
 export class ChangeTradePacket implements Packet {
 
-  type = PacketType.CHANGETRADE;
-  propagate = true;
+  readonly type = PacketType.CHANGETRADE;
 
   //#region packet-specific members
   /**
@@ -20,6 +19,10 @@ export class ChangeTradePacket implements Packet {
    */
   offer: boolean[];
   //#endregion
+
+  constructor() {
+    this.offer = [];
+  }
 
   write(writer: Writer): void {
     writer.writeShort(this.offer.length);

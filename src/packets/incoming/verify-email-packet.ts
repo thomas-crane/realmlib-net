@@ -1,25 +1,22 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
 
 /**
  * Received to prompt the player to verify their email.
  */
 export class VerifyEmailPacket implements Packet {
 
-  type = PacketType.VERIFY_EMAIL;
-  propagate = true;
+  readonly type = PacketType.VERIFY_EMAIL;
 
   //#region packet-specific members
 
   //#endregion
 
-  read(reader: Reader): void {
+  read(): void {
     //
   }
 
-  write(writer: Writer): void {
+  write(): void {
     //
   }
 }

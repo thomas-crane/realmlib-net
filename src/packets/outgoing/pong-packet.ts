@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to acknowledge the `PingPacket.`
  */
 export class PongPacket implements Packet {
 
-  type = PacketType.PONG;
-  propagate = true;
+  readonly type = PacketType.PONG;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class PongPacket implements Packet {
    */
   time: number;
   //#endregion
+
+  constructor() {
+    this.serial = 0;
+    this.time = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.serial);

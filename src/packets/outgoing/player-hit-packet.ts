@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent when the player is hit.
  */
 export class PlayerHitPacket implements Packet {
 
-  type = PacketType.PLAYERHIT;
-  propagate = true;
+  readonly type = PacketType.PLAYERHIT;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class PlayerHitPacket implements Packet {
    */
   objectId: number;
   //#endregion
+
+  constructor() {
+    this.bulletId = 0;
+    this.objectId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeUnsignedByte(this.bulletId);

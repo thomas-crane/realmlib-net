@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when the active trade is changed.
  */
 export class TradeChangedPacket implements Packet {
 
-  type = PacketType.TRADECHANGED;
-  propagate = true;
+  readonly type = PacketType.TRADECHANGED;
 
   //#region packet-specific members
   /**

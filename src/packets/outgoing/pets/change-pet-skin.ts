@@ -9,7 +9,7 @@ import { Writer } from '../../../writer';
  */
 export class ChangePetSkinPacket implements Packet {
 
-  type = PacketType.PET_CHANGE_SKIN_MSG;
+  readonly type = PacketType.PET_CHANGE_SKIN_MSG;
   propagate = true;
 
   //#region packet-specific members
@@ -26,6 +26,12 @@ export class ChangePetSkinPacket implements Packet {
    */
   currency: PetUpgradePaymentType;
   //#endregion
+
+  constructor() {
+    this.petId = 0;
+    this.skinType = 0;
+    this.currency = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.petId);

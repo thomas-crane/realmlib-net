@@ -26,7 +26,7 @@ describe('PacketIO', () => {
       const packetIO = new PacketIO();
       expect(() => packetIO.attach(123 as any)).to.throw(TypeError);
       expect(() => packetIO.attach('Hello, World!' as any)).to.throw(TypeError);
-      expect(() => packetIO.attach(null)).to.throw(TypeError);
+      expect(() => packetIO.attach(null as any)).to.throw(TypeError);
     });
 
     it('should attach event listeners to the socket.', () => {
@@ -103,23 +103,9 @@ describe('PacketIO', () => {
     });
     it('should throw a TypeError if the input is invalid.', () => {
       const packetIO = new PacketIO({ socket: new Socket() });
-      expect(() => packetIO.emitPacket(null)).to.throw(TypeError);
+      expect(() => packetIO.emitPacket(null as any)).to.throw(TypeError);
       expect(() => packetIO.emitPacket(1243 as any)).to.throw(TypeError);
       expect(() => packetIO.emitPacket('Hello, World!' as any)).to.throw(TypeError);
-    });
-  });
-  describe('#emitError()', () => {
-    it('should emit the error as an event if there are listeners for it.', (done) => {
-      const packetIO = new PacketIO({ socket: new Socket() });
-      packetIO.once('error', (error: Error) => {
-        expect(error.message).to.equal('Test message', 'Incorrect error emitted.');
-        done();
-      });
-      (packetIO as any).emitError(new Error('Test message'));
-    });
-    it('should throw the error if there are no listeners.', () => {
-      const packetIO = new PacketIO({ socket: new Socket() });
-      expect(() => (packetIO as any).emitError(new Error('Test message'))).to.throw();
     });
   });
 });

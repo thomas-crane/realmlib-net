@@ -1,14 +1,14 @@
-import { Writer } from '../../../writer';
-import { Reader } from '../../../reader';
-import { PacketType } from '../../../packet-type';
 import { Packet } from '../../../packet';
+import { PacketType } from '../../../packet-type';
+import { Reader } from '../../../reader';
+import { Writer } from '../../../writer';
 
 /**
  * Received when the player has been killed in the arena.
  */
 export class ArenaDeathPacket implements Packet {
 
-  type = PacketType.ARENA_DEATH;
+  readonly type = PacketType.ARENA_DEATH;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class ArenaDeathPacket implements Packet {
    */
   cost: number;
   //#endregion
+
+  constructor() {
+    this.cost = 0;
+  }
 
   read(reader: Reader): void {
     this.cost = reader.readInt32();

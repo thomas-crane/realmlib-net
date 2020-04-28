@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when a global notification is sent out to all players.
  */
 export class GlobalNotificationPacket implements Packet {
 
-  type = PacketType.GLOBAL_NOTIFICATION;
-  propagate = true;
+  readonly type = PacketType.GLOBAL_NOTIFICATION;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class GlobalNotificationPacket implements Packet {
    */
   text: string;
   //#endregion
+
+  constructor() {
+    this.notificationType = 0;
+    this.text = '';
+  }
 
   read(reader: Reader): void {
     this.notificationType = reader.readInt32();

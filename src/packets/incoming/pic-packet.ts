@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * A packet which contains a bitmap image.
  */
 export class PicPacket implements Packet {
 
-  type = PacketType.PIC;
-  propagate = true;
+  readonly type = PacketType.PIC;
 
   //#region packet-specific members
   /**
@@ -25,6 +24,12 @@ export class PicPacket implements Packet {
    */
   bitmapData: number[];
   //#endregion
+
+  constructor() {
+    this.width = 0;
+    this.height = 0;
+    this.bitmapData = [];
+  }
 
   read(reader: Reader): void {
     this.width = reader.readInt32();

@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received in response to the `HelloPacket`.
  */
 export class MapInfoPacket implements Packet {
 
-  type = PacketType.MAPINFO;
-  propagate = true;
+  readonly type = PacketType.MAPINFO;
 
   //#region packet-specific members
   /**
@@ -53,9 +52,13 @@ export class MapInfoPacket implements Packet {
    */
   showDisplays: boolean;
   /**
-   * The maximum number of players allowed in this map.
+   * The number of players allowed in this map.
    */
   maxPlayers: number;
+  /**
+   * The connection guid to use for the hello packet.
+   */
+  connectionGuid: string;
   /**
    * > Unkown.
    */
@@ -64,13 +67,21 @@ export class MapInfoPacket implements Packet {
    * > Unkown.
    */
   extraXML: string[];
-  /**
-   * > Unknown.
-   */
-  connectionGuid: string;
   //#endregion
 
   constructor() {
+    this.width = 0;
+    this.height = 0;
+    this.name = '';
+    this.displayName = '';
+    this.realmName = '';
+    this.difficulty = 0;
+    this.fp = 0;
+    this.background = 0;
+    this.allowPlayerTeleport = false;
+    this.showDisplays = false;
+    this.maxPlayers = 0;
+    this.connectionGuid = '';
     this.clientXML = [];
     this.extraXML = [];
   }

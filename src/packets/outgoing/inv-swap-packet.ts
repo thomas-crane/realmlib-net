@@ -1,17 +1,16 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
-import { WorldPosData } from '../../data/world-pos-data';
 import { SlotObjectData } from '../../data/slot-object-data';
+import { WorldPosData } from '../../data/world-pos-data';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to swap the items of two slots.
  */
 export class InvSwapPacket implements Packet {
 
-  type = PacketType.INVSWAP;
-  propagate = true;
+  readonly type = PacketType.INVSWAP;
 
   //#region packet-specific members
   /**
@@ -32,6 +31,13 @@ export class InvSwapPacket implements Packet {
   slotObject2: SlotObjectData;
   //#endregion
 
+  constructor() {
+    this.time = 0;
+    this.position = new WorldPosData();
+    this.slotObject1 = new SlotObjectData();
+    this.slotObject2 = new SlotObjectData();
+  }
+
   write(writer: Writer): void {
     writer.writeInt32(this.time);
     this.position.write(writer);
@@ -41,11 +47,8 @@ export class InvSwapPacket implements Packet {
 
   read(reader: Reader): void {
     this.time = reader.readInt32();
-    this.position = new WorldPosData();
     this.position.read(reader);
-    this.slotObject1 = new SlotObjectData();
     this.slotObject1.read(reader);
-    this.slotObject2 = new SlotObjectData();
     this.slotObject2.read(reader);
   }
 }

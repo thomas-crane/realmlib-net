@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received in response to a `BuyPacket`.
  */
 export class BuyResultPacket implements Packet {
 
-  type = PacketType.BUYRESULT;
-  propagate = true;
+  readonly type = PacketType.BUYRESULT;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class BuyResultPacket implements Packet {
    */
   resultString: string;
   //#endregion
+
+  constructor() {
+    this.result = 0;
+    this.resultString = '';
+  }
 
   read(reader: Reader): void {
     this.result = reader.readInt32();

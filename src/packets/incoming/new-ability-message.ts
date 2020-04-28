@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when a new ability has been unlocked by the player.
  */
 export class NewAbilityMessage implements Packet {
 
-  type = PacketType.NEW_ABILITY;
-  propagate = true;
+  readonly type = PacketType.NEW_ABILITY;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class NewAbilityMessage implements Packet {
    */
   abilityType: number;
   //#endregion
+
+  constructor() {
+    this.abilityType = 0;
+  }
 
   read(reader: Reader): void {
     this.abilityType = reader.readInt32();

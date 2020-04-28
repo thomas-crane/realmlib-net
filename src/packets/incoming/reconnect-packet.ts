@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received to instruct the client to connect to a new host.
  */
 export class ReconnectPacket implements Packet {
 
-  type = PacketType.RECONNECT;
-  propagate = true;
+  readonly type = PacketType.RECONNECT;
 
   //#region packet-specific members
   /**
@@ -45,6 +44,17 @@ export class ReconnectPacket implements Packet {
    */
   isFromArena: boolean;
   //#endregion
+
+  constructor() {
+    this.name = '';
+    this.host = '';
+    this.stats = '';
+    this.port = 0;
+    this.gameId = 0;
+    this.keyTime = 0;
+    this.key = [];
+    this.isFromArena = false;
+  }
 
   read(reader: Reader): void {
     this.name = reader.readString();

@@ -6,8 +6,7 @@ import { RC4, OUTGOING_KEY } from '../src';
 describe('RC4', () => {
   it('should throw a TypeError for invalid constructor inputs.', () => {
     expect(() => new RC4(1234 as any)).to.throw(TypeError);
-    expect(() => new RC4('Hello, World!' as any)).to.throw(TypeError);
-    expect(() => new RC4(null)).to.throw(TypeError);
+    expect(() => new RC4(null as any)).to.throw(TypeError);
   });
   describe('#cipher()', () => {
     it('should perform a correct inline cipher for valid inputs.', () => {

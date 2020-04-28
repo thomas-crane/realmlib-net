@@ -13,9 +13,13 @@ export class ObjectData implements DataPacket {
    */
   status: ObjectStatusData;
 
+  constructor() {
+    this.objectType = 0;
+    this.status = new ObjectStatusData();
+  }
+
   read(reader: Reader): void {
     this.objectType = reader.readUnsignedShort();
-    this.status = new ObjectStatusData();
     this.status.read(reader);
   }
 

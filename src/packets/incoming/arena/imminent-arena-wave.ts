@@ -1,14 +1,14 @@
-import { Writer } from '../../../writer';
-import { Reader } from '../../../reader';
-import { PacketType } from '../../../packet-type';
 import { Packet } from '../../../packet';
+import { PacketType } from '../../../packet-type';
+import { Reader } from '../../../reader';
+import { Writer } from '../../../writer';
 
 /**
  * Received when a new arena wave is about to begin.
  */
 export class ImminentArenaWavePacket implements Packet {
 
-  type = PacketType.IMMINENT_ARENA_WAVE;
+  readonly type = PacketType.IMMINENT_ARENA_WAVE;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class ImminentArenaWavePacket implements Packet {
    */
   currentRuntime: number;
   //#endregion
+
+  constructor() {
+    this.currentRuntime = 0;
+  }
 
   read(reader: Reader): void {
     this.currentRuntime = reader.readInt32();

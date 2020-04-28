@@ -1,7 +1,7 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to prompt the server to accept the connection of an account
@@ -9,8 +9,7 @@ import { Packet } from '../../packet';
  */
 export class HelloPacket implements Packet {
 
-  type = PacketType.HELLO;
-  propagate = true;
+  readonly type = PacketType.HELLO;
 
   //#region packet-specific members
   /**
@@ -82,10 +81,31 @@ export class HelloPacket implements Packet {
    */
   trailer: string;
   /**
-   * > Unknown.
+   * The connection guid of the last map info packet.
    */
   previousConnectionGuid: string;
   //#endregion
+
+  constructor() {
+    this.buildVersion = '';
+    this.gameId = 0;
+    this.guid = '';
+    this.random1 = 0;
+    this.password = '';
+    this.random2 = 0;
+    this.secret = '';
+    this.keyTime = 0;
+    this.key = [];
+    this.mapJSON = '';
+    this.entryTag = '';
+    this.gameNet = '';
+    this.gameNetUserId = '';
+    this.playPlatform = '';
+    this.platformToken = '';
+    this.userToken = '';
+    this.trailer = '';
+    this.previousConnectionGuid = '';
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.buildVersion);
@@ -125,7 +145,6 @@ export class HelloPacket implements Packet {
     this.playPlatform = reader.readString();
     this.platformToken = reader.readString();
     this.userToken = reader.readString();
-    this.trailer = reader.readString();
     this.previousConnectionGuid = reader.readString();
   }
 }

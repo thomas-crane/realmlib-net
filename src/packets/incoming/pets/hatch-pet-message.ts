@@ -1,14 +1,14 @@
-import { Writer } from '../../../writer';
-import { Reader } from '../../../reader';
-import { PacketType } from '../../../packet-type';
 import { Packet } from '../../../packet';
+import { PacketType } from '../../../packet-type';
+import { Reader } from '../../../reader';
+import { Writer } from '../../../writer';
 
 /**
  * Received to give the player information about a newly hatched pet.
  */
 export class HatchPetMessage implements Packet {
 
-  type = PacketType.HATCH_PET;
+  readonly type = PacketType.HATCH_PET;
   propagate = true;
 
   //#region packet-specific members
@@ -21,6 +21,11 @@ export class HatchPetMessage implements Packet {
    */
   petSkin: number;
   //#endregion
+
+  constructor() {
+    this.petName = '';
+    this.petSkin = 0;
+  }
 
   read(reader: Reader): void {
     this.petName = reader.readString();

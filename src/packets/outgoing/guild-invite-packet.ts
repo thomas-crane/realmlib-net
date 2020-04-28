@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to invite a player to the client's current guild.
  */
 export class GuildInvitePacket implements Packet {
 
-  type = PacketType.GUILDINVITE;
-  propagate = true;
+  readonly type = PacketType.GUILDINVITE;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class GuildInvitePacket implements Packet {
    */
   name: string;
   //#endregion
+
+  constructor() {
+    this.name = '';
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.name);

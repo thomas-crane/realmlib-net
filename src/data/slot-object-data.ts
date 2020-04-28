@@ -17,6 +17,12 @@ export class SlotObjectData implements DataPacket {
    */
   objectType: number;
 
+  constructor() {
+    this.objectId = 0;
+    this.slotId = 0;
+    this.objectType = 0;
+  }
+
   read(reader: Reader): void {
     this.objectId = reader.readInt32();
     this.slotId = reader.readUnsignedByte();

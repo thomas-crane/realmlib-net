@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when a chat message is sent by another player or NPC.
  */
 export class TextPacket implements Packet {
 
-  type = PacketType.TEXT;
-  propagate = true;
+  readonly type = PacketType.TEXT;
 
   //#region packet-specific members
   /**
@@ -46,6 +45,17 @@ export class TextPacket implements Packet {
    */
   isSupporter: boolean;
   //#endregion
+
+  constructor() {
+    this.name = '';
+    this.objectId = 0;
+    this.numStars = 0;
+    this.bubbleTime = 0;
+    this.recipient = '';
+    this.text = '';
+    this.cleanText = '';
+    this.isSupporter = false;
+  }
 
   read(reader: Reader): void {
     this.name = reader.readString();

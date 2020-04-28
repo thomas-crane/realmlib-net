@@ -1,7 +1,7 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to request a trade with a player, as well as
@@ -9,8 +9,7 @@ import { Packet } from '../../packet';
  */
 export class RequestTradePacket implements Packet {
 
-  type = PacketType.REQUESTTRADE;
-  propagate = true;
+  readonly type = PacketType.REQUESTTRADE;
 
   //#region packet-specific members
   /**
@@ -18,6 +17,10 @@ export class RequestTradePacket implements Packet {
    */
   name: string;
   //#endregion
+
+  constructor() {
+    this.name = '';
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.name);

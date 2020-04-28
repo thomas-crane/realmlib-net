@@ -1,7 +1,7 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to acknowledge an `EnemyShootPacket`.
@@ -9,7 +9,6 @@ import { Packet } from '../../packet';
 export class ShootAckPacket implements Packet {
 
   type = PacketType.SHOOTACK;
-  propagate = true;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class ShootAckPacket implements Packet {
    */
   time: number;
   //#endregion
+
+  constructor() {
+    this.time = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.time);

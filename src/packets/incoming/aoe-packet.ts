@@ -1,16 +1,15 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
 import { WorldPosData } from '../../data/world-pos-data';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when an AoE grenade has hit the ground.
  */
 export class AoePacket implements Packet {
 
-  type = PacketType.AOE;
-  propagate = true;
+  readonly type = PacketType.AOE;
 
   //#region packet-specific members
   /**
@@ -49,8 +48,18 @@ export class AoePacket implements Packet {
   armorPiercing: boolean;
   //#endregion
 
-  read(reader: Reader): void {
+  constructor() {
     this.pos = new WorldPosData();
+    this.radius = 0;
+    this.damage = 0;
+    this.effect = 0;
+    this.duration = 0;
+    this.origType = 0;
+    this.color = 0;
+    this.armorPiercing = false;
+  }
+
+  read(reader: Reader): void {
     this.pos.read(reader);
     this.radius = reader.readFloat();
     this.damage = reader.readUnsignedShort();

@@ -1,25 +1,22 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
 
 /**
  * > Unknown.
  */
 export class CheckCreditsPacket implements Packet {
 
-  type = PacketType.CHECKCREDITS;
-  propagate = true;
+  readonly type = PacketType.CHECKCREDITS;
 
   //#region packet-specific members
 
   //#endregion
 
-  write(writer: Writer): void {
+  write(): void {
     //
   }
 
-  read(reader: Reader): void {
+  read(): void {
     //
   }
 }

@@ -1,25 +1,22 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
 
 /**
  * Sent to acknowledge an `UpdatePacket`.
  */
 export class UpdateAckPacket implements Packet {
 
-  type = PacketType.UPDATEACK;
-  propagate = true;
+  readonly type = PacketType.UPDATEACK;
 
   //#region packet-specific members
 
   //#endregion
 
-  write(writer: Writer): void {
+  write(): void {
     //
   }
 
-  read(reader: Reader): void {
+  read(): void {
     //
   }
 }

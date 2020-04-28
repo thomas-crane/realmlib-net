@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent when an object or other player has been hit by an enemy projectile.
  */
 export class OtherHitPacket implements Packet {
 
-  type = PacketType.OTHERHIT;
-  propagate = true;
+  readonly type = PacketType.OTHERHIT;
 
   //#region packet-specific members
   /**
@@ -29,6 +28,13 @@ export class OtherHitPacket implements Packet {
    */
   targetId: number;
   //#endregion
+
+  constructor() {
+    this.time = 0;
+    this.bulletId = 0;
+    this.objectId = 0;
+    this.targetId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.time);

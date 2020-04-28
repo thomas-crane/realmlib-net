@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to accept the current active trade.
  */
 export class AcceptTradePacket implements Packet {
 
-  type = PacketType.ACCEPTTRADE;
-  propagate = true;
+  readonly type = PacketType.ACCEPTTRADE;
 
   //#region packet-specific members
   /**

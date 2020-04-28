@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received to prompt the player to enter their password.
  */
 export class PasswordPromptPacket implements Packet {
 
-  type = PacketType.PASSWORD_PROMPT;
-  propagate = true;
+  readonly type = PacketType.PASSWORD_PROMPT;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class PasswordPromptPacket implements Packet {
    */
   cleanPasswordStatus: number;
   //#endregion
+
+  constructor() {
+    this.cleanPasswordStatus = 0;
+  }
 
   read(reader: Reader): void {
     this.cleanPasswordStatus = reader.readInt32();

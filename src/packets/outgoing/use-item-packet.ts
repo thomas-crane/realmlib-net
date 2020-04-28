@@ -1,17 +1,16 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
 import { SlotObjectData } from '../../data/slot-object-data';
 import { WorldPosData } from '../../data/world-pos-data';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to use an item, such as an ability or consumable.
  */
 export class UseItemPacket implements Packet {
 
-  type = PacketType.USEITEM;
-  propagate = true;
+  readonly type = PacketType.USEITEM;
 
   //#region packet-specific members
   /**
@@ -32,6 +31,13 @@ export class UseItemPacket implements Packet {
   useType: number;
   //#endregion
 
+  constructor() {
+    this.time = 0;
+    this.slotObject = new SlotObjectData();
+    this.itemUsePos = new WorldPosData();
+    this.useType = 0;
+  }
+
   write(writer: Writer): void {
     writer.writeInt32(this.time);
     this.slotObject.write(writer);
@@ -41,9 +47,7 @@ export class UseItemPacket implements Packet {
 
   read(reader: Reader): void {
     this.time = reader.readInt32();
-    this.slotObject = new SlotObjectData();
     this.slotObject.read(reader);
-    this.itemUsePos = new WorldPosData();
     this.itemUsePos.read(reader);
     this.useType = reader.readByte();
   }

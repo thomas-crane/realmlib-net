@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when the player is invited to a guild.
  */
 export class InvitedToGuildPacket implements Packet {
 
-  type = PacketType.INVITEDTOGUILD;
-  propagate = true;
+  readonly type = PacketType.INVITEDTOGUILD;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class InvitedToGuildPacket implements Packet {
    */
   guildName: string;
   //#endregion
+
+  constructor() {
+    this.name = '';
+    this.guildName = '';
+  }
 
   read(reader: Reader): void {
     this.name = reader.readString();

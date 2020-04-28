@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received to tell the client to play a sound.
  */
 export class PlaySoundPacket implements Packet {
 
-  type = PacketType.PLAYSOUND;
-  propagate = true;
+  readonly type = PacketType.PLAYSOUND;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class PlaySoundPacket implements Packet {
    */
   soundId: number;
   //#endregion
+
+  constructor() {
+    this.ownerId = 0;
+    this.soundId = 0;
+  }
 
   read(reader: Reader): void {
     this.ownerId = reader.readInt32();

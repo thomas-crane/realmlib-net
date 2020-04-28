@@ -1,14 +1,14 @@
-import { Writer } from '../../../writer';
-import { Reader } from '../../../reader';
-import { PacketType } from '../../../packet-type';
 import { Packet } from '../../../packet';
+import { PacketType } from '../../../packet-type';
+import { Reader } from '../../../reader';
+import { Writer } from '../../../writer';
 
 /**
  * Received to notify the player of a new pet.
  */
 export class ActivePetPacket implements Packet {
 
-  type = PacketType.ACTIVEPETUPDATE;
+  readonly type = PacketType.ACTIVEPETUPDATE;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class ActivePetPacket implements Packet {
    */
   instanceId: number;
   //#endregion
+
+  constructor() {
+    this.instanceId = 0;
+  }
 
   read(reader: Reader): void {
     this.instanceId = reader.readInt32();

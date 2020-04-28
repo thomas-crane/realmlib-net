@@ -1,7 +1,7 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received to provide lists of accounts ids which are
@@ -9,8 +9,7 @@ import { Packet } from '../../packet';
  */
 export class AccountListPacket implements Packet {
 
-  type = PacketType.ACCOUNTLIST;
-  propagate = true;
+  readonly type = PacketType.ACCOUNTLIST;
 
   //#region packet-specific members
   /**
@@ -28,7 +27,9 @@ export class AccountListPacket implements Packet {
   //#endregion
 
   constructor() {
+    this.accountListId = 0;
     this.accountIds = [];
+    this.lockAction = 0;
   }
 
   read(reader: Reader): void {

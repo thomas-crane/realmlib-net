@@ -17,6 +17,12 @@ export class GroundTileData implements DataPacket {
    */
   type: number;
 
+  constructor() {
+    this.x = 0;
+    this.y = 0;
+    this.type = 0;
+  }
+
   read(reader: Reader): void {
     this.x = reader.readShort();
     this.y = reader.readShort();

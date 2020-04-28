@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent in response to a `MapInfoPacket` to load a character into the map.
  */
 export class LoadPacket implements Packet {
 
-  type = PacketType.LOAD;
-  propagate = true;
+  readonly type = PacketType.LOAD;
 
   //#region packet-specific members
   /**
@@ -25,6 +24,12 @@ export class LoadPacket implements Packet {
    */
   isChallenger: boolean;
   //#endregion
+
+  constructor() {
+    this.charId = 0;
+    this.isFromArena = false;
+    this.isChallenger = false;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.charId);

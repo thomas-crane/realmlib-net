@@ -24,6 +24,11 @@ export interface Packet extends DataPacket {
    */
   type: PacketType;
   /**
+   * @deprecated This behaviour should be implemented by applications
+   * that use this library, not by this library itself.
+   *
+   * This property will be removed in the next major release.
+   *
    * Whether or not the packet should keep invoking packet hooks.
    *
    * If this is set to `false` by a packet hook, then that packet hook will
@@ -31,5 +36,5 @@ export interface Packet extends DataPacket {
    * always the last ones to be called, so if this is set to `false` the packet
    * will not reach the client.
    */
-  propagate: boolean;
+  propagate?: boolean;
 }

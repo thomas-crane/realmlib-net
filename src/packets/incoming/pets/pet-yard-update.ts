@@ -9,7 +9,7 @@ import { Writer } from '../../../writer';
  */
 export class PetYardUpdate implements Packet {
 
-  type = PacketType.PETYARDUPDATE;
+  readonly type = PacketType.PETYARDUPDATE;
   propagate = true;
 
   //#region packet-specific members
@@ -18,6 +18,10 @@ export class PetYardUpdate implements Packet {
    */
   yardType: PetYardType;
   //#endregion
+
+  constructor() {
+    this.yardType = 0;
+  }
 
   read(reader: Reader): void {
     this.yardType = reader.readInt32();

@@ -1,15 +1,15 @@
-import { Writer } from '../../../writer';
-import { Reader } from '../../../reader';
-import { PacketType } from '../../../packet-type';
-import { Packet } from '../../../packet';
 import { SlotObjectData } from '../../../data';
+import { Packet } from '../../../packet';
+import { PacketType } from '../../../packet-type';
+import { Reader } from '../../../reader';
+import { Writer } from '../../../writer';
 
 /**
  * Sent to make an update to the pet currently following the player.
  */
 export class ReskinPetPacket implements Packet {
 
-  type = PacketType.PET_CHANGE_FORM_MSG;
+  readonly type = PacketType.PET_CHANGE_FORM_MSG;
   propagate = true;
 
   //#region packet-specific members
@@ -24,6 +24,12 @@ export class ReskinPetPacket implements Packet {
   item: SlotObjectData;
   //#endregion
 
+  constructor() {
+    this.instanceId = 0;
+    this.newPetType = 0;
+    this.item = new SlotObjectData();
+  }
+
   write(writer: Writer): void {
     writer.writeInt32(this.instanceId);
     writer.writeByte(this.newPetType);
@@ -33,7 +39,6 @@ export class ReskinPetPacket implements Packet {
   read(reader: Reader): void {
     this.instanceId = reader.readInt32();
     this.newPetType = reader.readByte();
-    this.item = new SlotObjectData();
     this.item.read(reader);
   }
 }

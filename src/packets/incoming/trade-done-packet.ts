@@ -1,8 +1,8 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
 import { TradeResult } from '../../models/trade-result';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when the active trade has completed, regardless of whether
@@ -10,8 +10,7 @@ import { TradeResult } from '../../models/trade-result';
  */
 export class TradeDonePacket implements Packet {
 
-  type = PacketType.TRADEDONE;
-  propagate = true;
+  readonly type = PacketType.TRADEDONE;
 
   //#region packet-specific members
   /**
@@ -23,6 +22,11 @@ export class TradeDonePacket implements Packet {
    */
   description: string;
   //#endregion
+
+  constructor() {
+    this.code = 0;
+    this.description = '';
+  }
 
   read(reader: Reader): void {
     this.code = reader.readInt32();

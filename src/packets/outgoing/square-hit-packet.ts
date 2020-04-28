@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * > Unknown.
  */
 export class SquareHitPacket implements Packet {
 
-  type = PacketType.SQUAREHIT;
-  propagate = true;
+  readonly type = PacketType.SQUAREHIT;
 
   //#region packet-specific members
   /**
@@ -25,6 +24,12 @@ export class SquareHitPacket implements Packet {
    */
   objectId: number;
   //#endregion
+
+  constructor() {
+    this.time = 0;
+    this.bulletId = 0;
+    this.objectId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.time);

@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent when the client sends a chat message.
  */
 export class PlayerTextPacket implements Packet {
 
-  type = PacketType.PLAYERTEXT;
-  propagate = true;
+  readonly type = PacketType.PLAYERTEXT;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class PlayerTextPacket implements Packet {
    */
   text: string;
   //#endregion
+
+  constructor() {
+    this.text = '';
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.text);

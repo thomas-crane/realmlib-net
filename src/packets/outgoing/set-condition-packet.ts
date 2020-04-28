@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent when the player inflicts a condition effect.
  */
 export class SetConditionPacket implements Packet {
 
-  type = PacketType.SETCONDITION;
-  propagate = true;
+  readonly type = PacketType.SETCONDITION;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class SetConditionPacket implements Packet {
    */
   conditionDuration: number;
   //#endregion
+
+  constructor() {
+    this.conditionEffect = 0;
+    this.conditionDuration = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeByte(this.conditionEffect);

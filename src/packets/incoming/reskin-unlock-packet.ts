@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received to notify the player that a new skin has been unlocked.
  */
 export class ReskinUnlockPacket implements Packet {
 
-  type = PacketType.RESKIN_UNLOCK;
-  propagate = true;
+  readonly type = PacketType.RESKIN_UNLOCK;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class ReskinUnlockPacket implements Packet {
    */
   skinId: number;
   //#endregion
+
+  constructor() {
+    this.skinId = 0;
+  }
 
   read(reader: Reader): void {
     this.skinId = reader.readInt32();

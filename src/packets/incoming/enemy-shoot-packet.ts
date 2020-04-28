@@ -1,16 +1,15 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
 import { WorldPosData } from '../../data/world-pos-data';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when a visible enemy shoots a projectile.
  */
 export class EnemyShootPacket implements Packet {
 
-  type = PacketType.ENEMYSHOOT;
-  propagate = true;
+  readonly type = PacketType.ENEMYSHOOT;
 
   //#region packet-specific members
   /**
@@ -48,11 +47,21 @@ export class EnemyShootPacket implements Packet {
   angleInc: number;
   //#endregion
 
+  constructor() {
+    this.bulletId = 0;
+    this.ownerId = 0;
+    this.bulletType = 0;
+    this.startingPos = new WorldPosData();
+    this.angle = 0;
+    this.damage = 0;
+    this.numShots = 0;
+    this.angleInc = 0;
+  }
+
   read(reader: Reader): void {
     this.bulletId = reader.readUnsignedByte();
     this.ownerId = reader.readInt32();
     this.bulletType = reader.readUnsignedByte();
-    this.startingPos = new WorldPosData();
     this.startingPos.read(reader);
     this.angle = reader.readFloat();
     this.damage = reader.readShort();

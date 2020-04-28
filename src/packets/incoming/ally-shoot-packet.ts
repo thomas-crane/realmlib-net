@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when another player shoots a projectile.
  */
 export class AllyShootPacket implements Packet {
 
-  type = PacketType.ALLYSHOOT;
-  propagate = true;
+  readonly type = PacketType.ALLYSHOOT;
 
   //#region packet-specific members
   /**
@@ -29,6 +28,13 @@ export class AllyShootPacket implements Packet {
    */
   angle: number;
   //#endregion
+
+  constructor() {
+    this.bulletId = 0;
+    this.ownerId = 0;
+    this.containerType = 0;
+    this.angle = 0;
+  }
 
   read(reader: Reader): void {
     this.bulletId = reader.readUnsignedByte();

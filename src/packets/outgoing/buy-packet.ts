@@ -1,7 +1,7 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to buy an item.
@@ -9,7 +9,6 @@ import { Packet } from '../../packet';
 export class BuyPacket implements Packet {
 
   type = PacketType.BUY;
-  propagate = true;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class BuyPacket implements Packet {
    */
   quantity: number;
   //#endregion
+
+  constructor() {
+    this.objectId = 0;
+    this.quantity = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.objectId);

@@ -1,15 +1,15 @@
-import { Writer } from '../../../writer';
-import { Reader } from '../../../reader';
-import { PacketType } from '../../../packet-type';
-import { Packet } from '../../../packet';
 import { ActivePetUpdateType } from '../../../models/active-pet-update-type';
+import { Packet } from '../../../packet';
+import { PacketType } from '../../../packet-type';
+import { Reader } from '../../../reader';
+import { Writer } from '../../../writer';
 
 /**
  * Sent to make an update to the pet currently following the player.
  */
 export class ActivePetUpdateRequestPacket implements Packet {
 
-  type = PacketType.ACTIVE_PET_UPDATE_REQUEST;
+  readonly type = PacketType.ACTIVE_PET_UPDATE_REQUEST;
   propagate = true;
 
   //#region packet-specific members
@@ -22,6 +22,11 @@ export class ActivePetUpdateRequestPacket implements Packet {
    */
   instanceId: number;
   //#endregion
+
+  constructor() {
+    this.commandType = 0;
+    this.instanceId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeByte(this.commandType);

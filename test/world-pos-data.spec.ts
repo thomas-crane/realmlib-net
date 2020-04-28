@@ -24,7 +24,7 @@ describe('WorldPosData', () => {
       const a = new WorldPosData();
       expect(() => a.squareDistanceTo(421 as any)).to.throw(TypeError);
       expect(() => a.squareDistanceTo('Test' as any)).to.throw(TypeError);
-      expect(() => a.squareDistanceTo(null)).to.throw(TypeError);
+      expect(() => a.squareDistanceTo(null as any)).to.throw(TypeError);
     });
   });
   describe('#distanceTo()', () => {
@@ -37,7 +37,7 @@ describe('WorldPosData', () => {
       const a = new WorldPosData();
       expect(() => a.distanceTo(8231 as any)).to.throw(TypeError);
       expect(() => a.distanceTo('Hello, World!' as any)).to.throw(TypeError);
-      expect(() => a.distanceTo(null)).to.throw(TypeError);
+      expect(() => a.distanceTo(null as any)).to.throw(TypeError);
     });
   });
   describe('#clone()', () => {

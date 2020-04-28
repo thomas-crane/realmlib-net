@@ -1,16 +1,15 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
 import { WorldPosData } from '../../data/world-pos-data';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent when the player shoots a projectile.
  */
 export class PlayerShootPacket implements Packet {
 
-  type = PacketType.PLAYERSHOOT;
-  propagate = true;
+  readonly type = PacketType.PLAYERSHOOT;
 
   //#region packet-specific members
   /**
@@ -35,6 +34,14 @@ export class PlayerShootPacket implements Packet {
   angle: number;
   //#endregion
 
+  constructor() {
+    this.time = 0;
+    this.bulletId = 0;
+    this.containerType = 0;
+    this.startingPos = new WorldPosData();
+    this.angle = 0;
+  }
+
   write(writer: Writer): void {
     writer.writeInt32(this.time);
     writer.writeByte(this.bulletId);
@@ -47,7 +54,6 @@ export class PlayerShootPacket implements Packet {
     this.time = reader.readInt32();
     this.bulletId = reader.readByte();
     this.containerType = reader.readShort();
-    this.startingPos = new WorldPosData();
     this.startingPos.read(reader);
     this.angle = reader.readFloat();
   }

@@ -1,9 +1,9 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
 import { GroundTileData } from '../../data/ground-tile-data';
 import { ObjectData } from '../../data/object-data';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when an update even occurs. Some events include
@@ -13,8 +13,7 @@ import { ObjectData } from '../../data/object-data';
  */
 export class UpdatePacket implements Packet {
 
-  type = PacketType.UPDATE;
-  propagate = true;
+  readonly type = PacketType.UPDATE;
 
   //#region packet-specific members
   /**

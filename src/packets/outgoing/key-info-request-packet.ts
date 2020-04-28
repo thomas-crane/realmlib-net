@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * > Unknown.
  */
 export class KeyInfoRequestPacket implements Packet {
 
-  type = PacketType.KEY_INFO_REQUEST;
-  propagate = true;
+  readonly type = PacketType.KEY_INFO_REQUEST;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class KeyInfoRequestPacket implements Packet {
    */
   itemType: number;
   //#endregion
+
+  constructor() {
+    this.itemType = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.itemType);

@@ -1,6 +1,6 @@
 {
   "name": "@realmlib/net",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "A networking library for Realm of the Mad God.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -8,6 +8,7 @@
     "prepublishOnly": "npm run build && npm test",
     "clean": "rimraf ./lib",
     "compile": "tsc -p .",
+    "lint": "tslint -p .",
     "build": "npm run clean && npm run compile",
     "test": "mocha -r ts-node/register test/*.spec.ts",
     "docs": "typedoc --options ./typedoc.json",
@@ -34,17 +35,17 @@
   },
   "homepage": "https://github.com/thomas-crane/realmlib-net#readme",
   "devDependencies": {
-    "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.10",
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^10.17.21",
     "chai": "^4.2.0",
-    "mocha": "^5.2.0",
-    "rimraf": "^2.6.2",
+    "mocha": "^7.1.2",
+    "rimraf": "^2.7.1",
     "ts-node": "^7.0.1",
     "tsai": "^2.1.0",
-    "tslint": "^5.17.0",
-    "typedoc": "^0.15.0",
-    "typescript": "^3.1.6"
+    "tslint": "^5.20.1",
+    "typedoc": "^0.15.8",
+    "typescript": "^3.8.3"
   },
   "dependencies": {}
 }

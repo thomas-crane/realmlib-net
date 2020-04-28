@@ -1,16 +1,15 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
 import { WorldPosData } from '../../data/world-pos-data';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when an entity has moved to a new position.
  */
 export class GotoPacket implements Packet {
 
-  type = PacketType.GOTO;
-  propagate = true;
+  readonly type = PacketType.GOTO;
 
   //#region packet-specific members
   /**
@@ -23,9 +22,13 @@ export class GotoPacket implements Packet {
   position: WorldPosData;
   //#endregion
 
+  constructor() {
+    this.objectId = 0;
+    this.position = new WorldPosData();
+  }
+
   read(reader: Reader): void {
     this.objectId = reader.readInt32();
-    this.position = new WorldPosData();
     this.position.read(reader);
   }
 

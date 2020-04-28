@@ -1,16 +1,15 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
 import { SlotObjectData } from '../../data/slot-object-data';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to drop an item from the client's inventory.
  */
 export class InvDropPacket implements Packet {
 
-  type = PacketType.INVDROP;
-  propagate = true;
+  readonly type = PacketType.INVDROP;
 
   //#region packet-specific members
   /**
@@ -19,12 +18,15 @@ export class InvDropPacket implements Packet {
   slotObject: SlotObjectData;
   //#endregion
 
+  constructor() {
+    this.slotObject = new SlotObjectData();
+  }
+
   write(writer: Writer): void {
     this.slotObject.write(writer);
   }
 
   read(reader: Reader): void {
-    this.slotObject = new SlotObjectData();
     this.slotObject.read(reader);
   }
 }

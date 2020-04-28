@@ -1,7 +1,7 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to prompt the server to send a `ReconnectPacket` which
@@ -9,8 +9,7 @@ import { Packet } from '../../packet';
  */
 export class UsePortalPacket implements Packet {
 
-  type = PacketType.USEPORTAL;
-  propagate = true;
+  readonly type = PacketType.USEPORTAL;
 
   //#region packet-specific members
   /**
@@ -18,6 +17,10 @@ export class UsePortalPacket implements Packet {
    */
   objectId: number;
   //#endregion
+
+  constructor() {
+    this.objectId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.objectId);

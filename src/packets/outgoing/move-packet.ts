@@ -1,9 +1,9 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
-import { WorldPosData } from '../../data/world-pos-data';
 import { MoveRecord } from '../../data/move-record';
+import { WorldPosData } from '../../data/world-pos-data';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to acknowledge a `NewTickPacket`, and to notify the
@@ -11,8 +11,7 @@ import { MoveRecord } from '../../data/move-record';
  */
 export class MovePacket implements Packet {
 
-  type = PacketType.MOVE;
-  propagate = true;
+  readonly type = PacketType.MOVE;
 
   //#region packet-specific members
   /**
@@ -36,6 +35,9 @@ export class MovePacket implements Packet {
   //#endregion
 
   constructor() {
+    this.tickId = 0;
+    this.time = 0;
+    this.newPosition = new WorldPosData();
     this.records = [];
   }
 
@@ -52,7 +54,6 @@ export class MovePacket implements Packet {
   read(reader: Reader): void {
     this.tickId = reader.readInt32();
     this.time = reader.readInt32();
-    this.newPosition = new WorldPosData();
     this.newPosition.read(reader);
     this.records = new Array(reader.readShort());
     for (let i = 0; i < this.records.length; i++) {

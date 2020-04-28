@@ -1,14 +1,14 @@
-import { Writer } from '../../../writer';
-import { Reader } from '../../../reader';
-import { PacketType } from '../../../packet-type';
 import { Packet } from '../../../packet';
+import { PacketType } from '../../../packet-type';
+import { Reader } from '../../../reader';
+import { Writer } from '../../../writer';
 
 /**
  * Received to notify the player that a pet has been deleted.
  */
 export class DeletePetMessage implements Packet {
 
-  type = PacketType.DELETE_PET;
+  readonly type = PacketType.DELETE_PET;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class DeletePetMessage implements Packet {
    */
   petId: number;
   //#endregion
+
+  constructor() {
+    this.petId = 0;
+  }
 
   read(reader: Reader): void {
     this.petId = reader.readInt32();

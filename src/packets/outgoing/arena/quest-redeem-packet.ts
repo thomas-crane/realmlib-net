@@ -1,15 +1,15 @@
-import { Writer } from '../../../writer';
-import { Reader } from '../../../reader';
-import { PacketType } from '../../../packet-type';
 import { SlotObjectData } from '../../../data/slot-object-data';
 import { Packet } from '../../../packet';
+import { PacketType } from '../../../packet-type';
+import { Reader } from '../../../reader';
+import { Writer } from '../../../writer';
 
 /**
  * > Unknown.
  */
 export class QuestRedeemPacket implements Packet {
 
-  type = PacketType.QUEST_REDEEM;
+  readonly type = PacketType.QUEST_REDEEM;
   propagate = true;
 
   //#region packet-specific members
@@ -24,6 +24,7 @@ export class QuestRedeemPacket implements Packet {
   //#endregion
 
   constructor() {
+    this.questId = '';
     this.slots = [];
   }
 

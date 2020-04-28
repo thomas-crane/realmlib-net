@@ -32,7 +32,7 @@ export class PacketIO extends EventEmitter {
   /**
    * The socket this packet interface is attached to.
    */
-  socket: Socket;
+  socket: Socket | undefined;
 
   /**
    * A packet map object which can be used to resolve incoming and outgoing packet types.
@@ -42,14 +42,14 @@ export class PacketIO extends EventEmitter {
   /**
    * The last packet which was received.
    */
-  get lastIncomingPacket(): Packet {
+  get lastIncomingPacket(): Packet | undefined {
     return this._lastIncomingPacket;
   }
 
   /**
    * The last packet which was sent.
    */
-  get lastOutgoingPacket(): Packet {
+  get lastOutgoingPacket(): Packet | undefined {
     return this._lastOutgoingPacket;
   }
 
@@ -62,8 +62,8 @@ export class PacketIO extends EventEmitter {
   private reader: Reader;
   private eventHandlers: Map<string, (...args: any[]) => void>;
   // tslint:disable:variable-name
-  private _lastIncomingPacket: Packet;
-  private _lastOutgoingPacket: Packet;
+  private _lastIncomingPacket: Packet | undefined;
+  private _lastOutgoingPacket: Packet | undefined;
   // tslint:enable:variable-name
 
   /**
@@ -78,8 +78,8 @@ export class PacketIO extends EventEmitter {
     this.writer = new Writer();
     this.reader = new Reader();
     this.outgoingQueue = [];
-    this.sendRC4 = new RC4(Buffer.from(opts.rc4.outgoingKey, 'hex'));
-    this.receiveRC4 = new RC4(Buffer.from(opts.rc4.incomingKey, 'hex'));
+    this.sendRC4 = new RC4(opts.rc4.outgoingKey);
+    this.receiveRC4 = new RC4(opts.rc4.incomingKey);
     this.packetMap = opts.packetMap || {};
 
     this.eventHandlers = new Map([
@@ -130,12 +130,12 @@ export class PacketIO extends EventEmitter {
    */
   send(packet: Packet) {
     if (!this.socket || this.socket.destroyed) {
-      this.emitError(new Error('Not attached to a socket.'));
+      this.emit('error', new Error('Not attached to a socket.'));
       return;
     }
     const type = this.packetMap[packet.type];
     if (type === undefined) {
-      this.emitError(new Error(`Mapper is missing an id for the packet type ${packet.type}`));
+      this.emit('error', new Error(`Mapper is missing an id for the packet type ${packet.type}`));
       return;
     }
 
@@ -152,21 +152,25 @@ export class PacketIO extends EventEmitter {
    * them to the socket.
    */
   private async drainQueue() {
-    while (this.outgoingQueue.length > 0) {
-      this._lastOutgoingPacket = this.outgoingQueue[0];
-      this.writer.index = 5;
-      const type = this.packetMap[this.outgoingQueue[0].type];
-      this.outgoingQueue[0].write(this.writer);
-      this.writer.writeHeader(type);
-      this.sendRC4.cipher(this.writer.buffer.slice(5, this.writer.index));
-      await new Promise((resolve) => {
-        if (this.socket && !this.socket.write(this.writer.buffer.slice(0, this.writer.index))) {
-          this.socket.once('drain', resolve);
-        } else {
-          process.nextTick(resolve);
+    const packet = this.outgoingQueue.shift()!;
+    this._lastOutgoingPacket = packet;
+    this.writer.index = 5;
+    const type = this.packetMap[packet?.type];
+    packet.write(this.writer);
+    this.writer.writeHeader(type);
+    this.sendRC4.cipher(this.writer.buffer.slice(5, this.writer.index));
+    if (this.socket && !this.socket.write(this.writer.buffer.slice(0, this.writer.index))) {
+      this.socket.once('drain', () => {
+        if (this.outgoingQueue.length > 0) {
+          this.drainQueue();
         }
       });
-      this.outgoingQueue.shift();
+    } else {
+      process.nextTick(() => {
+        if (this.outgoingQueue.length > 0) {
+          this.drainQueue();
+        }
+      });
     }
   }
 
@@ -223,7 +227,7 @@ export class PacketIO extends EventEmitter {
    * in the reader buffer. No packet will be created if
    * there is no event listener for the packet type.
    */
-  private constructPacket(): Packet {
+  private constructPacket(): Packet | undefined {
     this.receiveRC4.cipher(this.reader.buffer.slice(5, this.reader.length));
     try {
       const id = this.reader.buffer.readInt8(4);
@@ -238,9 +242,8 @@ export class PacketIO extends EventEmitter {
         return packet;
       }
     } catch (error) {
-      this.emitError(error);
+      this.emit('error', error);
     }
-    return undefined;
   }
 
   /**
@@ -250,18 +253,5 @@ export class PacketIO extends EventEmitter {
   private resetBuffer(): void {
     this.reader.resizeBuffer(4);
     this.reader.index = 0;
-  }
-
-  /**
-   * Emits an `'error'` event if there are any listeners for it,
-   * or throws the error if there are no listeners.
-   * @param error The error to emit.
-   */
-  private emitError(error: Error): void {
-    if (this.listenerCount('error') === 0) {
-      throw error;
-    } else {
-      this.emit('error', error);
-    }
   }
 }

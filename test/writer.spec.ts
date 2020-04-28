@@ -15,7 +15,7 @@ describe('Writer', () => {
     });
     it('should write a default value for invalid inputs.', () => {
       writer.index = 0;
-      writer.writeInt32(null);
+      writer.writeInt32(null as any);
       expect(writer.buffer.readInt32BE(0)).to.equal(0, 'Null caused non-default value for int32.');
       writer.index = 0;
       writer.writeInt32('hello' as any);
@@ -34,7 +34,7 @@ describe('Writer', () => {
     });
     it('should write a default value for invalid inputs.', () => {
       writer.index = 0;
-      writer.writeUInt32(null);
+      writer.writeUInt32(null as any);
       expect(writer.buffer.readUInt32BE(0)).to.equal(0, 'Null caused non-default value for unsigned int32.');
       writer.index = 0;
       writer.writeUInt32('hello' as any);
@@ -53,7 +53,7 @@ describe('Writer', () => {
     });
     it('should write a default value for invalid inputs.', () => {
       writer.index = 0;
-      writer.writeShort(null);
+      writer.writeShort(null as any);
       expect(writer.buffer.readInt16BE(0)).to.equal(0, 'Null caused non-default value for int16.');
       writer.index = 0;
       writer.writeShort('hello' as any);
@@ -72,7 +72,7 @@ describe('Writer', () => {
     });
     it('should write a default value for invalid inputs.', () => {
       writer.index = 0;
-      writer.writeUnsignedShort(null);
+      writer.writeUnsignedShort(null as any);
       expect(writer.buffer.readUInt16BE(0)).to.equal(0, 'Null caused non-default value for unsigned int16.');
       writer.index = 0;
       writer.writeUnsignedShort('hello' as any);
@@ -91,7 +91,7 @@ describe('Writer', () => {
     });
     it('should write a default value for invalid inputs.', () => {
       writer.index = 0;
-      writer.writeByte(null);
+      writer.writeByte(null as any);
       expect(writer.buffer.readInt8(0)).to.equal(0, 'Null caused non-default value for int8.');
       writer.index = 0;
       writer.writeByte('hello' as any);
@@ -110,7 +110,7 @@ describe('Writer', () => {
     });
     it('should write a default value for invalid inputs.', () => {
       writer.index = 0;
-      writer.writeUnsignedByte(null);
+      writer.writeUnsignedByte(null as any);
       expect(writer.buffer.readUInt8(0)).to.equal(0, 'Null caused non-default value for unsigned int8.');
       writer.index = 0;
       writer.writeUnsignedByte('hello' as any);
@@ -129,7 +129,7 @@ describe('Writer', () => {
     });
     it('should write a default value for invalid inputs.', () => {
       writer.index = 0;
-      writer.writeBoolean(null);
+      writer.writeBoolean(null as any);
       expect(writer.buffer.readInt8(0)).to.equal(0, 'Null caused non-default value for boolean.');
       writer.index = 0;
       writer.writeBoolean('hello' as any);
@@ -147,7 +147,7 @@ describe('Writer', () => {
     });
     it('should write a default value for invalid inputs.', () => {
       writer.index = 0;
-      writer.writeFloat(null);
+      writer.writeFloat(null as any);
       expect(writer.buffer.readFloatBE(0)).to.equal(0, 'Null caused non-default value for float32.');
       writer.index = 0;
       writer.writeFloat('hello' as any);
@@ -172,7 +172,7 @@ describe('Writer', () => {
     });
     it('should write a default value for invalid inputs.', () => {
       writer.index = 0;
-      writer.writeByteArray(null);
+      writer.writeByteArray(null as any as any);
       expect(writer.buffer.readInt16BE(0)).to.equal(0, 'Null caused non-default value for byte array length header.');
       writer.index = 0;
       writer.writeByteArray('hello' as any);
@@ -194,7 +194,7 @@ describe('Writer', () => {
     });
     it('should write a default value for invalid inputs.', () => {
       writer.index = 0;
-      writer.writeString(null);
+      writer.writeString(null as any);
       expect(writer.buffer.readInt16BE(0)).to.equal(0, 'Null caused non-default value for string length header.');
       writer.index = 0;
       writer.writeString(4237 as any);
@@ -215,7 +215,7 @@ describe('Writer', () => {
     });
     it('should write a default value for invalid inputs.', () => {
       writer.index = 0;
-      writer.writeStringUTF32(null);
+      writer.writeStringUTF32(null as any);
       expect(writer.buffer.readInt32BE(0)).to.equal(0, 'Null caused non-default value for utf32 string length header.');
       writer.index = 0;
       writer.writeStringUTF32(4237 as any);

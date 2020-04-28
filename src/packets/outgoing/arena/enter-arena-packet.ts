@@ -1,14 +1,14 @@
-import { Writer } from '../../../writer';
-import { Reader } from '../../../reader';
-import { PacketType } from '../../../packet-type';
 import { Packet } from '../../../packet';
+import { PacketType } from '../../../packet-type';
+import { Reader } from '../../../reader';
+import { Writer } from '../../../writer';
 
 /**
  * Sent to enter the arena.
  */
 export class EnterArenaPacket implements Packet {
 
-  type = PacketType.ENTER_ARENA;
+  readonly type = PacketType.ENTER_ARENA;
   propagate = true;
 
   //#region packet-specific members
@@ -17,6 +17,10 @@ export class EnterArenaPacket implements Packet {
    */
   currency: number;
   //#endregion
+
+  constructor() {
+    this.currency = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.currency);

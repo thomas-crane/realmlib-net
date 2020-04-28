@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received to tell the player the object id of their current quest.
  */
 export class QuestObjectIdPacket implements Packet {
 
-  type = PacketType.QUESTOBJID;
-  propagate = true;
+  readonly type = PacketType.QUESTOBJID;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class QuestObjectIdPacket implements Packet {
    */
   objectId: number;
   //#endregion
+
+  constructor() {
+    this.objectId = 0;
+  }
 
   read(reader: Reader): void {
     this.objectId = reader.readInt32();

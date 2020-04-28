@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to create a new character.
  */
 export class CreatePacket implements Packet {
 
-  type = PacketType.CREATE;
-  propagate = true;
+  readonly type = PacketType.CREATE;
 
   //#region packet-specific members
   /**
@@ -26,6 +25,12 @@ export class CreatePacket implements Packet {
    */
   isChallenger: boolean;
   //#endregion
+
+  constructor() {
+    this.classType = 0;
+    this.skinType = 0;
+    this.isChallenger = false;
+  }
 
   write(writer: Writer): void {
     writer.writeShort(this.classType);

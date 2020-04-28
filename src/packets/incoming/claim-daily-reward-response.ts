@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received in response to a `ClaimDailyRewardMessage`.
  */
 export class ClaimDailyRewardResponse implements Packet {
 
-  type = PacketType.LOGIN_REWARD_MSG;
-  propagate = true;
+  readonly type = PacketType.LOGIN_REWARD_MSG;
 
   //#region packet-specific members
   /**
@@ -25,6 +24,12 @@ export class ClaimDailyRewardResponse implements Packet {
    */
   gold: number;
   //#endregion
+
+  constructor() {
+    this.itemId = 0;
+    this.quantity = 0;
+    this.gold = 0;
+  }
 
   read(reader: Reader): void {
     this.itemId = reader.readInt32();

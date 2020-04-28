@@ -17,6 +17,12 @@ export class MoveRecord implements DataPacket {
    */
   y: number;
 
+  constructor() {
+    this.time = 0;
+    this.x = 0;
+    this.y = 0;
+  }
+
   read(reader: Reader): void {
     this.time = reader.readInt32();
     this.x = reader.readFloat();

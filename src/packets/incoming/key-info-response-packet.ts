@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * > Unknown.
  */
 export class KeyInfoResponsePacket implements Packet {
 
-  type = PacketType.KEY_INFO_RESPONSE;
-  propagate = true;
+  readonly type = PacketType.KEY_INFO_RESPONSE;
 
   //#region packet-specific members
   /**
@@ -25,6 +24,12 @@ export class KeyInfoResponsePacket implements Packet {
    */
   creator: string;
   //#endregion
+
+  constructor() {
+    this.name = '';
+    this.description = '';
+    this.creator = '';
+  }
 
   read(reader: Reader): void {
     this.name = reader.readString();

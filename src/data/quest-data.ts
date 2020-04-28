@@ -47,6 +47,19 @@ export class QuestData implements DataPacket {
    */
   category: number;
 
+  constructor() {
+    this.id = '';
+    this.name = '';
+    this.description = '';
+    this.expiration = '';
+    this.requirements = [];
+    this.rewards = [];
+    this.completed = false;
+    this.itemOfChoice = false;
+    this.repeatable = false;
+    this.category = 0;
+  }
+
   read(reader: Reader): void {
     this.id = reader.readString();
     this.name = reader.readString();
@@ -54,13 +67,13 @@ export class QuestData implements DataPacket {
     this.expiration = reader.readString();
     this.category = reader.readInt32();
     const requirementsLen = reader.readShort();
-    this.requirements = new Array<number>(requirementsLen);
+    this.requirements = new Array(requirementsLen);
     for (let i = 0; i < requirementsLen; i++) {
       this.requirements[i] = reader.readInt32();
     }
 
     const rewardsLen = reader.readShort();
-    this.rewards = new Array<number>(rewardsLen);
+    this.rewards = new Array(rewardsLen);
     for (let i = 0; i < rewardsLen; i++) {
       this.rewards[i] = reader.readInt32();
     }

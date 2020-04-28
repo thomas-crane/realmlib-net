@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received in response to a `ChooseNamePacket`.
  */
 export class NameResultPacket implements Packet {
 
-  type = PacketType.NAMERESULT;
-  propagate = true;
+  readonly type = PacketType.NAMERESULT;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class NameResultPacket implements Packet {
    */
   errorText: string;
   //#endregion
+
+  constructor() {
+    this.success = false;
+    this.errorText = '';
+  }
 
   read(reader: Reader): void {
     this.success = reader.readBoolean();

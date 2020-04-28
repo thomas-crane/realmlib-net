@@ -1,16 +1,15 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
 import { QuestData } from '../../data/quest-data';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received to tell the player about new quests.
  */
 export class QuestFetchResponsePacket implements Packet {
 
-  type = PacketType.QUEST_FETCH_RESPONSE;
-  propagate = true;
+  readonly type = PacketType.QUEST_FETCH_RESPONSE;
 
   //#region packet-specific members
   /**
@@ -22,6 +21,11 @@ export class QuestFetchResponsePacket implements Packet {
    */
   nextRefreshPrice: number;
   //#endregion
+
+  constructor() {
+    this.quests = [];
+    this.nextRefreshPrice = 0;
+  }
 
   read(reader: Reader): void {
     const questsLen = reader.readShort();

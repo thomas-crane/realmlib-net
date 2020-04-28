@@ -1,16 +1,15 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
 import { FailureCode } from '../../models/failure-code';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when an error has occurred.
  */
 export class FailurePacket implements Packet {
 
-  type = PacketType.FAILURE;
-  propagate = true;
+  readonly type = PacketType.FAILURE;
 
   //#region packet-specific members
   /**
@@ -23,14 +22,22 @@ export class FailurePacket implements Packet {
    */
   errorDescription: string;
   /**
-   * > Unknown.
+   * The place where the error occurred.
    */
   errorPlace: string;
   /**
-   * > Unknown.
+   * The id of the connection in which
+   * the error occurred.
    */
   errorConnectionId: string;
   //#endregion
+
+  constructor() {
+    this.errorId = 0;
+    this.errorDescription = '';
+    this.errorPlace = '';
+    this.errorConnectionId = '';
+  }
 
   read(reader: Reader): void {
     this.errorId = reader.readInt32();

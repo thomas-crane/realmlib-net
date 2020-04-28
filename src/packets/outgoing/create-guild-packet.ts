@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to create a new guild.
  */
 export class CreateGuildPacket implements Packet {
 
-  type = PacketType.CREATEGUILD;
-  propagate = true;
+  readonly type = PacketType.CREATEGUILD;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class CreateGuildPacket implements Packet {
    */
   name: string;
   //#endregion
+
+  constructor() {
+    this.name = '';
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.name);

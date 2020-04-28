@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * > Unknown.
  */
 export class QuestRedeemResponsePacket implements Packet {
 
-  type = PacketType.QUEST_REDEEM_RESPONSE;
-  propagate = true;
+  readonly type = PacketType.QUEST_REDEEM_RESPONSE;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class QuestRedeemResponsePacket implements Packet {
    */
   message: string;
   //#endregion
+
+  constructor() {
+    this.ok = false;
+    this.message = '';
+  }
 
   read(reader: Reader): void {
     this.ok = reader.readBoolean();

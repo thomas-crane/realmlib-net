@@ -19,9 +19,14 @@ export class ObjectStatusData implements DataPacket {
    */
   stats: StatData[];
 
+  constructor() {
+    this.objectId = 0;
+    this.pos = new WorldPosData();
+    this.stats = [];
+  }
+
   read(reader: Reader): void {
     this.objectId = reader.readInt32();
-    this.pos = new WorldPosData();
     this.pos.read(reader);
     const statLen = reader.readShort();
     this.stats = new Array(statLen);

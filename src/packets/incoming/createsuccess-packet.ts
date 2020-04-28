@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received in response to a `CreatePacket`.
  */
 export class CreateSuccessPacket implements Packet {
 
-  type = PacketType.CREATE_SUCCESS;
-  propagate = true;
+  readonly type = PacketType.CREATE_SUCCESS;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class CreateSuccessPacket implements Packet {
    */
   charId: number;
   //#endregion
+
+  constructor() {
+    this.objectId = 0;
+    this.charId = 0;
+  }
 
   read(reader: Reader): void {
     this.objectId = reader.readInt32();

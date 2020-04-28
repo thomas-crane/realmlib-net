@@ -13,11 +13,17 @@ export class RC4 {
    * the Keystream State with the given key.
    * @param key The key to use in the Keystream.
    */
-  constructor(key: Buffer) {
-    if (!Buffer.isBuffer(key)) {
-      throw new TypeError(`Parameter "key" must be a Buffer, not ${typeof key}`);
+  constructor(key: Buffer | string) {
+    if (typeof key === 'string') {
+      this.key = Buffer.from(key, 'hex');
+    } else if (Buffer.isBuffer(key)) {
+      this.key = key;
+    } else {
+      throw new TypeError(`Parameter "key" must be a Buffer or a string, not ${typeof key}`);
     }
-    this.key = key;
+    this.state = Buffer.alloc(256);
+    this.i = 0;
+    this.j = 0;
     this.reset();
   }
 
@@ -33,9 +39,8 @@ export class RC4 {
       this.state[this.i] = this.state[this.j];
       this.state[this.j] = tmp;
       const k = this.state[(this.state[this.i] + this.state[this.j]) % 256];
-      /* tslint:disable no-bitwise */
-      data[n] = (data[n] ^ k);
-      /* tslint:enable no-bitwise */
+      /* tslint:disable-next-line no-bitwise */
+      data[n] = data[n] ^ k;
     }
   }
 
@@ -43,7 +48,6 @@ export class RC4 {
    * Initializes the Keystream State.
    */
   reset(): void {
-    this.state = Buffer.alloc(256);
     this.i = 0;
     this.j = 0;
     for (let i = 0; i < 256; i++) {

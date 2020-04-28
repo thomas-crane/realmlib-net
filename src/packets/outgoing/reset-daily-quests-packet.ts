@@ -1,25 +1,22 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
 
 /**
  * Sent to reset the daily quests currently available.
  */
 export class ResetDailyQuestsPacket implements Packet {
 
-  type = PacketType.RESET_DAILY_QUESTS;
-  propagate = true;
+  readonly type = PacketType.RESET_DAILY_QUESTS;
 
   //#region packet-specific members
 
   //#endregion
 
-  write(writer: Writer): void {
+  write(): void {
     //
   }
 
-  read(reader: Reader): void {
+  read(): void {
     //
   }
 }

@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when a player has died.
  */
 export class DeathPacket implements Packet {
 
-  type = PacketType.DEATH;
-  propagate = true;
+  readonly type = PacketType.DEATH;
 
   //#region packet-specific members
   /**
@@ -39,6 +38,15 @@ export class DeathPacket implements Packet {
    */
   isZombie: boolean;
   //#endregion
+
+  constructor() {
+    this.accountId = '';
+    this.charId = 0;
+    this.killedBy = '';
+    this.zombieId = 0;
+    this.zombieType = 0;
+    this.isZombie = false;
+  }
 
   read(reader: Reader): void {
     this.accountId = reader.readString();

@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to activate a new skin for the current character.
  */
 export class ReskinPacket implements Packet {
 
-  type = PacketType.RESKIN;
-  propagate = true;
+  readonly type = PacketType.RESKIN;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class ReskinPacket implements Packet {
    */
   skinId: number;
   //#endregion
+
+  constructor() {
+    this.skinId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.skinId);

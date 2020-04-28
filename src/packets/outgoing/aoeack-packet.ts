@@ -1,16 +1,15 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
-import { Packet } from '../../packet';
 import { WorldPosData } from '../../data/world-pos-data';
+import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to acknowledge an `AoePacket`.
  */
 export class AoeAckPacket implements Packet {
 
-  type = PacketType.AOEACK;
-  propagate = true;
+  readonly type = PacketType.AOEACK;
 
   //#region packet-specific members
   /**
@@ -22,6 +21,11 @@ export class AoeAckPacket implements Packet {
    */
   position: WorldPosData;
   //#endregion
+
+  constructor() {
+    this.time = 0;
+    this.position = new WorldPosData();
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.time);

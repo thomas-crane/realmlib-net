@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when a notification is received by the player.
  */
 export class NotificationPacket implements Packet {
 
-  type = PacketType.NOTIFICATION;
-  propagate = true;
+  readonly type = PacketType.NOTIFICATION;
 
   //#region packet-specific members
   /**
@@ -25,6 +24,12 @@ export class NotificationPacket implements Packet {
    */
   color: number;
   //#endregion
+
+  constructor() {
+    this.objectId = 0;
+    this.message = '';
+    this.color = 0;
+  }
 
   read(reader: Reader): void {
     this.objectId = reader.readInt32();

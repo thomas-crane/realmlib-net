@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to change the guild rank of a member in the player's guild.
  */
 export class ChangeGuildRankPacket implements Packet {
 
-  type = PacketType.CHANGEGUILDRANK;
-  propagate = true;
+  readonly type = PacketType.CHANGEGUILDRANK;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class ChangeGuildRankPacket implements Packet {
    */
   guildRank: number;
   //#endregion
+
+  constructor() {
+    this.name = '';
+    this.guildRank = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeString(this.name);

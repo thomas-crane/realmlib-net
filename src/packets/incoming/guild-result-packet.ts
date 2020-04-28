@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * > Unknown.
  */
 export class GuildResultPacket implements Packet {
 
-  type = PacketType.GUILDRESULT;
-  propagate = true;
+  readonly type = PacketType.GUILDRESULT;
 
   //#region packet-specific members
   /**
@@ -21,6 +20,11 @@ export class GuildResultPacket implements Packet {
    */
   lineBuilderJSON: string;
   //#endregion
+
+  constructor() {
+    this.success = false;
+    this.lineBuilderJSON = '';
+  }
 
   read(reader: Reader): void {
     this.success = reader.readBoolean();

@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to teleport to another player.
  */
 export class TeleportPacket implements Packet {
 
-  type = PacketType.TELEPORT;
-  propagate = true;
+  readonly type = PacketType.TELEPORT;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class TeleportPacket implements Packet {
    */
   objectId: number;
   //#endregion
+
+  constructor() {
+    this.objectId = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.objectId);

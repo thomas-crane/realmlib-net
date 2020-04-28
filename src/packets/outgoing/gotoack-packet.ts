@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Sent to acknowledge a `GotoPacket`.
  */
 export class GotoAckPacket implements Packet {
 
-  type = PacketType.GOTOACK;
-  propagate = true;
+  readonly type = PacketType.GOTOACK;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class GotoAckPacket implements Packet {
    */
   time: number;
   //#endregion
+
+  constructor() {
+    this.time = 0;
+  }
 
   write(writer: Writer): void {
     writer.writeInt32(this.time);

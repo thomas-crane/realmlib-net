@@ -6,7 +6,7 @@ import { createPacket, PacketType, CreateSuccessPacket } from '../src';
 describe('#createPacket()', () => {
   it('should throw a TypeError for invalid inputs.', () => {
     expect(() => createPacket(1234 as any)).to.throw(TypeError);
-    expect(() => createPacket(null)).to.throw(TypeError);
+    expect(() => createPacket(null as any)).to.throw(TypeError);
     expect(() => createPacket(['hello', 'world'] as any)).to.throw(TypeError);
   });
   it('should throw an Error for invalid packet types.', () => {

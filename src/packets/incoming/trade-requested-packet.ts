@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * Received when a trade is requested.
  */
 export class TradeRequestedPacket implements Packet {
 
-  type = PacketType.TRADEREQUESTED;
-  propagate = true;
+  readonly type = PacketType.TRADEREQUESTED;
 
   //#region packet-specific members
   /**
@@ -17,6 +16,10 @@ export class TradeRequestedPacket implements Packet {
    */
   name: string;
   //#endregion
+
+  constructor() {
+    this.name = '';
+  }
 
   read(reader: Reader): void {
     this.name = reader.readString();

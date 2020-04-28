@@ -1,15 +1,14 @@
-import { Writer } from '../../writer';
-import { Reader } from '../../reader';
-import { PacketType } from '../../packet-type';
 import { Packet } from '../../packet';
+import { PacketType } from '../../packet-type';
+import { Reader } from '../../reader';
+import { Writer } from '../../writer';
 
 /**
  * A packet which contains a file.
  */
 export class FilePacket implements Packet {
 
-  type = PacketType.FILE;
-  propagate = true;
+  readonly type = PacketType.FILE;
 
   //#region packet-specific members
   /**
@@ -22,6 +21,11 @@ export class FilePacket implements Packet {
    */
   file: string;
   //#endregion
+
+  constructor() {
+    this.fileName = '';
+    this.file = '';
+  }
 
   read(reader: Reader): void {
     this.fileName = reader.readString();
