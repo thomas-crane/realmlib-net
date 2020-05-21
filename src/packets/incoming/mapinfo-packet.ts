@@ -105,6 +105,7 @@ export class MapInfoPacket implements Packet {
     this.showDisplays = reader.readBoolean();
     this.maxPlayers = reader.readShort();
     this.connectionGuid = reader.readString();
+    this.gameOpenedTime = reader.readUInt32();
     this.clientXML = new Array<string>(reader.readShort());
     for (let i = 0; i < this.clientXML.length; i++) {
       this.clientXML[i] = reader.readStringUTF32();
@@ -113,7 +114,7 @@ export class MapInfoPacket implements Packet {
     for (let i = 0; i < this.extraXML.length; i++) {
       this.extraXML[i] = reader.readStringUTF32();
     }
-    this.gameOpenedTime = reader.readInt32();
+
   }
 
   write(writer: Writer): void {
@@ -130,6 +131,7 @@ export class MapInfoPacket implements Packet {
     writer.writeShort(this.maxPlayers);
     writer.writeString(this.connectionGuid);
     writer.writeShort(this.clientXML.length);
+    writer.writeUInt32(this.gameOpenedTime);
     for (const xml of this.clientXML) {
       writer.writeStringUTF32(xml);
     }
@@ -137,6 +139,6 @@ export class MapInfoPacket implements Packet {
     for (const xml of this.extraXML) {
       writer.writeStringUTF32(xml);
     }
-    writer.writeInt32(this.gameOpenedTime);
+
   }
 }
