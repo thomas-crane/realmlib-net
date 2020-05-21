@@ -67,6 +67,11 @@ export class MapInfoPacket implements Packet {
    * > Unkown.
    */
   extraXML: string[];
+
+  /**
+   * > Unknown.
+   */
+  gameOpenedTime: number;
   //#endregion
 
   constructor() {
@@ -84,6 +89,7 @@ export class MapInfoPacket implements Packet {
     this.connectionGuid = '';
     this.clientXML = [];
     this.extraXML = [];
+    this.gameOpenedTime = 0;
   }
 
   read(reader: Reader): void {
@@ -107,6 +113,7 @@ export class MapInfoPacket implements Packet {
     for (let i = 0; i < this.extraXML.length; i++) {
       this.extraXML[i] = reader.readStringUTF32();
     }
+    this.gameOpenedTime = reader.readInt32();
   }
 
   write(writer: Writer): void {
@@ -130,5 +137,6 @@ export class MapInfoPacket implements Packet {
     for (const xml of this.extraXML) {
       writer.writeStringUTF32(xml);
     }
+    writer.writeInt32(this.gameOpenedTime);
   }
 }

@@ -27,6 +27,11 @@ export class AllyShootPacket implements Packet {
    * The angle at which the projectile was fired.
    */
   angle: number;
+
+  /**
+   * Whether or not the shot is affected by the 'Inspired' buff (presumably).
+   */
+  bard: boolean;
   //#endregion
 
   constructor() {
@@ -34,6 +39,7 @@ export class AllyShootPacket implements Packet {
     this.ownerId = 0;
     this.containerType = 0;
     this.angle = 0;
+    this.bard = false;
   }
 
   read(reader: Reader): void {
@@ -41,6 +47,7 @@ export class AllyShootPacket implements Packet {
     this.ownerId = reader.readInt32();
     this.containerType = reader.readShort();
     this.angle = reader.readFloat();
+    this.bard = reader.readBoolean();
   }
 
   write(writer: Writer): void {
@@ -48,5 +55,6 @@ export class AllyShootPacket implements Packet {
     writer.writeInt32(this.ownerId);
     writer.writeShort(this.containerType);
     writer.writeFloat(this.angle);
+    writer.writeBoolean(this.bard);
   }
 }

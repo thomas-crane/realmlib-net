@@ -32,6 +32,14 @@ export class PlayerShootPacket implements Packet {
    * The angle at which the projectile was fired.
    */
   angle: number;
+  /**
+   * The speed multiplier for the projectile (affected by Inspired).
+   */
+  speedMult: number;
+  /**
+   * The lifetime MS multiplier for the projectile (affected by Inspired?)
+   */
+  lifeMult: number;
   //#endregion
 
   constructor() {
@@ -40,6 +48,8 @@ export class PlayerShootPacket implements Packet {
     this.containerType = 0;
     this.startingPos = new WorldPosData();
     this.angle = 0;
+    this.speedMult = 0;
+    this.lifeMult = 0;
   }
 
   write(writer: Writer): void {
@@ -48,6 +58,8 @@ export class PlayerShootPacket implements Packet {
     writer.writeShort(this.containerType);
     this.startingPos.write(writer);
     writer.writeFloat(this.angle);
+    writer.writeShort(this.speedMult);
+    writer.writeShort(this.lifeMult);
   }
 
   read(reader: Reader): void {
@@ -56,5 +68,7 @@ export class PlayerShootPacket implements Packet {
     this.containerType = reader.readShort();
     this.startingPos.read(reader);
     this.angle = reader.readFloat();
+    this.speedMult = reader.readShort();
+    this.lifeMult = reader.readShort();
   }
 }
