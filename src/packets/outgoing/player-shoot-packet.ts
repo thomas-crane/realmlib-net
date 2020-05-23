@@ -58,8 +58,10 @@ export class PlayerShootPacket implements Packet {
     writer.writeShort(this.containerType);
     this.startingPos.write(writer);
     writer.writeFloat(this.angle);
-    writer.writeShort(this.speedMult);
-    writer.writeShort(this.lifeMult);
+    // NB(thomas-crane): the client uses AS3's `int` function which is
+    // equivalent to `Math.floor` in JS.
+    writer.writeShort(Math.floor(this.speedMult * 1000));
+    writer.writeShort(Math.floor(this.lifeMult * 1000));
   }
 
   read(reader: Reader): void {
@@ -68,7 +70,7 @@ export class PlayerShootPacket implements Packet {
     this.containerType = reader.readShort();
     this.startingPos.read(reader);
     this.angle = reader.readFloat();
-    this.speedMult = reader.readShort();
-    this.lifeMult = reader.readShort();
+    this.speedMult = Math.floor(reader.readShort() / 1000);
+    this.lifeMult = Math.floor(reader.readShort() / 1000);
   }
 }
