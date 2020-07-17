@@ -1,5 +1,6 @@
 // auto generated with tsai
 // https://github.com/thomas-crane/tsai
+export * from './compressed-int';
 export * from './ground-tile-data';
 export * from './move-record';
 export * from './object-data';
