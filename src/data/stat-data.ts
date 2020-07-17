@@ -2,6 +2,7 @@ import { Writer } from '../writer';
 import { Reader } from '../reader';
 import { DataPacket } from '../packet';
 import { StatType } from '../models/stat-type';
+import { compressedRead } from './compressed-int';
 
 export class StatData implements DataPacket {
   /**
@@ -28,7 +29,7 @@ export class StatData implements DataPacket {
     if (this.isStringStat()) {
       this.stringStatValue = reader.readString();
     } else {
-      this.statValue = reader.readInt32();
+      this.statValue = compressedRead(reader);
     }
   }
 
