@@ -1,6 +1,6 @@
 import { Reader } from '../reader';
 
-export function read(reader: Reader): number {
+export function compressedRead(reader: Reader): number {
   let value = 0;
   let uByte = reader.readUnsignedByte();
   let isNegative = !((uByte & 64) === 0);
