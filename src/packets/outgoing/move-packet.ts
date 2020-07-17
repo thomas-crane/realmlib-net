@@ -23,6 +23,10 @@ export class MovePacket implements Packet {
    */
   time: number;
   /**
+   * The current serer time in ms.
+   */
+  serverRealTimeMS: number;
+  /**
    * The current client position.
    */
   newPosition: WorldPosData;
@@ -37,6 +41,7 @@ export class MovePacket implements Packet {
   constructor() {
     this.tickId = 0;
     this.time = 0;
+    this.serverRealTimeMS = 0;
     this.newPosition = new WorldPosData();
     this.records = [];
   }
@@ -44,6 +49,7 @@ export class MovePacket implements Packet {
   write(writer: Writer): void {
     writer.writeInt32(this.tickId);
     writer.writeInt32(this.time);
+    writer.writeUInt32(this.serverRealTimeMS);
     this.newPosition.write(writer);
     writer.writeShort(this.records.length);
     for (const record of this.records) {
