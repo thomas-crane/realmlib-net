@@ -24,6 +24,14 @@ export class NewTickPacket implements Packet {
    */
   tickTime: number;
   /**
+   * Server time in ms
+   */
+  serverRealTimeMS: number;
+  /**
+   * Last server time im ms?
+   */
+  serverLastTimeRTTMS: number;
+  /**
    * An array of statuses for objects which are currently visible to the player.
    *
    * "visible" objects can include objects which would normally be off screen,
@@ -35,12 +43,16 @@ export class NewTickPacket implements Packet {
   constructor() {
     this.tickId = 0;
     this.tickTime = 0;
+    this.serverRealTimeMS = 0;
+    this.serverLastTimeRTTMS = 0;
     this.statuses = [];
   }
 
   read(reader: Reader): void {
     this.tickId = reader.readInt32();
     this.tickTime = reader.readInt32();
+    this.serverRealTimeMS = reader.readUInt32();
+    this.serverLastTimeRTTMS = reader.readUnsignedShort();
     const statusesLen = reader.readShort();
     this.statuses = new Array<ObjectStatusData>(statusesLen);
     for (let i = 0; i < statusesLen; i++) {
